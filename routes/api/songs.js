@@ -5,7 +5,8 @@ router
   .route("/songs")
   .get(songController.findAll);
 
-router.route('/:username')
-  .get(userController.findByUsername);
+router.route('/:userid')
+.get(songController.findUserSongs)
+.post(songController.AddUserSongs)
 
 module.exports = router;

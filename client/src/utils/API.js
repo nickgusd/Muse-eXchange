@@ -9,9 +9,10 @@ export default {
     console.log(username);
     return axios.get("/api/users/" + username);
   },
-  
-    AddSongs: function(userID) {
-    console.log(userID)
-    return axios.get("api/users/" + userID)
+
+    AddSongs: function(UserId) {
+    console.log(UserId)
+    return axios.post("/api/users/" + UserId)
   }
 }
+

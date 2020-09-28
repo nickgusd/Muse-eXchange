@@ -1,5 +1,5 @@
 const db = require("../models");
-const user = require("../models/user");
+// const User = require("../models/user");
 
 module.exports = {
   addNewUser: function(req, res) {
@@ -20,6 +20,7 @@ module.exports = {
 
 AddUserSongs: function(req, res) {
     db.User.create(req.body)
+    .then(({_id}) => db.Song.findOneAndUpdate({_id: req.params.userID}, {$push: {songs: _id}}, { new: true }))
     .then(dbAddedSongs => res.json(dbAddedSongs))
     .catch(err => res.status(422).json(err))
   },
