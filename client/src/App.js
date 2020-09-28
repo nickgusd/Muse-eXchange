@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from '../src/pages/Home';
 import Profile from './pages/Profile';
 import NoMatch from "../src/pages/NoMatch";
+import login from "../src/components/login"
 // import './App.css';
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/profile/:username" render={(props) => <Profile {...props} />}/>
+          <Route path="/login" component={login} />          
           <Route component={NoMatch} />
+
         </Switch>
       </div>
     </Router>
