@@ -9,4 +9,12 @@ router.route('/')
 router.route('/:username')
   .get(userController.findByUsername);
 
+
+router.route('/:username')
+  .get(userController.findUserSongs)
+  .post(userController.AddUserSongs)
+
+
+
+
 module.exports = router;
