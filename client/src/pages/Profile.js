@@ -7,7 +7,8 @@ class Profile extends Component  {
     id: "",
     username: "",
     email: "",
-    songs: []
+    songs: [],
+  
   }
   componentDidMount() {
     document.title = "Request Line | Songs";
@@ -29,6 +30,25 @@ class Profile extends Component  {
       ))
       .catch(err => console.log(err));
   }
+
+ AddSongs = id => {
+   API.AddSongs(id)
+   .then(res => 
+    
+    this.setState(
+      {
+        id: res.data_id
+      }
+    )
+   
+    )
+    .catch(err => console.log(err))
+ }
+
+
+
+
+
 
   render() {
     return (<div>
