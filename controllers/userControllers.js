@@ -18,20 +18,19 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-AddUserSongs: function(req, res) {
-    db.User.create(req.body)
-    .then(({_id}) => db.Song.findOneAndUpdate({_id: req.params.userID}, {$push: {songs: _id}}, { new: true }))
-    .then(dbAddedSongs => res.json(dbAddedSongs))
-    .catch(err => res.status(422).json(err))
-  },
+// AddUserSongs: function(req, res) {
+//     db.User.create(req.body)
+//     .then(({_id}) => db.Song.findOneAndUpdate({_id: req.params.userID}, {$push: {songs: _id}}, { new: true }))
+//     .then(dbAddedSongs => res.json(dbAddedSongs))
+//     .catch(err => res.status(422).json(err))
+//   },
 
-  findUserSongs: function(req, res) {
-    db.User.find({})
-    .populate("songs")
-    .then(dbUserSongs => res.json(dbUserSongs))
-    .catch(err => res.status(422).json(err));
-  }
-
+//   findUserSongs: function(req, res) {
+//     db.User.find({})
+//     .populate("songs")
+//     .then(dbUserSongs => res.json(dbUserSongs))
+//     .catch(err => res.status(422).json(err));
+//   }
 
 };
 
