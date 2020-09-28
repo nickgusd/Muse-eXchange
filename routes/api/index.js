@@ -3,7 +3,7 @@ const router = require("express").Router();
 const userRoutes = require("./user");
 
 // User routes
-router.use("/user", userRoutes);
+router.use("/users", userRoutes);
 
 
 // For anything else, render the html page
