@@ -38,6 +38,7 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.7",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "react-router-dom": "^5.2.0"
   }
 }
