@@ -75,7 +75,7 @@ class Profile extends Component {
               <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between">
                   <span className="mr-auto">Song 1</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
+                  
                   <PurchaseBtn/>
                 </li> 
                 <li class="list-group-item d-flex justify-content-between">
