@@ -26,7 +26,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Request Line</title>
-    <style>
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo2.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		
+    <!-- <style>
       #root {
         min-height: 100vh; /* will cover the 100% of viewport */
         overflow: hidden;
@@ -34,11 +39,135 @@
         position: relative;
         padding-bottom: 100px; /* height of your footer */
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <main>
+			<div class="message">To see the menu, please view on a larger screen.</div>
+			<div class="content content--fixed">
+				<header class="codrops-header">
+					<button class="demo" href="index.html">Artist Login</button>
+					<button class="demo" href="index2.html">User Login</button>
+					<!-- <div class="codrops-links">
+						<a class="codrops-icon codrops-icon--prev" href="https://tympanus.net/Development/GlitchSlideshow/" title="Previous Demo"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
+						<a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=34419" title="Back to the article"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
+					</div> -->
+					<h1 class="codrops-header__title">Welcome</h1>
+					</header>
+				<!-- <nav class="demos">
+					<a class="demo" href="index.html">Artist Login</a>
+					<a class="demo demo--current" href="index2.html">User Login</a>
+				</nav> -->
+				<button class="menu-trigger">+ explore</button>
+			</div>
+			<div id="content-1" class="content content--switch content--switch-current">
+				<h2 class="content__title">Request Line</h2>
+				<div class="content__subtitle">Built by Artists for Artists</div>
+				<button class="demo" href="index.html">Artist Login</button>
+					<button class="demo" href="index2.html">User Login</button>
+				
+			</div>
+		
+			<!-- <div id="content-4" class="content content--switch">
+				<h2 class="content__title">Actors</h2>
+				<div class="content__subtitle">Pick a Scene</div>
+			</div>
+			
+			<div id="content-6" class="content content--switch">
+				<h2 class="content__title">Genres</h2>
+				<div class="content__subtitle">Explore Entertainment</div> -->
+				
+			
+			</div>
+			<nav class="grim">
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--1"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--2"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--3"></div>
+					<div class="grim__item-content">
+						<div class="grim__item-inner">
+							<button class="menu-trigger menu-trigger--close">- close</button>
+						</div>
+					</div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--4"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--5"></div>
+					<a href="#content-1" class="grim__link grim__item-content">
+						<div class="grim__item-inner">
+							<h3 class="grim__item-title">Home</h3>
+						</div>
+					</a>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--6"></div>
+					<div class="grim__item-img grim__item-img--1" ></div>
+					<a href="#content-2" class="grim__link grim__item-content">
+						<div class="grim__item-inner">
+							<h3 class="grim__item-title">Dancers</h3>
+              <span class="grim__item-desc">Choreography</span>
+						</div>
+					</a>
+					<div class="grim__item-bg grim__item-bg-cover grim__item-bg--6"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--7"></div>
+					<div class="grim__item-img grim__item-img--2" ></div>
+					<a href="#content-3" class="grim__link grim__item-content">
+						<div class="grim__item-inner">
+							<h3 class="grim__item-title">Broadway</h3>
+							<span class="grim__item-desc">Belters</span>
+						</div>
+					</a>
+					<div class="grim__item-bg grim__item-bg-cover grim__item-bg--7"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--8"></div>
+					<div class="grim__item-img grim__item-img--3" ></div>
+					<a href="#content-4" class="grim__link grim__item-content">
+						<div class="grim__item-inner">
+							<h3 class="grim__item-title">Actors</h3>
+							<span class="grim__item-desc">Pick a scene</span>
+						</div>
+					</a>
+					<div class="grim__item-bg grim__item-bg-cover grim__item-bg--8"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--9"></div>
+					<div class="grim__item-img grim__item-img--4"></div>
+					<a href="#content-5" class="grim__link grim__item-content">
+						<div class="grim__item-inner">
+							<h3 class="grim__item-title">Musicians</h3>
+							<span class="grim__item-desc">Who's Who</span>
+						</div>
+					</a>
+					<div class="grim__item-bg grim__item-bg-cover grim__item-bg--9"></div>
+				</div>
+				<div class="grim__item">
+					<div class="grim__item-bg grim__item-bg--10"></div>
+					<div class="grim__item-img grim__item-img--5" ></div>
+					<a href="#content-6" class="grim__link grim__item-content">
+						<div class="grim__item-inner">
+							<h3 class="grim__item-title">Browse All Artists</h3>
+							<span class="grim__item-desc">Explore Entertainment</span>
+						</div>
+					</a>
+					<div class="grim__item-bg grim__item-bg-cover grim__item-bg--10"></div>
+				</div>
+
+				
+      </nav>
+ 
+    </main>
+    <div id="root">
+  </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -49,5 +178,13 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="js/demo.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/anime.min.js"></script>
+		<script src="js/menu2.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	
   </body>
 </html>
