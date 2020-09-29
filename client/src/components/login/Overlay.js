@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-interface Props {
-    handleClickSignUpButton(event: any): void;
-    handleClickSignInButton(event: any): void;
-}
+// interface Props {
+//     handleClickSignUpButton(event: any): void;
+//     handleClickSignInButton(event: any): void;
+// }
 
 class Overlay extends Component {
     render() {
