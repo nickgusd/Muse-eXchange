@@ -36,11 +36,7 @@ module.exports = {
         db.Song.find({author: req.params.author})
         .then(dbAuthor => res.json(dbAuthor))
         .catch(err => res.status(422).json(err))
-      },
-
-
-
-
+      }
 
 }
 

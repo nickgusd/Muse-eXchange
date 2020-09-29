@@ -13,6 +13,8 @@ export default {
     AddSongs: function(UserId) {
     console.log(UserId)
     return axios.post("/api/users/" + UserId)
-  }
+  },
+
+  getS
 }
 
