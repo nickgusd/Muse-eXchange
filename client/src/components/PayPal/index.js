@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
-
+import {useHistory} from 'react-router-dom'
 export default function Paypal(props) {
-  
+  const history = useHistory()
     const paypal = useRef();
 
     useEffect(() => {
@@ -23,10 +23,10 @@ export default function Paypal(props) {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: "cool stuff",
+                description: props.title,
                 amount: {
                   currency_code: "USD",
-                  value: 200.00,
+                  value: props.price,
                 },
                 payee: {
                     email_address: "sb-lsm47g3309758@personal.example.com"
@@ -40,7 +40,7 @@ export default function Paypal(props) {
           console.log(data);
           const order = await actions.order.capture();
           console.log(order)
-        window.location.replace("/")
+        history.push("/")
         },
         onError: (err) => {
           console.log(err);

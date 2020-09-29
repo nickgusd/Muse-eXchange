@@ -33,7 +33,7 @@ function Payment(props) {
   <Card.Body>
     <blockquote className="blockquote mb-0">
     <p > Pay securely by <span style={pStyle} >debit/credit card </span>or <span style={pStyle} >PayPal</span></p>
-    <Paypal />
+    <Paypal title={title} price={price}/>
       <footer className="blockquote-footer">
         Thank you for shopping at <cite title="Source Title">Muse Xchange</cite>
       </footer>
