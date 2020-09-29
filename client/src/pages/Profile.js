@@ -18,6 +18,7 @@ class Profile extends Component {
     this.setState({ username: username });
     console.log(username);
     this.getUserInfo(username);
+    
   }
 
   getUserInfo = username => {
@@ -31,6 +32,10 @@ class Profile extends Component {
             profilePic: res.data.profile.profilePic
           }
         ))
+        .then(dbData => {
+          console.log(this.state.id)
+       this.getSongsByQuery(this.state.id)
+        })
       .catch(err => console.log(err));
   }
 
@@ -43,6 +48,20 @@ class Profile extends Component {
     )
     .catch(err => console.log(err))
  }
+
+getSongsByQuery = id => {
+  API.getSongsByQuery(id)
+  .then(res => 
+   
+   console.log(res)
+  
+   )
+   .catch(err => console.log(err))
+}
+
+
+
+
 
 
 

@@ -15,25 +15,25 @@ module.exports = {
       },
 
       findSongsGenre: function(req, res) {
-        db.Song.find({genre: req.params.genre})
+        db.Song.find(req.params.genre)
         .then(dbGenre => res.json(dbGenre))
         .catch(err => res.status(422).json(err))
       },
 
       findSongsPrice: function(req, res) {
-        db.Song.find({price: req.params.price})
+        db.Song.find(req.params.price)
         .then(dbPrice => res.json(dbPrice))
         .catch(err => res.status(422).json(err))
       },
 
       findSongsTitle: function(req, res) {
-        db.Song.find({title: req.params.title})
+        db.Song.find(req.params.title)
         .then(dbTitle => res.json(dbTitle))
         .catch(err => res.status(422).json(err))
       },
 
       findSongsAuthor: function(req, res) {
-        db.Song.find({author: req.params.author})
+        db.Song.find(req.params.author)
         .then(dbAuthor => res.json(dbAuthor))
         .catch(err => res.status(422).json(err))
       }

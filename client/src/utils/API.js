@@ -15,6 +15,17 @@ export default {
     return axios.post("/api/users/" + UserId)
   },
 
-  getS
+  //axios call for genre, price, title, and author
+  getSongsByQuery: function(query) {
+  console.log(query)
+  return axios.get("/api/songs/" + query)
+  },
+
+  
+
+
+
+
+
 }
 
