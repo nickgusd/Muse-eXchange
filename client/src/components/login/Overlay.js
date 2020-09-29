@@ -14,7 +14,7 @@ class Overlay extends Component {
                     <div className="overlay-panel overlay-left">
                         <h1>Welcome Back!</h1>
                         <p className="overlay-description">
-                            I have an account!
+                            I have an account!!!
                         </p>
                         <button
                             className="ghost form-button"
