@@ -56,7 +56,19 @@ module.exports = {
         .then(dbUpdateAuthor => res.json(dbUpdateAuthor))
       .catch(err => res.status(422).json(err));
 
-      }
+      },
+
+      updateSongGenre: function(req, res) {
+        db.Song.findOneAndUpdate({genre: req.params.genre}, req.body)
+        .then(dbUpdateGenre => res.json(dbUpdateGenre))
+      .catch(err => res.status(422).json(err));
+
+      },
+
+
+
+
+
         
 }
 
