@@ -6,6 +6,7 @@ import NoMatch from "../src/pages/NoMatch";
 import login from "./components/login"
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
+import Payment from "./pages/Payment"
 // import './App.css';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/profile/:username" render={(props) => <Profile {...props} />}/>
-          <Route path="/login" component={login} />          
+          <Route path="/login" component={login} />    
+          <Route exact path="/pages/Payment" component={Payment}/>          
           <Route component={NoMatch} />
         </Switch>
       </div>

@@ -9,7 +9,7 @@ const[checkout,setCheckout] = useState(false)
 return (
    
    <div className= 'Paypal'>
-       {checkout?(<Payment /> ):(
+       {checkout?window.location.replace("../../pages/Payment"):(
         <button onClick={ ()=> {setCheckout(true); } }>  Make Purchase   </button>
        )}
     </div>

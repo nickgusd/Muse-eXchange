@@ -40,7 +40,7 @@ export default function Paypal() {
           console.log(data);
           const order = await actions.order.capture();
           console.log(order)
-        window.location.replace("../App.js")
+        window.location.replace("/")
         },
         onError: (err) => {
           console.log(err);
