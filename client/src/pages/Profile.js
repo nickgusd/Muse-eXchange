@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Container from '../components/Container';
 import ProfilePic from '../components/ProfilePic';
 import API from '../utils/API';
-
+import PurchaseBtn from "../components/PurchaseBtn"
 class Profile extends Component {
   state = {
     id: "",
@@ -76,6 +76,7 @@ class Profile extends Component {
                 <li class="list-group-item d-flex justify-content-between">
                   <span className="mr-auto">Song 1</span>
                   <a href="#" className="btn btn-secondary">Buy</a>
+                  <PurchaseBtn/>
                 </li> 
                 <li class="list-group-item d-flex justify-content-between">
                   <span className="mr-auto">Song 2</span>
