@@ -55,6 +55,8 @@ getSongsByQuery = id => {
    this.setState({songs:res.data})
    
   
+  
+  
    ).then(dbdata =>{
     console.log(this.state.songs)
        })
