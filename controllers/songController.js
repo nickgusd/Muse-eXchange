@@ -12,7 +12,32 @@ module.exports = {
         .populate("songs")
         .then(dbUserSongs => res.json(dbUserSongs))
         .catch(err => res.status(422).json(err));
+      },
+
+      findSongsGenre: function(req, res) {
+        db.Song.find(req.params.genre)
+        .then(dbGenre => res.json(dbGenre))
+        .catch(err => res.status(422).json(err))
+      },
+
+      findSongsPrice: function(req, res) {
+        db.Song.find(req.params.price)
+        .then(dbPrice => res.json(dbPrice))
+        .catch(err => res.status(422).json(err))
+      },
+
+      findSongsTitle: function(req, res) {
+        db.Song.find(req.params.title)
+        .then(dbTitle => res.json(dbTitle))
+        .catch(err => res.status(422).json(err))
+      },
+
+      findSongsAuthor: function(req, res) {
+        db.Song.find(req.params.author)
+        .then(dbAuthor => res.json(dbAuthor))
+        .catch(err => res.status(422).json(err))
       }
+
 }
 
 
