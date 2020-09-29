@@ -34,14 +34,56 @@ const userSchema = mongoose.Schema({
   profile: {
     firstName: {
       type: String,
+      trim: true
     },
     lastName: {
-      type: String
+      type: String,
+      trim: true
+    },
+    profession: {
+      type: String,
+      trim: true,
+    },
+    about: {
+      type: String,
+      trim: true,
+    },
+    profilePic: {
+      type: String,
+      trim: true,
+    },
+    link1: {
+      type: String,
+      trim: true
+    },
+    link2: {
+      type: String,
+      trim: true
+    },
+    link3: {
+      type: String,
+      trim: true
     },
     songs: [
       {
         type: Schema.Types.ObjectId,
         ref: "Song"
+      }
+    ],
+    tutorials: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Tutorial"
+      }
+    ],
+    purchaseSongs: [
+      {
+        type: String
+      }
+    ],
+    purchaseTutorials: [
+      {
+        type: String
       }
     ]
   }

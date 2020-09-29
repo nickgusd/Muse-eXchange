@@ -1,5 +1,4 @@
 const db = require("../models");
-const Song = require("../models/song");
 
 module.exports = {
     AddUserSongs: function(req, res) {
@@ -16,3 +15,7 @@ module.exports = {
         .catch(err => res.status(422).json(err));
       }
 }
+
+
+        // "profile.about": req.body.about,
+        // "profile.profilePic": req.body.profilePic,

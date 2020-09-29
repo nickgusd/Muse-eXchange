@@ -15,7 +15,6 @@ function App() {
           <Route path="/profile/:username" render={(props) => <Profile {...props} />}/>
           <Route path="/login" component={login} />          
           <Route component={NoMatch} />
-
         </Switch>
       </div>
     </Router>
