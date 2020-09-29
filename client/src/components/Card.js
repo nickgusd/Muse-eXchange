@@ -14,7 +14,7 @@ const styles = {
 
 
 const Card = ({username, email}) => {
-  return (<div className="col">
+  return (<div>
     <div className="card" style={styles.card}>
       <img className="card-img-top" src="https://i.redd.it/8osvgu0j8qp51.jpg" alt="Card" />
       <div className="card-body">

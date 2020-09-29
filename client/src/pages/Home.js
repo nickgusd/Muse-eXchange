@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import UserList from '../pages/Users/UserList';
-
+import UserList from '../components/Users/UserList';
+import Container from '../components/Container';
+import Jumbotron from '../components/Jumbotron';
 import API from '../utils/API';
 
+const styles ={
+  home: {
+    height: "100%"
+  }
+}
 class Home extends Component {
   state = {
     users: [],
@@ -21,9 +27,26 @@ class Home extends Component {
 
   render() {
     return (
-      <>
-        <UserList users={this.state.users} />
-      </>
+      <div style={styles.home}>
+        <Jumbotron />
+        <Container fluid>
+          <div className="mt-4">
+            <h2>Explore</h2>
+            <hr className="my-4" />
+          </div>
+          <UserList users={this.state.users} />
+          <div className="mt-4">
+            <h2>Musicians</h2>
+            <hr className="my-4" />
+          </div>
+          <UserList users={this.state.users} />
+          <div className="mt-4">
+            <h2>Dancers</h2>
+            <hr className="my-4" />
+          </div>
+          <UserList users={this.state.users} />
+        </Container>
+      </div>
     )
   }
 
