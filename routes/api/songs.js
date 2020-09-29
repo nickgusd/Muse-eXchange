@@ -15,12 +15,28 @@ router.route('/genre/:genre')
 
 router.route('/price/:price')
 .get(songController.findSongsPrice)
+.put(songController.findSongsPrice)
 
 router.route('/title/:title')
 .get(songController.findSongsTitle)
+.put(songController.updateSongTitle)
 
 router.route('/author/:author')
 .get(songController.findSongsAuthor)
+.put(songController.updateSongAuthor)
+
+router.route('/genre/:genre')
+.get(songController.findSongsGenre)
+.put(songController.updateSongTitle)
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

@@ -64,11 +64,6 @@ getSongsByQuery = id => {
 }
 
 
-
-
-
-
-
   render() {
     return (<Container fluid>
       <div className="row mt-4">
