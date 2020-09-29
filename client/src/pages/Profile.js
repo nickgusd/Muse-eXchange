@@ -35,18 +35,14 @@ class Profile extends Component  {
    API.AddSongs(id)
    .then(res => 
     
-    this.setState(
-      {
-        id: res.data_id
-      }
-    )
+    console.log(res.data)
    
     )
     .catch(err => console.log(err))
  }
 
 
-
+addSongs()
 
 
 
