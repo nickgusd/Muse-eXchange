@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Container from '../components/Container';
 import ProfilePic from '../components/ProfilePic';
 import API from '../utils/API';
-
+import PurchaseBtn from "../components/PurchaseBtn"
 class Profile extends Component {
   state = {
     id: "",
@@ -52,11 +52,14 @@ class Profile extends Component {
 getSongsByQuery = id => {
   API.getSongsByQuery(id)
   .then(res => 
+   this.setState({songs:res.data})
    
-   console.log(res.data)
   
   
-   )
+  
+   ).then(dbdata =>{
+    console.log(this.state.songs)
+       })
    .catch(err => console.log(err))
 }
 
@@ -90,19 +93,12 @@ getSongsByQuery = id => {
                 <h4>Songs</h4>
                 <hr className="my-4" />
               </div>
+              
               <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span className="mr-auto">Song 1</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
-                </li> 
-                <li class="list-group-item d-flex justify-content-between">
-                  <span className="mr-auto">Song 2</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
-                </li> 
-                <li class="list-group-item d-flex justify-content-between">
-                  <span className="mr-auto">Song 3</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
-                </li> 
+                {this.state.songs.map((song)=>
+                <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price}/></li>
+                
+                )}
               </ul>
               <div className="mt-4">
                 <h4>Tutorials</h4>
