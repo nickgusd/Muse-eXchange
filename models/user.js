@@ -85,8 +85,13 @@ const userSchema = mongoose.Schema({
       {
         type: String
       }
-    ]
-  }
+    ],
+  },
+  inbox: [
+    {
+      type: String
+    }
+  ]
   
 }, {
   // Automatically create timestamps for each document

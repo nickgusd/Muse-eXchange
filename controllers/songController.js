@@ -7,7 +7,6 @@ module.exports = {
         .then(dbAddedSongs => res.json(dbAddedSongs))
         .catch(err => res.status(422).json(err))
       },
-    
       findUserSongs: function(req, res) {
         db.Song.find({})
         .populate("songs")
