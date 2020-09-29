@@ -21,12 +21,15 @@ const pStyle = {
 
 
 
-function Payment() {
+function Payment(props) {
+  console.log()
+  let price = props.match.params.price;
+  let title = props.match.params.title;
   return (
     
     <div className="container" style={divStyle} >
       <Card >
-  <Card.Header style={cardHeader}>Your total is (insert value here)</Card.Header>
+  <Card.Header style={cardHeader}>Your total is ${price}</Card.Header>
   <Card.Body>
     <blockquote className="blockquote mb-0">
     <p > Pay securely by <span style={pStyle} >debit/credit card </span>or <span style={pStyle} >PayPal</span></p>

@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/profile/:username" render={(props) => <Profile {...props} />}/>
           <Route path="/login" component={login} />    
-          <Route exact path="/pages/Payment" component={Payment}/>          
+          <Route path="/pages/Payment/:title/:price" component={Payment}/>          
           <Route component={NoMatch} />
         </Switch>
       </div>
