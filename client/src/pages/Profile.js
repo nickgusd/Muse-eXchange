@@ -18,6 +18,7 @@ class Profile extends Component {
     this.setState({ username: username });
     console.log(username);
     this.getUserInfo(username);
+    
   }
 
   getUserInfo = username => {
@@ -31,22 +32,38 @@ class Profile extends Component {
             profilePic: res.data.profile.profilePic
           }
         ))
+        .then(dbData => {
+          console.log(this.state.id)
+       this.getSongsByQuery(this.state.id)
+        })
       .catch(err => console.log(err));
   }
 
-  AddSongs = id => {
-    API.AddSongs(id)
-      .then(res =>
+ AddSongs = id => {
+   API.AddSongs(id)
+   .then(res => 
+    
+    console.log(res.data)
+   
+    )
+    .catch(err => console.log(err))
+ }
 
-        this.setState(
-          {
-            id: res.data_id
-          }
-        )
+getSongsByQuery = id => {
+  API.getSongsByQuery(id)
+  .then(res => 
+   
+   console.log(res)
+  
+   )
+   .catch(err => console.log(err))
+}
 
-      )
-      .catch(err => console.log(err))
-  }
+
+
+
+
+
 
   render() {
     return (<Container fluid>

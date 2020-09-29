@@ -13,6 +13,19 @@ export default {
     AddSongs: function(UserId) {
     console.log(UserId)
     return axios.post("/api/users/" + UserId)
-  }
+  },
+
+  //axios call for genre, price, title, and author
+  getSongsByQuery: function(query) {
+  console.log(query)
+  return axios.get("/api/songs/" + query)
+  },
+
+  
+
+
+
+
+
 }
 
