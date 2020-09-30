@@ -7,12 +7,14 @@ import login from "./components/login"
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
 import Payment from "./pages/Payment"
+import ProductModal from '../src/components/ProductModal'
 // import './App.css';
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <ProductModal/>
       <div className="wrapper">
         <Switch>
           <Route exact path="/" component={Home} />
