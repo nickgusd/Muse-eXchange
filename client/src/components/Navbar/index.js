@@ -1,8 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Container from '../Container';
+import ProductModal from '../ProductModal'
 
 const Navbar = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
   return (
+    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100">
       <Container fluid>
         <div>
@@ -18,10 +23,10 @@ const Navbar = () => {
                 <a className="nav-link" href="#">Musicians<span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Dancers</a>
+                <a className="nav-link" href="#">Tutorials</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" href="#">Tutorials</a>
+                <a className="nav-link " onClick={handleShow}>Sell</a>
               </li>
             </ul>
           </div>
@@ -37,6 +42,7 @@ const Navbar = () => {
             </ul>
           </div>
       </Container>
+      <ProductModal state={show} open={handleShow} close={handleClose}/>
     </nav>
   )
 }

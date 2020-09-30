@@ -2,21 +2,32 @@ import React,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import ModalForm from '../ModalForm'
-function ProductModal() {
-    const [show, setShow] = useState(false);
-  
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+import API from '../../utils/API';
+
+function ProductModal({ state, open, close}) {
+    
+    const [value, setValue] = useState({
+        select: "Hip Hop"
+    })
+    
+
+    
+    
+   
+    
+
+    const handleSubmit = () => {
+    //    await value
+       console.log(value)
+    }
+
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Launch static backdrop modal
-        </Button>
+       
   
         <Modal
-          show={show}
-          onHide={handleClose}
+          show={state}
+          onHide={close}
           backdrop="static"
           keyboard={false}
         >
@@ -24,13 +35,13 @@ function ProductModal() {
             <Modal.Title>Add New Product</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ModalForm/>
+            <ModalForm getValue={setValue} values={value}/>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="dark" onClick={handleClose}>
+          <Button variant="dark" onClick={handleSubmit}>Submit</Button>
+            <Button variant="dark" onClick={close}>
               Close
             </Button>
-            <Button variant="dark">Submit</Button>
           </Modal.Footer>
         </Modal>
       </>
