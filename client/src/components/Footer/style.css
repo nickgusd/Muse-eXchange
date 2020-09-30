@@ -5,3 +5,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.link {
+  text-decoration: "none";
+  color: "white";
+}
