@@ -63,7 +63,7 @@ getSongsByQuery = id => {
   API.getSongsByQuery(id)
   .then(res => 
    
-   console.log(res)
+    this.setState({ songs: res.data })
   
    )
    .catch(err => console.log(err))

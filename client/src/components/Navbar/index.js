@@ -1,5 +1,5 @@
-import React from 'react';
-import Container from '../Container';
+import React,{useState} from 'react';
+import ProductModal from '../ProductModal'
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,11 @@ const styles = {
 }
 
 const NavbarComponent = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/">
@@ -26,8 +31,8 @@ const NavbarComponent = () => {
           <Nav.Link href="/" style={styles.link}>
             <Link to="/" style={styles.link}>Musicians</Link>
           </Nav.Link>
-          <Nav.Link href="/" style={styles.link}>
-            <Link to="/" style={styles.link}>Dancers</Link>
+          <Nav.Link onClick={handleShow} style={styles.link}>
+            Sell
           </Nav.Link>
           <Nav.Link href="/" style={styles.link}>
             <Link to="/" style={styles.link}>Artist</Link>
@@ -42,7 +47,9 @@ const NavbarComponent = () => {
           <Link to="/login" style={styles.link}>Sign up</Link>
         </Nav.Link>
       </Nav>
+      <ProductModal state={show} open={handleShow} close={handleClose}/>
     </Navbar>
+
   )
 }
 
