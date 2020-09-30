@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+// import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button'
 import API from '../../utils/API';
 
@@ -60,6 +60,9 @@ handleFormSubmit = event => {
   const filterSearch = this.state.results.filter(user => user.username === this.state.search)
   console.log(filterSearch)
   this.setState({ ...this.state, results: filterSearch.length === 0 ? [] : filterSearch })
+
+
+
 }
 
 
@@ -86,14 +89,13 @@ render() {
           </Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleInputChange}/>
-          {/* <input type="text" list="data" onChange={this._onChange} />
+          <input type="text" placeholder="Search"  className="mr-sm-2" list="data" onChange={this.handleInputChange} />
 
-  <datalist id="data">
-    {this.state.data.map((item, key) =>
-      <option key={key} value={item.displayValue} />
-    )}
-  </datalist> */}
+          <datalist id="data">
+          {this.state.results.map(item =>
+          <option key={item._id} value={item.username} />
+         )}
+          </datalist>
 
           <Button variant="outline-success" onClick={this.handleFormSubmit}>Search</Button>
         </Form>
