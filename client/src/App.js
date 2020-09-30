@@ -6,11 +6,12 @@ import NoMatch from "../src/pages/NoMatch";
 import login from "./components/login"
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
-
 import Profilepage from "./pages/Profilepage"
 import Payment from "./pages/Payment"
 import Team from './pages/Team';
-// import './App.css';
+
+
+// import './App.css';import API from '../../utils/API';
 
 function App() {
   return (
