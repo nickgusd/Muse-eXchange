@@ -54,4 +54,6 @@ export default function Paypal(props) {
       <div ref={paypal}></div>
     </div>
   );
+
 }
+
