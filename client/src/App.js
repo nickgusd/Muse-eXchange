@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
 import Profilepage from "./pages/Profilepage"
 import Payment from "./pages/Payment"
+import Team from './pages/Team';
 // import './App.css';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
           <Route path="/login" component={login} />          
           <Route path="/profile/:username" render={(props) => <Profile {...props} />}/>
           <Route path="/login" component={login} />    
-          <Route path="/pages/Payment/:title/:price" component={Payment}/>          
+          <Route path="/pages/Payment/:title/:price" component={Payment}/>  
+          <Route path="/team" component={Team} />        
           <Route component={NoMatch} />
         </Switch>
       </div>
