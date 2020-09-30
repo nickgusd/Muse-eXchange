@@ -4,7 +4,6 @@ import SignUp from './SignUp.js';
 import SignIn from './SignIn.js';
 import Overlay from './Overlay.js';
 
-
 // interface State {
 //     rightPanelActive: boolean,
 // }

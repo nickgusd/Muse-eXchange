@@ -1,9 +1,9 @@
 .image-container {
-  width: 350px;
-  height: 350px;
+  width: 200px;
+  height: 200px;
 }
 
 .profilePic {
-  max-width: 350px;
-  max-height: 350px;
+  max-width: 200px;
+  max-height: 200px;
 }
