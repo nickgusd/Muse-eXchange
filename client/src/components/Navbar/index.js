@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button'
+import API from '../../utils/API';
 
 
 const styles = {
@@ -15,7 +16,54 @@ const styles = {
   },
 }
 
-const NavbarComponent = () => {
+
+class NavbarComponent extends React.Component {
+
+// const styles = {
+//   link: {
+//     color: "white",
+//     textDecoration: 'none'
+//   },
+// }
+
+state = {
+  search: "",
+  results: []
+}
+
+
+componentDidMount() {
+  this.runSearch("")
+}
+
+runSearch = () => {
+  API.getSavedUsers()
+  .then(res => {
+    this.setState({results: res.data})
+
+    console.log(res)
+  })
+  .catch(err => console.log(err))
+}
+
+handleInputChange = event => {
+
+this.setState({search: event.target.value})
+
+
+}
+
+handleFormSubmit = event => {
+  event.preventDefault();
+  console.log(this.state.search)
+
+  const filterSearch = this.state.results.filter(user => user.username === this.state.search)
+  console.log(filterSearch)
+  this.setState({ ...this.state, results: filterSearch.length === 0 ? [] : filterSearch })
+}
+
+
+render() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/">
@@ -38,8 +86,16 @@ const NavbarComponent = () => {
           </Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={this.handleInputChange}/>
+          {/* <input type="text" list="data" onChange={this._onChange} />
+
+  <datalist id="data">
+    {this.state.data.map((item, key) =>
+      <option key={key} value={item.displayValue} />
+    )}
+  </datalist> */}
+
+          <Button variant="outline-success" onClick={this.handleFormSubmit}>Search</Button>
         </Form>
       </Navbar.Collapse>
       <Nav className="mr-auto">
@@ -52,6 +108,7 @@ const NavbarComponent = () => {
       </Nav>
     </Navbar>
   )
+}
 }
 
 export default NavbarComponent;
