@@ -16,6 +16,12 @@ module.exports = {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
+  findAllByProfession: function(req, res) {
+    db.User.find({"profile.profession": req.params.profession})
+    .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(422).json(err));
+  },
+  // Ask wilson if theres a way to not separate this
   updateUserProfile: function(req, res) {
     db.User.findOneAndUpdate(
       {_id: req.params.userid}, 
@@ -31,8 +37,8 @@ module.exports = {
           "profile.link3": req.body.link3
         }   
     })
-      .then(dbUser => res.json(dbUser))
-      .catch(err => res.status(422).json(err));
+    .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(422).json(err));
   }
 
 // AddUserSongs: function(req, res) {

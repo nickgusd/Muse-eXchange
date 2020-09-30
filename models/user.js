@@ -87,6 +87,22 @@ const userSchema = mongoose.Schema({
       }
     ],
   },
+  payPal: {
+    username: {
+      type: String,
+      trim: true,
+    },
+    email: {
+      type: String, 
+      trim: true,
+      lowercase: true,
+      index: { unique: true },
+      validate: {
+        validator: emailValidator.validate,
+        message: props => `${props.value} is not a valid email address`,
+      }
+    },
+  },
   inbox: [
     {
       type: String
