@@ -13,14 +13,30 @@ router.route('/genre/:genre')
 .get(songController.findSongsGenre)
 
 
-router.route('/price/:price')
+router.route('/price/:id')
 .get(songController.findSongsPrice)
+.put(songController.updateSongPrice)
 
 router.route('/title/:title')
 .get(songController.findSongsTitle)
+.put(songController.updateSongTitle)
 
 router.route('/author/:author')
 .get(songController.findSongsAuthor)
+.put(songController.updateSongAuthor)
+
+router.route('/genre/:genre')
+.get(songController.findSongsGenre)
+.put(songController.updateSongTitle)
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

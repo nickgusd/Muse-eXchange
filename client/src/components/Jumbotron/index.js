@@ -1,22 +1,33 @@
 import React from 'react';
-import Carousel from '../Carousel'
+import { Link } from 'react-router-dom';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Button from 'react-bootstrap/Button';
 import guitarImage from './image/theatre-swing.png'
 
+const styles = {
+  backgroundImage: `url(${guitarImage})`,
+  height: "55vh",
+  color: "white"
+}
 
-const Jumbotron = () => {
+const JumbotronComponent = () => {
   return (
     <div style={{background: "black"}}>
-      <div className="jumbotron text-light" style={{backgroundImage: `url(${guitarImage})`}}>
-        <h1 className="display-4">Share your creativity!</h1>
-        <p className="lead">TLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue placerat facilisis. Nullam dapibus justo sagittis, feugiat odio sed, feugiat metus.</p>
-        <hr className="my-4 bg-light" />
-        <p>Duis efficitur leo vitae lacus sagittis blandit.</p>
-        <p class="lead">
-          <a class="btn btn-outline-light btn-lg" href="#" role="button">Learn more</a>
+      <Jumbotron style={styles}>
+      <h1>Share your creativity!</h1>
+        <p>
+        TLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue placerat facilisis. Nullam dapibus justo sagittis, feugiat odio sed, feugiat metus.
         </p>
-      </div>
+        <hr className="my-4" style={{ background: "white"}}/>
+        <p>
+        TLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue placerat facilisis. Nullam dapibus justo sagittis, feugiat odio sed, feugiat metus.
+        </p>
+        <p>
+          <Button variant="outline-light">Learn more</Button>
+        </p>
+      </Jumbotron>
     </div>
   )
 }
 
-export default Jumbotron;
+export default JumbotronComponent;

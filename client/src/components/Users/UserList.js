@@ -1,5 +1,7 @@
 import React from 'react'
-import Card from '../Card'
+import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 const responsive = {
@@ -22,19 +24,24 @@ const responsive = {
   }
 };
 const UserList = ({ users }) => {
-  return ( <Carousel 
+  return ( 
+    <Carousel 
       responsive={responsive}
       swipeable={true}
       infinite={true}
     >
-    {users.map(user => 
-      <Card 
-        key={user._id}
-        username={user.username}
-        email={user.email}
-      />
-    )}
-  </Carousel>)
+      {users.map(user => 
+        <Card style={{ width: '18rem'}} key={user._id}>
+          <Card.Img variant="top" src={user.profile.profilePic} />
+          <Card.Body>
+            <Card.Title>{user.profile.firstName} {user.profile.lastName}</Card.Title>
+            <Card.Text>{user.profile.profession}</Card.Text>
+            <Link to={`/profile/${user.username}`}>
+              <Button variant="primary">See Profile</Button>
+            </Link>
+          </Card.Body>
+        </Card>
+      )}
+    </Carousel>)
 }
-
 export default UserList;

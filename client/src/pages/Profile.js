@@ -18,7 +18,7 @@ class Profile extends Component {
     this.setState({ username: username });
     console.log(username);
     this.getUserInfo(username);
-    
+
   }
 
   getUserInfo = username => {
@@ -32,96 +32,91 @@ class Profile extends Component {
             profilePic: res.data.profile.profilePic
           }
         ))
-        .then(dbData => {
-          console.log(this.state.id)
-       this.getSongsByQuery(this.state.id)
-        })
+      .then(dbData => {
+        console.log(this.state.id)
+        this.getSongsByQuery(this.state.id)
+      })
       .catch(err => console.log(err));
   }
 
- AddSongs = id => {
-   API.AddSongs(id)
-   .then(res => 
-    
-    console.log(res.data)
-   
-    )
-    .catch(err => console.log(err))
- }
+  AddSongs = id => {
+    API.AddSongs(id)
+      .then(res =>
 
-getSongsByQuery = id => {
-  API.getSongsByQuery(id)
-  .then(res => 
-   this.setState({songs:res.data})
-   
-  
-  
-  
-   ).then(dbdata =>{
-    console.log(this.state.songs)
-       })
-   .catch(err => console.log(err))
-}
+        console.log(res.data)
+
+      )
+      .catch(err => console.log(err))
+  }
+
+  getSongsByQuery = id => {
+    API.getSongsByQuery(id)
+      .then(res =>
+        this.setState({ songs: res.data })
 
 
 
 
-
+      ).then(dbdata => {
+        console.log(this.state.songs)
+      })
+      .catch(err => console.log(err))
+  }
 
 
   render() {
     return (<Container fluid>
       <div className="row mt-4">
         <div className="col-4">
-          <ProfilePic 
-              profilePic={this.state.profilePic}
-            />
+          <ProfilePic
+            profilePic={this.state.profilePic}
+          />
           <p>Id: {this.state.id}</p>
           <h1>{this.state.username}'s Song List</h1>
           <h2>Contact: {this.state.email}</h2>
         </div>
         <dic className="col-8">
-          {this.state.songs 
+          {this.state.songs
             ? <div>
-                <p>No songs</p>
-                <a href="#" className="btn btn-primary">+ Add Song</a>
-              </div>
+              <p>No songs</p>
+              <a href="#" className="btn btn-primary">+ Add Song</a>
+            </div>
             : <div>
-                Here's a list
+              Here's a list
               </div>}
-              <div className="mt-4">
-                <h4>Songs</h4>
-                <hr className="my-4" />
-              </div>
-              
-              <ul class="list-group">
-                {this.state.songs.map((song)=>
-                <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price}/></li>
-                
-                )}
-              </ul>
-              <div className="mt-4">
-                <h4>Tutorials</h4>
-                <hr className="my-4" />
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span className="mr-auto">Tutorial 1</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
-                </li> 
-                <li class="list-group-item d-flex justify-content-between">
-                  <span className="mr-auto">Tutorial 2</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
-                </li> 
-                <li class="list-group-item d-flex justify-content-between">
-                  <span className="mr-auto">Tutorial 3</span>
-                  <a href="#" className="btn btn-secondary">Buy</a>
-                </li> 
-              </ul>
+          <div className="mt-4">
+            <h4>Songs</h4>
+            <hr className="my-4" />
+          </div>
+
+          <ul class="list-group">
+            {this.state.songs.map((song) =>
+              <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price} /></li>
+
+            )}
+          </ul>
+          <div className="mt-4">
+            <h4>Tutorials</h4>
+            <hr className="my-4" />
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between">
+              <span className="mr-auto">Tutorial 1</span>
+              <a href="#" className="btn btn-secondary">Buy</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span className="mr-auto">Tutorial 2</span>
+              <a href="#" className="btn btn-secondary">Buy</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span className="mr-auto">Tutorial 3</span>
+              <a href="#" className="btn btn-secondary">Buy</a>
+            </li>
+          </ul>
         </dic>
       </div>
-      
-      
+
+
     </Container>)
   }
 }
