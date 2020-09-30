@@ -7,6 +7,7 @@ import login from "./components/login"
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
 import Profilepage from "./pages/Profilepage"
+import Payment from "./pages/Payment"
 // import './App.css';
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
           <Route path="/profile/:username" render={(props) => <Profilepage {...props} />}/>
           <Route path="/login" component={login} />          
+          <Route path="/profile/:username" render={(props) => <Profile {...props} />}/>
+          <Route path="/login" component={login} />    
+          <Route path="/pages/Payment/:title/:price" component={Payment}/>          
           <Route component={NoMatch} />
         </Switch>
       </div>
