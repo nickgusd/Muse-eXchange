@@ -13,9 +13,9 @@ router.route('/genre/:genre')
 .get(songController.findSongsGenre)
 
 
-router.route('/price/:price')
+router.route('/price/:id')
 .get(songController.findSongsPrice)
-.put(songController.findSongsPrice)
+.put(songController.updateSongPrice)
 
 router.route('/title/:title')
 .get(songController.findSongsTitle)
