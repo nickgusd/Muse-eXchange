@@ -45,7 +45,7 @@ module.exports = {
       },
 
       updateSongPrice: function(req, res) {
-        db.Song.findOneAndUpdate({price: req.params.price}, req.body)
+        db.Song.findByIdAndUpdate(req.params.id, req.body.price)
         .then(dbUpdatePrice => res.json(dbUpdatePrice))
       .catch(err => res.status(422).json(err));
 
