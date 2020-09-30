@@ -11,7 +11,9 @@ router.route('/:username')
 router.route('/:userid')
   .put(userController.updateUserProfile);
 
-
+// Get user by profession
+router.route('/profession/:profession')
+  .get(userController.findAllByProfession);
 
 
 
