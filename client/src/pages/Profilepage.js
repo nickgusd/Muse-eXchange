@@ -7,11 +7,14 @@ import API from '../utils/API';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import Favorite from "@material-ui/icons/Favorite";
+import EventIcon from '@material-ui/icons/Event';
 
 import GridContainer from "../components/Profile/Grid/GridContainer";
 import GridItem from "../components/Profile/Grid/GridItem";
 import NavPills from "../components/Profile/NavPills/NavPills";
 
+import { InlineWidget } from "react-calendly"
+// import Calendly from "../components/Calendly/Calendly"
 
 class Profile extends Component {
   state = {
@@ -245,7 +248,25 @@ getSongsByQuery = id => {
         </GridItem>
         </GridContainer>
         )
-        }
+        },
+        {
+          tabButton: "Tutorial Session",
+          tabIcon: EventIcon,
+          tabContent: (
+          <GridContainer justify="center">
+          <GridItem>
+          
+          <InlineWidget
+          color="#00a2ff"
+          text="Request a Tutorial Session"
+          textColor="#ffffff"
+          url="https://calendly.com/museexchange"
+          />
+  
+          </GridItem>
+          </GridContainer>
+          )
+          }
         ]}
         />
         </GridItem>
