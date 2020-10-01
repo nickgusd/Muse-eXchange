@@ -13,6 +13,8 @@ import GridContainer from "../components/Profile/Grid/GridContainer";
 import GridItem from "../components/Profile/Grid/GridItem";
 import NavPills from "../components/Profile/NavPills/NavPills";
 
+import { InlineWidget } from "react-calendly"
+// import Calendly from "../components/Calendly/Calendly"
 
 class Profile extends Component {
   state = {
@@ -213,20 +215,14 @@ getSongsByQuery = id => {
           tabContent: (
           <GridContainer justify="center">
           <GridItem>
-          <ul class="list-group" style={{ borderRadius: "0px" }}>
-          <li class="list-group-item d-flex justify-content-between">
-          <span className="mr-auto">Song 1</span>
-          <a href="#" className="btn btn-secondary">Buy</a>
-          </li> 
-          <li class="list-group-item d-flex justify-content-between">
-          <span className="mr-auto">Song 2</span>
-          <a href="#" className="btn btn-secondary">Buy</a>
-          </li> 
-          <li class="list-group-item d-flex justify-content-between">
-          <span className="mr-auto">Song 3</span>
-          <a href="#" className="btn btn-secondary">Buy</a>
-          </li> 
-          </ul>
+          
+          <InlineWidget
+          color="#00a2ff"
+          text="Request a Tutorial Session"
+          textColor="#ffffff"
+          url="https://calendly.com/museexchange"
+          />
+  
           </GridItem>
           </GridContainer>
           )
