@@ -9,23 +9,25 @@ import Overlay from './Overlay.js';
 // }
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            rightPanelActive: false,
-        }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         rightPanelActive: false,
+    //     }
+    // }
+
+    state = {
+        rightPanelActive: false
     }
 
     componentDidMount() {
-        // Get the pathname
+        /* If user clicks Sign Up, let the page show the Sign Up component */
         let pathname = this.props.location.pathname;
-
-        // If register, have rightPanelActive set to true
         if (pathname === '/signup') {
             this.setState({ rightPanelActive: true })
         } 
     }
-
+    
     handleClickSignUpButton = () => this.setState({
         rightPanelActive: true,
     });
