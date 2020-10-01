@@ -49,7 +49,8 @@ function GitHubUser({login}) {
   return null;
 }
 
-function Team() {
+function Team(props) {
+  console.log(props.user)
   return (
     <Container fluid className="mt-4">
       <Jumbotron style={{backgroundImage: `url("https://i.imgur.com/ClmgbAV.jpg")`}}>

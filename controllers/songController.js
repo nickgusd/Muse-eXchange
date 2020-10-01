@@ -7,8 +7,14 @@ module.exports = {
         .then(dbAddedSongs => res.json(dbAddedSongs))
         .catch(err => res.status(422).json(err))
       },
-      findUserSongs: function(req, res) {
+      findAllUserSongs: function(req, res) {
         db.Song.find({})
+        .populate("songs")
+        .then(dbUserSongs => res.json(dbUserSongs))
+        .catch(err => res.status(422).json(err));
+      },
+      findUserSongs: function(req, res) {
+        db.Song.find({_id: req.params.userid})
         .populate("songs")
         .then(dbUserSongs => res.json(dbUserSongs))
         .catch(err => res.status(422).json(err));
