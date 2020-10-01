@@ -1,7 +1,18 @@
 const path = require("path");
 const router = require("express").Router();
 const userRoutes = require("./user");
-const songRoutes = require("./songs")
+const songRoutes = require("./songs");
+
+/** Passport/Auth: Test*/
+router.post('/login', (req, res) => {
+  console.log(req.body);
+});
+router.post('/register', (req, res) => {
+  console.log(req.body);
+});
+router.get('/user', (req, res) => {
+
+})
 
 // User routes
 router.use("/users", userRoutes);

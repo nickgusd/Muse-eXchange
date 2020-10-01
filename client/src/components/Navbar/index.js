@@ -41,10 +41,10 @@ const NavbarComponent = () => {
       </Navbar.Collapse>
       <Nav className="mr-auto">
         <Nav.Link href="/" style={styles.link}>
-          <Link to="/login" style={styles.link}>Login</Link>
+          <Link to="/signin" style={styles.link}>Login</Link>
         </Nav.Link>
         <Nav.Link href="/" style={styles.link}>
-          <Link to="/login" style={styles.link}>Sign up</Link>
+          <Link to="/signup" style={styles.link}>Sign up</Link>
         </Nav.Link>
       </Nav>
       <ProductModal state={show} open={handleShow} close={handleClose}/>

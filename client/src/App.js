@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from '../src/pages/Home';
 import Profile from './pages/Profile';
 import NoMatch from "../src/pages/NoMatch";
-import login from "./components/login"
+import Login from "./components/login";
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
 
@@ -22,7 +22,8 @@ function App() {
           <Route exact path="/" component={Home} />
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
           <Route path="/profile/:username" render={(props) => <Profilepage {...props} />}/>
-          <Route path="/login" component={login} />    
+          <Route path="/signin" component={Login} /> 
+          <Route path="/signup" component={Login} />
           <Route path="/pages/Payment/:title/:price" component={Payment}/>  
           <Route path="/team" component={Team} />        
           <Route component={NoMatch} />

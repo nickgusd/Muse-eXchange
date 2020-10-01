@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './login.css';
 import SignUp from './SignUp.js';
 import SignIn from './SignIn.js';
@@ -10,11 +10,20 @@ import Overlay from './Overlay.js';
 
 class App extends Component {
     constructor() {
-
         super();
         this.state = {
             rightPanelActive: false,
         }
+    }
+
+    componentDidMount() {
+        // Get the pathname
+        let pathname = this.props.location.pathname;
+
+        // If register, have rightPanelActive set to true
+        if (pathname === '/signup') {
+            this.setState({ rightPanelActive: true })
+        } 
     }
 
     handleClickSignUpButton = () => this.setState({
@@ -40,7 +49,7 @@ class App extends Component {
                         handleClickSignInButton={handleClickSignInButton}
                         handleClickSignUpButton={handleClickSignUpButton}
                     />
-                    
+
                 </div>
             </div>
         );
