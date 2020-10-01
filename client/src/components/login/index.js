@@ -21,10 +21,18 @@ class App extends Component {
         rightPanelActive: true,
     });
 
-    handleClickSignInButton = () => this.setState({
+    handleClickSignInButton = () => {
+        this.setState({
         rightPanelActive: false,
-    });
+    })
+};
 
+    handleSubmit = () => {
+        this.props.setUser({
+            username: "Wilson",
+            password: "123456"
+        })
+    }
     render() {
         const { handleClickSignUpButton, handleClickSignInButton } = this;
         const { rightPanelActive } = this.state;
@@ -35,7 +43,7 @@ class App extends Component {
                     id="container"
                 >
                     <SignUp />
-                    <SignIn />
+                    <SignIn handleSubmit={this.handleSubmit}/>
                     <Overlay
                         handleClickSignInButton={handleClickSignInButton}
                         handleClickSignUpButton={handleClickSignUpButton}
