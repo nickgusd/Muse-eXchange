@@ -115,7 +115,7 @@ const userSchema = mongoose.Schema({
   timestamps: true, // creates a createdAt & updatedAt for each document
 });
 
-userSchema.plugin(passportLocalMongoose);
+// userSchema.plugin(passportLocalMongoose);
 
 // Presave Hook
 userSchema.pre('save', async function preSave(next) { // Not fat-arrow-function here, because this refers to the actual object
