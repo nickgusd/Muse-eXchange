@@ -28,13 +28,13 @@ function GitHubUser({login}) {
   if(data) { // if we have some data
     return (
       <>
-        <Col>
+        <Col className="d-flex align-items-center justify-content-center">
           <div className="text-center">
             <a href={data.html_url} target="_blank" style={styles}>
               <Image src={data.avatar_url} roundedCircle width={200}/>
             </a>
             <h3>{data.login}</h3>
-            <p>{data.bio}</p>
+            {/* <p>{data.bio}</p> */}
             {/* <div>
               <a href={data.html_url} target="_blank" style={styles}>
                 GitHub <img className="mb-1" src="https://raw.githubusercontent.com/edwardreyes29/edwardreyes29.github.io/85326db4462a0c61c3e45988cdc77e2666406e66/assets/icons/github.svg"/>

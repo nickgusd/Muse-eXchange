@@ -11,9 +11,9 @@ class SignIn extends Component {
     };
 
     handleInputChange = event => {
-        // Get value and name of the input that triggered the change
+        // Get value and name of the input
         const { name, value } = event.target;
-        // Update input's states
+        // Update state with current input(s)
         this.setState({
             [name]: value
         })
