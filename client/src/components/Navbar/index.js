@@ -82,7 +82,7 @@ const NavbarComponent = () => {
             <Nav.Link href="/" style={styles.link}>
               <Link to="/" style={styles.link}>Musicians</Link>
             </Nav.Link>
-            <Nav.Link onClick={handleShow} style={styles.link}>
+           <Nav.Link onClick={handleShow} style={styles.link}>
             Sell
             </Nav.Link>
             <Nav.Link href="/" style={styles.link}>

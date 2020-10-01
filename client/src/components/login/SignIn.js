@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class SignIn extends Component {
+    constructor() {
+        super();
+    }
     render() {
         return (
             <div className="form-container sign-in-container">
@@ -10,7 +13,7 @@ class SignIn extends Component {
                     <input type="email" placeholder="Email" className="form-control" />
                     <input type="password" placeholder="Password" className="form-control"/>
 
-                    <button className="form-button">sign in</button>
+                    <button className="form-button" onClick={this.props.handleSubmit}>sign in</button>
                     <a className="find-password" href="#">Forgot Password</a>
                 </form>
             </div>

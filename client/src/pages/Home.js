@@ -49,6 +49,7 @@ class Home extends Component {
   render() {
     return (
       <div style={styles.home}>
+        
         <Jumbotron />
         <Container fluid>
           <div className="mt-4">

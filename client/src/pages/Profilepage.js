@@ -20,12 +20,12 @@ class Profile extends Component {
     email: "",
     profilePic: "",
     songs: [],
-
+    songInfo: [],
   }
   componentDidMount() {
     document.title = "Request Line | Songs";
     const username = this.props.match.params.username
-    this.setState({ username: username });
+    this.setState({...this.state, username: username, test: "test" });
     console.log(username);
     this.getUserInfo(username);
     
@@ -35,15 +35,31 @@ class Profile extends Component {
     const username = this.props.match.params.username
     if(prevState.username !== username) {
        return API.getUserInfo(username).then(res => {
+         console.log(res)
       this.setState({...this.state, 
       id: res.data._id,
       songs: res.data.profile.songs,
       email: res.data.email,
       profilePic: res.data.profile.profilePic,
-      username: res.data.username
+      username: res.data.username,
     })
     // this.getSongsByQuery(this.state.id)
-  })
+  }).then(() =>{
+    if(prevState.songInfo === this.state.songInfo) {
+      this.state.songs.map(songid => {
+        API.getSongsByQuery(songid).then(
+          (res) => {
+            this.setState({...this.state, songsInfo: [...this.state.songInfo, res.data]})
+            this.setState({...this.state, songs: this.state.songInfo})
+          }
+        )
+      })
+      
+    }
+    
+
+  }
+  )
     
   }
 }
@@ -53,16 +69,17 @@ class Profile extends Component {
     API.getUserInfo(username)
       .then(res =>
         this.setState(
-          {
+          { ...this.state,
             id: res.data._id,
             songs: res.data.profile.songs,
             email: res.data.email,
             profilePic: res.data.profile.profilePic
           }
         ))
-        .then(dbData => {
-          console.log(this.state.id)
-       this.getSongsByQuery(this.state.id)
+        .then(() => {
+          this.state.songs.map(songid => {
+            this.getSongsByQuery(songid)
+          })
         })
       .catch(err => console.log(err));
   }
@@ -78,19 +95,23 @@ class Profile extends Component {
  }
 
 getSongsByQuery = id => {
+  console.log(id)
   API.getSongsByQuery(id)
-  .then(res => 
+  .then(res => {
+    this.setState({...this.state, songInfo: [...this.state.songInfo, res.data[0]] })
+    this.setState({...this.state, songs: this.state.songInfo})
+  }
    
-    this.setState({ songs: res.data })
+
   
    )
    .catch(err => console.log(err))
 }
 
   render() {
-    console.log(this.state)
     return (<Container fluid>
-
+      {/* {console.log(this.state)} */}
+      {console.log(this.state.test)}
     <main className="profile-page">
     
     <section className="relative block" style={{ height: "400px" }}>
