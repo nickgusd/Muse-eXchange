@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tutorialSchema = new Schema({
-  author: String,
+  // author: String,
+  type: String,
+  sessionType: String,
   title: String,
-  style: String,
-  link: String,
-  description: String,
+  // link: String,
+  // description: String,
   price: Number
 });
 
