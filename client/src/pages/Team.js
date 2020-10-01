@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
-const team = ["nickgusd","juhee-k","Dscroggins123","rbraun04","edwardreyes29"];
+const team = ["nickgusd","juhee-k","Dscroggins123","edwardreyes29"];
 
 const styles ={
   // textDecoration: "none",
@@ -35,11 +35,11 @@ function GitHubUser({login}) {
             </a>
             <h3>{data.login}</h3>
             <p>{data.bio}</p>
-            <div>
+            {/* <div>
               <a href={data.html_url} target="_blank" style={styles}>
                 GitHub <img className="mb-1" src="https://raw.githubusercontent.com/edwardreyes29/edwardreyes29.github.io/85326db4462a0c61c3e45988cdc77e2666406e66/assets/icons/github.svg"/>
               </a>
-            </div>
+            </div> */}
             <a href={data.blog} target="_blank">Portfolio</a>
           </div> 
         </Col>
