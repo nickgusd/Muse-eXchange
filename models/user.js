@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 12;
@@ -113,6 +114,8 @@ const userSchema = mongoose.Schema({
   // Automatically create timestamps for each document
   timestamps: true, // creates a createdAt & updatedAt for each document
 });
+
+userSchema.plugin(passportLocalMongoose);
 
 // Presave Hook
 userSchema.pre('save', async function preSave(next) { // Not fat-arrow-function here, because this refers to the actual object
