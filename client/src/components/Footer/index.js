@@ -9,6 +9,7 @@ const styles ={
   color: "white",
 }
 
+// Footer
 const Footer = () => {
   return (
     <footer className="footer bg-dark text-light mt-4">
