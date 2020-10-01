@@ -12,6 +12,8 @@ import Payment from "./pages/Payment"
 import Team from './pages/Team';
 // import './App.css';
 
+
+
 function App() {
   return (
     <Router>
@@ -21,8 +23,10 @@ function App() {
           <Route exact path="/" component={Home} />
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
           <Route path="/profile/:username" render={(props) => <Profilepage {...props} />}/>
-          <Route path="/login" component={login} />    
+          <Route path="/login" component={login} />
+   
           <Route path="/pages/Payment/:title/:price" component={Payment}/>  
+        
           <Route path="/team" component={Team} />        
           <Route component={NoMatch} />
         </Switch>

@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
-const team = ["nickgusd","juhee-k","Dscroggins123","rbraun04","edwardreyes29"];
+const team = ["nickgusd","juhee-k","Dscroggins123","edwardreyes29"];
 
 const styles ={
   // textDecoration: "none",

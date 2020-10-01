@@ -7,6 +7,7 @@ import API from '../utils/API';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import Favorite from "@material-ui/icons/Favorite";
+import EventIcon from '@material-ui/icons/Event';
 
 import GridContainer from "../components/Profile/Grid/GridContainer";
 import GridItem from "../components/Profile/Grid/GridItem";
@@ -205,7 +206,31 @@ getSongsByQuery = id => {
         </GridItem>
         </GridContainer>
         )
-        }
+        },
+        {
+          tabButton: "Tutorial Session",
+          tabIcon: EventIcon,
+          tabContent: (
+          <GridContainer justify="center">
+          <GridItem>
+          <ul class="list-group" style={{ borderRadius: "0px" }}>
+          <li class="list-group-item d-flex justify-content-between">
+          <span className="mr-auto">Song 1</span>
+          <a href="#" className="btn btn-secondary">Buy</a>
+          </li> 
+          <li class="list-group-item d-flex justify-content-between">
+          <span className="mr-auto">Song 2</span>
+          <a href="#" className="btn btn-secondary">Buy</a>
+          </li> 
+          <li class="list-group-item d-flex justify-content-between">
+          <span className="mr-auto">Song 3</span>
+          <a href="#" className="btn btn-secondary">Buy</a>
+          </li> 
+          </ul>
+          </GridItem>
+          </GridContainer>
+          )
+          }
         ]}
         />
         </GridItem>
