@@ -27,7 +27,9 @@ const NavbarComponent = () => {
   useEffect(() => {
     runSearch()
     console.log("what component am i in??" + result)
-  }, [search]);
+  }, []);
+
+
 
   const runSearch = () => {
     API.getSavedUsers()
@@ -45,12 +47,9 @@ const NavbarComponent = () => {
     }
   const handleFormSubmit = event => {
       event.preventDefault();
-    
       const filterSearch = result.filter(user => user.username === search)
-      console.log(filterSearch)
-
-     history.push(`/profile/${filterSearch[0].username}`)
-     inputRef.current.value = "";
+      history.push(`/profile/${filterSearch[0].username}`)
+      inputRef.current.value = "";
     //  window.location.reload()
       // this.renderRedirect()
       // this.setRedirect(this.state.results.username)

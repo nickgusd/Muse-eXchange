@@ -31,6 +31,24 @@ class Profile extends Component {
     
   }
 
+  componentDidUpdate(_, prevState) {
+    const username = this.props.match.params.username
+    if(prevState.username !== username) {
+       return API.getUserInfo(username).then(res => {
+      this.setState({...this.state, 
+      id: res.data._id,
+      songs: res.data.profile.songs,
+      email: res.data.email,
+      profilePic: res.data.profile.profilePic,
+      username: res.data.username
+    })
+    // this.getSongsByQuery(this.state.id)
+  })
+    
+  }
+}
+
+
   getUserInfo = username => {
     API.getUserInfo(username)
       .then(res =>
@@ -70,6 +88,7 @@ getSongsByQuery = id => {
 }
 
   render() {
+    console.log(this.state)
     return (<Container fluid>
 
     <main className="profile-page">
