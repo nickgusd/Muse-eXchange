@@ -1,5 +1,6 @@
 import React from "react";
 import Paypal from "../components/PayPal";
+import { useParams } from "react-router-dom"
 import Card from  'react-bootstrap/Card'
 
 const divStyle = {
@@ -25,6 +26,9 @@ function Payment(props) {
   console.log()
   let price = props.match.params.price;
   let title = props.match.params.title;
+  const id = useParams();
+  // let id = props.match.params.id
+  console.log(id)
   return (
     
     <div className="container" style={divStyle} >
@@ -33,7 +37,7 @@ function Payment(props) {
   <Card.Body>
     <blockquote className="blockquote mb-0">
     <p > Pay securely by <span style={pStyle} >debit/credit card </span>or <span style={pStyle} >PayPal</span></p>
-    <Paypal title={title} price={price}/>
+    <Paypal title={title} price={price} id={id}/>
       <footer className="blockquote-footer">
         Thank you for shopping at <cite title="Source Title">Muse Xchange</cite>
       </footer>

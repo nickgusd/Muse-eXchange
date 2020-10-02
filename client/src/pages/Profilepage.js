@@ -87,18 +87,11 @@ class Profile extends Component {
       .catch(err => console.log(err));
   }
 
- AddSongs = id => {
-   API.AddSongs(id)
-   .then(res => 
-    
-    console.log(res.data)
-   
-    )
-    .catch(err => console.log(err))
- }
+ 
 
 getSongsByQuery = id => {
-  console.log(id)
+  
+  
   API.getSongsByQuery(id)
   .then(res => {
     this.setState({...this.state, songInfo: [...this.state.songInfo, res.data[0]] })
@@ -112,9 +105,11 @@ getSongsByQuery = id => {
 }
 
   render() {
+    
+    if(!this.state.songs) return <h1>Loading...</h1>
     return (<Container fluid>
       {/* {console.log(this.state)} */}
-      {console.log(this.state.test)}
+      
     <main className="profile-page">
     
     <section className="relative block" style={{ height: "400px" }}>
@@ -194,7 +189,7 @@ getSongsByQuery = id => {
         <GridItem>
         <ul class="list-group" style={{ borderRadius: "0px" }}>
         {this.state.songs.map((song)=>
-        <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price}/></li>
+        <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price} id={song._id}/></li>
         )}
         </ul>
         </GridItem>
