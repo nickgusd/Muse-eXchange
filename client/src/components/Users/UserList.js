@@ -32,7 +32,9 @@ const UserList = ({ users }) => {
     >
       {users.map(user => 
         <Card style={{ width: '18rem'}} key={user._id}>
-          <Card.Img variant="top" src={user.profile.profilePic} />
+          {user.profile.pic 
+          ? (<Card.Img variant="top" src={user.profile.profilePic} />)
+          : (<Card.Img variant="top" src='https://via.placeholder.com/200' />)}
           <Card.Body>
             <Card.Title>{user.profile.firstName} {user.profile.lastName}</Card.Title>
             <Card.Text>{user.profile.profession}</Card.Text>
@@ -45,3 +47,4 @@ const UserList = ({ users }) => {
     </Carousel>)
 }
 export default UserList;
+
