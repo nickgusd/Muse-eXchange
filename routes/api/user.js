@@ -15,6 +15,9 @@ router.route('/:userid')
 router.route('/profession/:profession')
   .get(userController.findAllByProfession);
 
+router.route('/register')
+.post(userController.addNewUser)
+
 
 
 module.exports = router;

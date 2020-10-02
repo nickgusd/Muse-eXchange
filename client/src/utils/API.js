@@ -25,4 +25,11 @@ export default {
     return axios.get("/api/songs/" + query)
   },
 
+  signIn(data){
+    return axios.post("/api/users/signin", data)
+  },
+  register(data){
+    return axios.post("/api/users/register", data)
+  }
+
 }

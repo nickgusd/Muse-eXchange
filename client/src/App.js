@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from '../src/pages/Home';
 import Profile from './pages/Profile';
 import NoMatch from "../src/pages/NoMatch";
@@ -18,23 +18,36 @@ import Team from './pages/Team';
 
 function App() {
   const [user, setUser] = useState();
+  const [pending, setPending] = useState(true)
+  useEffect(()=> {
+    if(localStorage.getItem("currentUser")){
+      setUser(JSON.parse(localStorage.getItem("currentUser")));
+    }
+    setPending(false)
+  },[])
+  const handleSetCurrentUser = user => {
+    console.log(user)
+    setUser(user);
+    localStorage.setItem("currentUser", JSON.stringify(user));
+  }
+
   console.log(user)
  
   return (
     <Router>
       <Navbar />
-      
+      {user && <Redirect to="/"/>}
       <div className="wrapper">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={() => <Home pending={pending} user={user}/>} />
           {/* <Route exact path="/">
             {!user ? <h1>Is Loading...</h1> : <Home />}
           </Route> */}
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
-          <Route path="/profile/:username" render={(props) => <Profilepage {...props} />}/>
+          <Route path="/profile/:username" render={(props) => <Profilepage {...props}/>}/>
           <Route path="/account" component={AccountPage} />
-          <Route path="/signin" component={Login} />
-          <Route path="/signup" component={Login} />
+          <Route path="/signin" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
+          <Route path="/signup" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
           {/* <Route path="/login">
               <Login  setUser={setUser}/>
           </Route>     */}
@@ -42,7 +55,7 @@ function App() {
           <Route path="/team">
             <Team user={user}/>
             </Route>        
-          <Route component={NoMatch} />
+          <Route component={Login} />
         </Switch>
       </div>
       <Footer />
