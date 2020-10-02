@@ -71,7 +71,7 @@ const NavbarComponent = () => {
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
         <Link to="/">
-          <Navbar.Brand>Request Line</Navbar.Brand>
+          <Navbar.Brand>Music eXchange</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -82,7 +82,7 @@ const NavbarComponent = () => {
             <Nav.Link href="/" style={styles.link}>
               <Link to="/" style={styles.link}>Musicians</Link>
             </Nav.Link>
-           <Nav.Link onClick={handleShow} style={styles.link}>
+          <Nav.Link onClick={handleShow} style={styles.link}>
             Sell
             </Nav.Link>
             <Nav.Link href="/" style={styles.link}>
@@ -111,10 +111,10 @@ const NavbarComponent = () => {
         </Navbar.Collapse>
         <Nav className="mr-auto">
           <Nav.Link href="/" style={styles.link}>
-            <Link to="/login" style={styles.link}>Login</Link>
+            <Link to="/signin" style={styles.link}>Sign in</Link>
           </Nav.Link>
           <Nav.Link href="/" style={styles.link}>
-            <Link to="/login" style={styles.link}>Sign up</Link>
+            <Link to="/signup" style={styles.link}>Sign up</Link>
           </Nav.Link>
         </Nav>
         <ProductModal state={show} open={handleShow} close={handleClose}/>

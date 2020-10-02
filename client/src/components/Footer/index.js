@@ -9,12 +9,13 @@ const styles ={
   color: "white",
 }
 
+// Footer
 const Footer = () => {
   return (
     <footer className="footer bg-dark text-light mt-4">
       <Container fluid>
         <div className="d-flex justify-content-between">
-          <div>© 2020 Request Line All Rights Reserved</div>
+          <div>© 2020 Music eXchange All Rights Reserved</div>
           <Link to="/team" style={styles}>Meet the team</Link>
         </div>
       </Container>
