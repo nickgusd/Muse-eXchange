@@ -26,8 +26,8 @@ class Profile extends Component {
     songInfo: [],
   }
   componentDidMount() {
-    document.title = "Request Line | Songs";
-    const username = this.props.match.params.username
+    const username = this.props.match.params.username;
+    document.title = `Music eXchange | ${username}`;
     this.setState({...this.state, username: username, test: "test" });
     console.log(username);
     this.getUserInfo(username);
@@ -37,8 +37,8 @@ class Profile extends Component {
   componentDidUpdate(_, prevState) {
     const username = this.props.match.params.username
     if(prevState.username !== username) {
-       return API.getUserInfo(username).then(res => {
-         console.log(res)
+      return API.getUserByUsername(username).then(res => {
+        console.log(res.data.profile.profilePic)
       this.setState({...this.state, 
       id: res.data._id,
       songs: res.data.profile.songs,
@@ -69,7 +69,7 @@ class Profile extends Component {
 
 
   getUserInfo = username => {
-    API.getUserInfo(username)
+    API.getUserByUsername(username)
       .then(res =>
         this.setState(
           { ...this.state,

@@ -11,22 +11,30 @@ class App extends Component {
 
     componentDidMount() {
         /* If user clicks Sign Up, let the page show the Sign Up component */
+
         let pathname = window.location.pathname;
         if (pathname === '/signup') {
             this.setState({ rightPanelActive: true })
         } 
         console.log(this.props)
+
+        if (pathname === '/signup') {
+            this.setState({ rightPanelActive: true })
+            document.title = `Music eXchange | Sign up`;
+        } else {
+            document.title = `Music eXchange | Sign in`;
+        }
     }
 
-    handleClickSignUpButton = () => this.setState({
-        rightPanelActive: true,
-    });
+    handleClickSignUpButton = () => {
+        this.setState({rightPanelActive: true})
+        document.title = `Music eXchange | Sign up`;
+    }
 
     handleClickSignInButton = () => {
-        this.setState({
-        rightPanelActive: false,
-    })
-};
+        this.setState({rightPanelActive: false})
+        document.title = `Music eXchange | Sign in`;
+    };
 
     handleSubmit = () => {
         this.props.setUser({

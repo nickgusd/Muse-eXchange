@@ -21,6 +21,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    document.title = `Music eXchange | Home`;
     this.getUsers();
     this.getMusicians();
     this.getDancers();
