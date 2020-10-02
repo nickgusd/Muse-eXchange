@@ -50,7 +50,7 @@ function ProductModal({ state, open, close}) {
             <Modal.Title>Add New Product</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ModalForm getValue={setValue} values={value}/>
+            <ModalForm getValue={setValue} values={value} />
           </Modal.Body>
           <Modal.Footer>
           <Button variant="dark" onClick={handleSubmit}>Submit</Button>
