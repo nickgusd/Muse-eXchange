@@ -82,11 +82,8 @@ const NavbarComponent = () => {
             <Nav.Link href="/" style={styles.link}>
               <Link to="/" style={styles.link}>Musicians</Link>
             </Nav.Link>
-          <Nav.Link onClick={handleShow} style={styles.link}>
-            Sell
-            </Nav.Link>
-            <Nav.Link href="/" style={styles.link}>
-            <Link to="/login" style={styles.link}>Sign up</Link>
+            <Nav.Link onClick={handleShow} style={styles.link}>
+              Sell
             </Nav.Link>
           </Nav>
           <Form inline>
@@ -110,6 +107,9 @@ const NavbarComponent = () => {
           </Form>
         </Navbar.Collapse>
         <Nav className="mr-auto">
+          <Nav.Link href="/" style={styles.link}>
+              <Link to="/account" style={styles.link}>Account</Link>
+          </Nav.Link>
           <Nav.Link href="/" style={styles.link}>
             <Link to="/signin" style={styles.link}>Sign in</Link>
           </Nav.Link>

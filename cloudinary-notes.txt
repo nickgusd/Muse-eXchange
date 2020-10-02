@@ -1,0 +1,9 @@
+<input name="file" type="file"
+   class="file-upload" data-cloudinary-field="image_id"
+   data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"/>
+
+  <CloudinaryContext cloudName="dxp5wxx2f">
+    <Image publicId="sample" format="jpg">
+        <Transformation crop="fill" gravity="faces" width="300" height="200"/>
+    </Image>
+</CloudinaryContext>
