@@ -39,7 +39,7 @@ function App() {
  
   return (
     <Router>
-      <Navbar handleLogout={handleLogout}/>
+      {!user ? <h1>Loading...</h1> : <Navbar handleLogout={handleLogout} user={user._id}/>}
       {user && <Redirect to="/"/>}
       <div className="wrapper">
         <Switch>
@@ -52,7 +52,7 @@ function App() {
           {/* <Route path="/account" component={AccountPage_Demo} /> */}
           <Route path="/account" component={() => <AccountPage_Demo pending={pending} user={user._id}/>} />
           <Route path="/auth" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
-          <Route path="/pages/Payment/:title/:price" component={Payment}/>  
+          <Route path="/pages/Payment/:title/:price/:id" component={Payment}/>  
           <Route path="/team">
             <Team user={user}/>
             </Route>        

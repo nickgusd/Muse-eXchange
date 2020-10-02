@@ -12,8 +12,8 @@ export default {
   getUsersByProfession: function(profession) {
     return axios.get(`/api/users/profession/${profession}`)
   },
-  AddSongs: function(userid) {
-    return axios.post(`/api/users/${userid}`)
+  AddSongs: function(userid,data) {
+    return axios.post(`/api/songs/${userid}`,data)
   },
 
   // axios call for genre, price, title, and author
