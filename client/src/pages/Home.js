@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import UserList from '../components/Users/UserList';
 import Container from '../components/Container';
 import Jumbotron from '../components/Jumbotron';
+import Button from 'react-bootstrap/Button';
 import API from '../utils/API';
-import {Redirect} from "react-router-dom"
+import {Redirect, Link} from "react-router-dom";
 
 const styles ={
   home: {
@@ -55,6 +56,9 @@ class Home extends Component {
         
         <Jumbotron />
         <Container fluid>
+          <Button>
+            <Link to="/addsong">Add song</Link>
+          </Button>
           <div className="mt-4">
             <h2>Explore</h2>
             <hr className="my-4" />

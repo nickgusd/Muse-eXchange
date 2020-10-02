@@ -86,7 +86,7 @@ const AccountPage = ({user}) => {
     const file = await res.json() // get json response
     API.updateProfile(tempId, "profilePic", file.secure_url);
     // setProfilePic(file.secure_url);
-    // setLoading(false);
+    setLoading(false);
 
     setSubmit(submit + 1); // for some reason incrementing changes the state
   }
