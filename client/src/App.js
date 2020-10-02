@@ -4,6 +4,7 @@ import Home from '../src/pages/Home';
 import Profile from './pages/Profile';
 import NoMatch from "../src/pages/NoMatch";
 import AccountPage from './pages/AccountsPage';
+import AccountPage_Demo from './pages/AccountsPage_Demo';
 import Login from "./components/login";
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
@@ -32,7 +33,8 @@ function App() {
           </Route> */}
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
           <Route path="/profile/:username" render={(props) => <Profilepage {...props} />}/>
-          <Route path="/account" component={AccountPage} />
+          {/* <Route path="/account" component={AccountPage} /> */}
+          <Route path="/account" component={AccountPage_Demo} />
           <Route path="/signin" component={Login} />
           <Route path="/signup" component={Login} />
           {/* <Route path="/login">
