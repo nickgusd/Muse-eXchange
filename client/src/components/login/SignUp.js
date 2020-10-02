@@ -64,7 +64,9 @@ class SignUp extends Component {
             this.state.firstName.length > 0 && this.state.lastName.length > 0) {
                 console.log(this.state);
                 API.register(this.state)
-                .then(({data})=> this.props.handleSetCurrentUser(data))
+                .then(({data})=> {
+                    this.props.handleSetCurrentUser(data)
+                window.location.replace("/")})
                 this.setState({
                     firstName: "",
                 lastName: "",

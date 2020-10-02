@@ -23,7 +23,7 @@ const styles = {
   },
 }
 
-const NavbarComponent = () => {
+const NavbarComponent = ({handleLogout}) => {
   const [search, setSearch] = useState();
   const [result, setResult] = useState([]);
   const history = useHistory();
@@ -111,10 +111,7 @@ const NavbarComponent = () => {
               <Link to="/account" style={styles.link}>Account</Link>
           </Nav.Link>
           <Nav.Link href="/" style={styles.link}>
-            <Link to="/signin" style={styles.link}>Sign in</Link>
-          </Nav.Link>
-          <Nav.Link href="/" style={styles.link}>
-            <Link to="/signup" style={styles.link}>Sign up</Link>
+            <Link to="/" onClick={handleLogout} style={styles.link}>Log Out</Link>
           </Nav.Link>
         </Nav>
         <ProductModal state={show} open={handleShow} close={handleClose}/>

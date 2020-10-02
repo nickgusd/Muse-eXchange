@@ -11,8 +11,6 @@ import Footer from './components/Footer';
 import Profilepage from "./pages/Profilepage"
 import Payment from "./pages/Payment"
 import Team from './pages/Team';
-
-
 // import './App.css';import API from '../../utils/API';
 
 
@@ -26,17 +24,22 @@ function App() {
     }
     setPending(false)
   },[])
+
   const handleSetCurrentUser = user => {
     console.log(user)
     setUser(user);
     localStorage.setItem("currentUser", JSON.stringify(user));
   }
 
+  const handleLogout = () => {
+    handleSetCurrentUser(null)
+  }
+
   console.log(user)
  
   return (
     <Router>
-      <Navbar />
+      <Navbar handleLogout={handleLogout}/>
       {user && <Redirect to="/"/>}
       <div className="wrapper">
         <Switch>
@@ -48,16 +51,12 @@ function App() {
           <Route path="/profile/:username" render={(props) => <Profilepage {...props}/>}/>
           {/* <Route path="/account" component={AccountPage_Demo} /> */}
           <Route path="/account" component={() => <AccountPage_Demo pending={pending} user={user._id}/>} />
-          <Route path="/signin" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
-          <Route path="/signup" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
-          {/* <Route path="/login">
-              <Login  setUser={setUser}/>
-          </Route>     */}
+          <Route path="/auth" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
           <Route path="/pages/Payment/:title/:price" component={Payment}/>  
           <Route path="/team">
             <Team user={user}/>
             </Route>        
-          <Route component={Login} />
+          <Route component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
         </Switch>
       </div>
       <Footer />
