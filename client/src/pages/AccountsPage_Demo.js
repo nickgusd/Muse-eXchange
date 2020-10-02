@@ -12,10 +12,11 @@ import API from '../utils/API';
 
 require('dotenv').config();
 
-const AccountPage = () => {
+const AccountPage = ({user}) => {
 
+  console.log(user)
   /** ===== User Profile Info ====== */
-  const tempId = "5f76efb20235d237413928d3"; // for login state
+  const tempId = user; // for login state
 
   const [submit, setSubmit] = useState(1);
   console.log(submit)

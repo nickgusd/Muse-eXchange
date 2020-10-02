@@ -3,6 +3,7 @@ import UserList from '../components/Users/UserList';
 import Container from '../components/Container';
 import Jumbotron from '../components/Jumbotron';
 import API from '../utils/API';
+import {Redirect} from "react-router-dom"
 
 const styles ={
   home: {
@@ -49,6 +50,7 @@ class Home extends Component {
 
   render() {
     return (
+      !this.props.user && !this.props.pending ? <Redirect to="/signin"/> :
       <div style={styles.home}>
         
         <Jumbotron />

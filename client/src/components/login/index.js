@@ -6,13 +6,18 @@ import Overlay from './Overlay.js';
 
 class App extends Component {
     state = {
-        rightPanelActive: false
-    }
+            rightPanelActive: false
+        }
 
     componentDidMount() {
         /* If user clicks Sign Up, let the page show the Sign Up component */
-        let pathname = this.props.location.pathname;
-        
+
+        let pathname = window.location.pathname;
+        if (pathname === '/signup') {
+            this.setState({ rightPanelActive: true })
+        } 
+        console.log(this.props)
+
         if (pathname === '/signup') {
             this.setState({ rightPanelActive: true })
             document.title = `Music eXchange | Sign up`;
@@ -46,7 +51,7 @@ class App extends Component {
                     className={`container ${rightPanelActive ? `right-panel-active` : ``}`}
                     id="container"
                 >
-                    <SignUp />
+                    <SignUp {...this.props} />
                     <SignIn handleSubmit={this.handleSubmit}/>
                     <Overlay
                         handleClickSignInButton={handleClickSignInButton}

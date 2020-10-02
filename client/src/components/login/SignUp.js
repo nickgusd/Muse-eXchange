@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
+import API from "../../utils/API"
 
 class SignUp extends Component {
-
-    // Setting the component's initial state
     state = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        firstNameError: "",
-        lastNameError: "",
-        emailError: "",
-        passwordError: "",
-    };
-
-    handleInputChange = event => {
-        // Get value and name of the input
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            firstNameError: "",
+            lastNameError: "",
+            emailError: "",
+            passwordError: "",
+        };
+        // Setting the component's initial state
+        
+        handleInputChange = event => {
+            // Get value and name of the input
         const { name, value } = event.target;
         // Update states with current input(s)
         this.setState({
             [name]: value
         })
     }
-
+    
     handleFormSubmit = event => {
         event.preventDefault();
-
+        
         // Check if First Name is valid
         if(this.state.firstName.length === 0) {
             this.setState({firstNameError: "Must enter a first name"})
@@ -34,7 +34,7 @@ class SignUp extends Component {
         } else {
             this.setState({firstNameError: ""})
         }
-
+        
         // Check if Last Name is valid
         if(this.state.firstName.length === 0) {
             this.setState({lastNameError: "Must enter a last name"})
@@ -43,7 +43,7 @@ class SignUp extends Component {
         } else {
             this.setState({lastNameError: ""})
         }
-
+        
         // Check if email is valid
         let isValidEmail = this.validate(this.state.email);
         if (!isValidEmail) {
@@ -62,13 +62,16 @@ class SignUp extends Component {
         // If both email and password are valid
         if (isValidEmail && this.state.password.length >= 8 &&
             this.state.firstName.length > 0 && this.state.lastName.length > 0) {
-            this.setState({
-                firstName: "",
+                console.log(this.state);
+                API.register(this.state)
+                .then(({data})=> this.props.handleSetCurrentUser(data))
+                this.setState({
+                    firstName: "",
                 lastName: "",
                 email: "",
                 password: ""
             })
-        } 
+        }
     }
 
     // Validates an email
@@ -78,6 +81,7 @@ class SignUp extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="form-container sign-up-container">
                 <form className="form" action="#">

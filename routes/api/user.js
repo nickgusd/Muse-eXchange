@@ -27,6 +27,9 @@ router.route('/profile/:userid/:field')
 
 // router.route('/profile/lastName/:userid')
 //   .put(userController.updateLastName);
+router.route('/register')
+.post(userController.addNewUser)
+
 
 // router.route('/profile/profilePic/:userid')
 //   .put(userController.updateProfilePic)

@@ -39,4 +39,11 @@ export default {
     console.log(data);
     return axios.put(`/api/users/profile/${userid}/${field}`, {field: data});
   },
+  signIn(data){
+    return axios.post("/api/users/signin", data)
+  },
+  register(data){
+    return axios.post("/api/users/register", data)
+  }
+
 }

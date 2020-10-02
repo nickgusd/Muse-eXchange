@@ -2,9 +2,24 @@ const db = require("../models");
 
 module.exports = {
   addNewUser: function(req, res) {
-    db.User.create(req.body)
+    const userObj = {
+      username: req.body.email,
+      email: req.body.email,
+      password: req.body.password,
+      profile: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+      },
+      payPal: {
+        email: req.body.email,
+        username: req.body.email
+      }
+    }
+    db.User.create(userObj)
       .then(dbUser => res.json(dbUser))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err)
+      });
   },
   findAll: function(req, res) {
     db.User.find({})
