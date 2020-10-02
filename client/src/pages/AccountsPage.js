@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
+require('dotenv').config();
 
 const AccountPage = () => {
 
@@ -21,7 +22,7 @@ const AccountPage = () => {
     data.append('upload_preset', 'MusiceXchange'); // must be same name as upload
     setLoading(true)
     const res = await fetch(
-      'https://api.cloudinary.com/v1_1/dxp5wxx2f/image/upload', // API base url
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`, // API base url
       {
         method: 'POST',
         body: data
