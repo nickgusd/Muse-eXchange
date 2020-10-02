@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Profilepage from "./pages/Profilepage"
 import Payment from "./pages/Payment"
 import Team from './pages/Team';
+import AddSong from './pages/AddSong';
 // import './App.css';import API from '../../utils/API';
 
 
@@ -55,7 +56,8 @@ function App() {
           <Route path="/pages/Payment/:title/:price" component={Payment}/>  
           <Route path="/team">
             <Team user={user}/>
-            </Route>        
+          </Route>   
+          <Route path="/addsong" component={AddSong}/>     
           <Route component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
         </Switch>
       </div>
