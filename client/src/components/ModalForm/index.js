@@ -19,6 +19,12 @@ function ModalForm({ getValue, values }) {
     getValue({ ...values, [name]: value })
   }
 
+  /** ====== Upload file from file input ===== */
+  const uploadFileState = e => {
+    const files = e.target.files;
+    getValue({...values, files});
+  }
+
   return (
 
     <Form>
@@ -53,6 +59,8 @@ function ModalForm({ getValue, values }) {
           <Form.Label>Price:</Form.Label>
           <Form.Control placeholder="Enter Amount" type='number' name="price" onChange={inputChange} />
         </Form.Group>
+
+        {/** ===== Audio upload ===== */}
         <ListGroup>
           <ListGroup.Item>
             <Form.Group>
@@ -60,7 +68,7 @@ function ModalForm({ getValue, values }) {
                 id="uploadImageControl" 
                 label="Upload an mp3" 
                 name="file"
-                // onChange={uploadFileState}
+                onChange={uploadFileState}
               />
             </Form.Group>
           </ListGroup.Item>

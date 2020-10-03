@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import ModalForm from '../ModalForm'
 import API from '../../utils/API';
+require('dotenv').config();
 
 function ProductModal({ state, open, close }) {
   const [user, setUser] = useState();
@@ -11,30 +12,39 @@ function ProductModal({ state, open, close }) {
       setUser(JSON.parse(localStorage.getItem("currentUser")));
     }
 
-  }, [])
+  }, [state])
   const [value, setValue] = useState({
     select: "Hip Hop"
   })
 
 
-  const handleSubmit = () => {
-    //    await value
-    console.log(value.artist)
-    console.log(user._id)
-    API.AddSongs(user._id, {
+  const handleSubmit = async () => {
 
+    console.log(value)
+
+    const data = new FormData();
+    data.append('file', value.files[0]);
+    data.append('upload_preset', 'MusiceXchange'); // must be same name as upload
+
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/raw/upload/`, // API base url
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json() // get json response
+    await API.AddSongs(user._id, {
       author: value.artist,
       title: value.title,
       genre: value.select,
+      file: file.secure_url,
       price: value.price
-
-    })
+    });
   }
 
   return (
     <>
-
-
       <Modal
         show={state}
         onHide={close}
