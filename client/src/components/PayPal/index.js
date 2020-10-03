@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 export default function Paypal(props) {
   const history = useHistory()
     const paypal = useRef();
-
+console.log(props.id)
     useEffect(() => {
         
             // Configure environment
@@ -23,7 +23,8 @@ export default function Paypal(props) {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: props.title,
+                description: props.id.id,
+
                 amount: {
                   currency_code: "USD",
                   value: props.price,
@@ -31,6 +32,8 @@ export default function Paypal(props) {
                 payee: {
                     email_address: "sb-lsm47g3309758@personal.example.com"
                 },
+                
+                
               }
             ]
           })
