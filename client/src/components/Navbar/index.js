@@ -59,7 +59,7 @@ const NavbarComponent = ({handleLogout}) => {
       const filterSearch = result.filter(user => user.username === search)
       
      if (filterSearch.length === 0) {
-       alert("No entries Found")
+       console.log("No entries Found")
      } else {
 
       history.push(`/profile/${filterSearch[0].username}`)

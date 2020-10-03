@@ -33,8 +33,8 @@ router.route('/profile/:userid/:field')
 router.route('/register')
 .post(userController.addNewUser)
 
-router.route(`/:songid/:userid`)
-.post(userController.AddPurchasedSongs)
+router.route(`/purchasedsong/:songid/:userid`)
+.get(userController.AddPurchasedSongs)
 
 // router.route('/profile/profilePic/:userid')
 //   .put(userController.updateProfilePic)

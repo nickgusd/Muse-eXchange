@@ -104,8 +104,10 @@ getPurchasedSongs: function(req, res) {
   },
 
   AddPurchasedSongs: function(req, res) {
-    db.Song.findById({_id: req.params.songid})
+    db.Song.findById(req.params.songid)
+    // .then(({_id}) => console.log({_id}))
     .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseSongs": _id}}, { new: true }))
+    .then(user => res.json(user))
     .catch(err => res.status(422).json(err))
   },
 
