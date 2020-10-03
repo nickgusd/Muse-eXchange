@@ -17,8 +17,8 @@ export default {
   },
 
   //get purchased songs for user 
-  getPurchasedSongs: function(userid, songid) {
-    return axios.get(`api/users/${userid}/${songid}`)
+  AddPurchasedSongs: function(songid, userid) {
+    return axios.post(`api/users/${songid}/${userid}`)
   },
 
 

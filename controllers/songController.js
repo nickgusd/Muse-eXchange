@@ -22,12 +22,29 @@ module.exports = {
         .catch(err => res.status(422).json(err));
       },
 
-      AddPurchasedSongs: function(req, res) {
-        db.Song.create(req.body)
-        .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseSongs": _id}}, { new: true }))
-        .catch(err => res.status(422).json(err))
+      //route to find purchased songs
+      findUserPurchasedSongs: function(req, res) {
+        db.Song.find({_id: req.params.userid})
+        .populate("purchaseSongs")
+        .then(dbUserSongs => res.json(dbUserSongs))
+        .catch(err => res.status(422).json(err));
       },
+
+
+
+      // AddPurchasedSongs: function(req, res) {
+      //   db.Song.create(req.body)
+      //   .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseSongs": _id}}, { new: true }))
+      //   .catch(err => res.status(422).json(err))
+      // },
     
+      // AddPurchasedSongs2: function(req, res) {
+      //   db.Song.findById({_id: req.params.songid})
+      //   .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseSongs": _id}}, { new: true }))
+      //   .catch(err => res.status(422).json(err))
+      // },
+
+
 
 
       findSongsGenre: function(req, res) {
