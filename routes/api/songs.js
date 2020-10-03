@@ -30,8 +30,8 @@ router.route('/genre/:genre')
 .put(songController.updateSongTitle)
 
 
-
-
+router.route(`/:userid/:songid`)
+.post(songController.AddPurchasedSongs)
 
 
 

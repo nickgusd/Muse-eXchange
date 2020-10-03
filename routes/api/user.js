@@ -31,6 +31,7 @@ router.route('/register')
 .post(userController.addNewUser)
 
 
+
 // router.route('/profile/profilePic/:userid')
 //   .put(userController.updateProfilePic)
 

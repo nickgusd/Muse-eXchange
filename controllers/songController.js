@@ -7,6 +7,8 @@ module.exports = {
         .then(dbAddedSongs => res.json(dbAddedSongs))
         .catch(err => res.status(422).json(err))
       },
+
+
       findAllUserSongs: function(req, res) {
         db.Song.find({})
         .populate("songs")
@@ -19,6 +21,14 @@ module.exports = {
         .then(dbUserSongs => res.json(dbUserSongs))
         .catch(err => res.status(422).json(err));
       },
+
+      AddPurchasedSongs: function(req, res) {
+        db.Song.create(req.body)
+        .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseSongs": _id}}, { new: true }))
+        .catch(err => res.status(422).json(err))
+      },
+    
+
 
       findSongsGenre: function(req, res) {
         db.Song.find({genre: req.params.genre})
@@ -70,12 +80,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
 
       },
-
-
-
-
-
-        
+   
 }
 
 
