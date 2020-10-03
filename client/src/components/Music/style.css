@@ -4,10 +4,34 @@
 }
 
 .rhap_container {
-  background-color: blue;
+  background-color: #364859;
   
 }
 
-.rhap_progress-container {
-  background-color: green;
+/* .rhap_progress-container {
+  background-color: #79c99E;
+} */
+
+.p-0, .col-md-auto, .pb-0 {
+  background-color: #364859;
 }
+
+.list-group-item {
+  background-color: #364859 !important;
+  color: white;
+  font-weight: bold;
+}
+
+.card-title, .card-text {
+  color: white;
+  font-weight: bold;
+}
+
+.rhap_download-progress, .rhap_volume-bar {
+  background-color: white;
+}
+
+.rhap_time, .rhap_total-time{
+color: white;
+}
+
