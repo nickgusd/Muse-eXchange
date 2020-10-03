@@ -22,6 +22,7 @@ function App() {
   useEffect(()=> {
     if(localStorage.getItem("currentUser")){
       setUser(JSON.parse(localStorage.getItem("currentUser")));
+      console.log(setUser)
     }
     setPending(false)
   },[])
