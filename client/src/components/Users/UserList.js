@@ -32,7 +32,7 @@ const UserList = ({ users }) => {
     >
       {users.map(user => 
         <Card style={{ width: '18rem'}} key={user._id}>
-          {user.profile.pic 
+          {user.profile.profilePic
           ? (<Card.Img variant="top" src={user.profile.profilePic} />)
           : (<Card.Img variant="top" src='https://via.placeholder.com/200' />)}
           <Card.Body>

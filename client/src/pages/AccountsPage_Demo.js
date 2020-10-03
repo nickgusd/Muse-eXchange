@@ -33,14 +33,16 @@ const AccountPage = ({user}) => {
   const [link2, setLink2] = useState('');
   const [link3, setLink3] = useState('');
 
-  // Profile Form Inputs
-  const [firstNameInput, setFirstNameInput] = useState('');
-  const [lastNameInput, setLastNameInput] = useState('');
-  const [professionInput, setProfessionInput] = useState('');
-  const [aboutInput, setAboutInput] = useState('');
-  const [link1Input, setLink1Input] = useState('');
-  const [link2Input, setLink2Input] = useState('');
-  const [link3Input, setLink3Input] = useState('');
+  // To handle profile info input 
+  const [infoInput, setInfoInput] = useState('');
+
+  const inputChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name);
+    setInfoInput({...value, [name]: value})
+
+    console.log(infoInput)
+  }
 
   // Profile Pic 
   const [uploadFiles, setUploadFiles] = useState('');
@@ -94,13 +96,13 @@ const AccountPage = ({user}) => {
   // Upload Profile Information
   const handleSubmit = async () => {
     handleClose(); // closes the modal
-    if (firstNameInput) await API.updateProfile(tempId, "firstName", firstNameInput);
-    if (lastNameInput) await API.updateProfile(tempId, "lastName", lastNameInput);
-    if (professionInput) await API.updateProfile(tempId, "profession", professionInput);
-    if (aboutInput) await API.updateProfile(tempId, "about", aboutInput);
-    if (link1Input) await API.updateProfile(tempId, "link1", link1Input);
-    if (link2Input) await API.updateProfile(tempId, "link2", link2Input);
-    if(link3Input) await API.updateProfile(tempId, "link3", link3Input);
+    if (infoInput.firstNameInput) await API.updateProfile(tempId, "firstName", infoInput.firstNameInput);
+    if (infoInput.lastNameInput) await API.updateProfile(tempId, "lastName", infoInput.lastNameInput);
+    if (infoInput.professionInput) await API.updateProfile(tempId, "profession", infoInput.professionInput);
+    if (infoInput.aboutInput) await API.updateProfile(tempId, "about", infoInput.aboutInput);
+    if (infoInput.link1Input) await API.updateProfile(tempId, "link1", infoInput.link1Input);
+    if (infoInput.link2Input) await API.updateProfile(tempId, "link2", infoInput.link2Input);
+    if (infoInput.link3Input) await API.updateProfile(tempId, "link3", infoInput.link3Input);
 
     if (uploadFiles) {
       uploadImage();
@@ -158,33 +160,40 @@ const AccountPage = ({user}) => {
 
               <Form.Label>First name:</Form.Label>
               <Form.Control type="text" placeholder="first name"
-                onChange={e => setFirstNameInput(e.target.value)}
+                name="firstNameInput"
+                onChange={inputChange}
               />
 
               <Form.Label>Last name:</Form.Label>
               <Form.Control type="text" placeholder="last name"
-                onChange={e => setLastNameInput(e.target.value)}
+                name="lastNameInput"
+                onChange={inputChange}
               />
 
               <Form.Label>Profession:</Form.Label>
               <Form.Control type="text" placeholder="profession"
-                onChange={e => setProfessionInput(e.target.value)}
+                name="professionInput"
+                onChange={inputChange}
               />
 
               <Form.Label>Bio:</Form.Label>
               <Form.Control type="text" placeholder="bio"
-                onChange={e => setAboutInput(e.target.value)}
+                name="aboutInput"
+                onChange={inputChange}
               />
 
               <Form.Label>Website links</Form.Label>
               <Form.Control type="text" placeholder="Link"
-                onChange={e => setLink1Input(e.target.value)}
+                name="link1Input"
+                onChange={inputChange}
               />
               <Form.Control type="text" placeholder="Link"
-                onChange={e => setLink2Input(e.target.value)}
+                name="link2Input"
+                onChange={inputChange}
               />
               <Form.Control type="text" placeholder="Link"
-                onChange={e => setLink3Input(e.target.value)}
+                name="link3Input"
+                onChange={inputChange}
               />
               {/** Upload Pick */}
               <ListGroup>
