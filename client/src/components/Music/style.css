@@ -1,3 +1,13 @@
 .rhap_container, .rhap_container *:focus {
   outline: none;
+  
+}
+
+.rhap_container {
+  background-color: blue;
+  
+}
+
+.rhap_progress-container {
+  background-color: green;
 }
