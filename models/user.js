@@ -78,7 +78,8 @@ const userSchema = mongoose.Schema({
     ],
     purchaseSongs: [
       {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: "Song"
       }
     ],
     purchaseTutorials: [

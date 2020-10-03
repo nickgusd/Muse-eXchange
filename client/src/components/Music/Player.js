@@ -3,6 +3,11 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './style.css';
 
+
+ const styles = {
+  backgroundColor: "blue !important"
+}
+
 const Player = ({song}) => {
   // Testing functions in AudioPlayer
   const callFunc = () => {
@@ -13,6 +18,7 @@ const Player = ({song}) => {
     <AudioPlayer
       src={song}
       onPlay={() => callFunc()}
+      
     />
   )
 }

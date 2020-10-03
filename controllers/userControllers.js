@@ -41,6 +41,16 @@ module.exports = {
     .then(dbUser => res.json(dbUser))
     .catch(err => res.status(422).json(err));
   },
+
+getPurchasedSongs: function(req, res) {
+  const purchases = `profile.purchaseSongs.${req.params.purchases}`
+  db.User.findById("profile.purchaseSongs", purchases)
+  .then(dbUser => res.json(dbUser))
+    .catch(err => res.status(422).json(err))
+},
+
+
+
   // Ask wilson if theres a way to not separate this
   updateUserProfile: function(req, res) {
     db.User.findOneAndUpdate(
@@ -91,7 +101,22 @@ module.exports = {
     )
     .then(dbUser => res.json(dbUser))
     .catch(err => res.status(422).json(err));
-  }
+  },
+
+  AddPurchasedSongs: function(req, res) {
+    db.Song.findById(req.params.songid)
+    // .then(({_id}) => console.log({_id}))
+    .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseSongs": _id}}, { new: true }))
+    .then(user => res.json(user))
+    .catch(err => res.status(422).json(err))
+  },
+
+
+
+
+
+
+
 
 // AddUserSongs: function(req, res) {
 //     db.User.create(req.body)

@@ -22,6 +22,9 @@ router.route('/profile/:userid/:field')
   .get(userController.getProfile)
   .put(userController.updateProfile)
 
+  
+  
+
 // router.route('/profile/firstName/:userid')
 //   .put(userController.updateFirstName);
 
@@ -30,6 +33,8 @@ router.route('/profile/:userid/:field')
 router.route('/register')
 .post(userController.addNewUser)
 
+router.route(`/purchasedsong/:songid/:userid`)
+.get(userController.AddPurchasedSongs)
 
 // router.route('/profile/profilePic/:userid')
 //   .put(userController.updateProfilePic)

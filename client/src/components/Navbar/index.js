@@ -57,13 +57,22 @@ const NavbarComponent = ({handleLogout}) => {
   const handleFormSubmit = event => {
       event.preventDefault();
       const filterSearch = result.filter(user => user.username === search)
+      
+     if (filterSearch.length === 0) {
+       console.log("No entries Found")
+     } else {
+
       history.push(`/profile/${filterSearch[0].username}`)
       inputRef.current.value = "";
+
+    }
+
     //  window.location.reload()
       // this.renderRedirect()
       // this.setRedirect(this.state.results.username)
     
       // this.setRedirect()
+
     } 
 
     

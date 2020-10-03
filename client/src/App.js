@@ -12,6 +12,7 @@ import Profilepage from "./pages/Profilepage"
 import Payment from "./pages/Payment"
 import Team from './pages/Team';
 import AddSong from './pages/AddSong';
+import API from './utils/API';
 // import './App.css';import API from '../../utils/API';
 
 
@@ -22,6 +23,7 @@ function App() {
   useEffect(()=> {
     if(localStorage.getItem("currentUser")){
       setUser(JSON.parse(localStorage.getItem("currentUser")));
+      
     }
     setPending(false)
   },[])
@@ -38,6 +40,12 @@ function App() {
 
   console.log(user)
  
+  // AddPurchasedSongs = (songid, songid) => {
+  //   API.AddPurchasedSongs
+  // }
+
+
+
   return (
     <Router>
       {!user ? <h1>Loading...</h1> : <Navbar handleLogout={handleLogout} user={user._id}/>}

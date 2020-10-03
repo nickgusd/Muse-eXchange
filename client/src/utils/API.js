@@ -16,6 +16,12 @@ export default {
     return axios.post(`/api/songs/${userid}`,data)
   },
 
+  //get purchased songs for user 
+  AddPurchasedSongs: function(songid, userid) {
+    return axios.post(`api/users/${songid}/${userid}`)
+  },
+
+
   // axios call for genre, price, title, and author
   getSongsByQuery: function(query) {
     console.log(query)

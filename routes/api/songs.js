@@ -9,6 +9,8 @@ router.route('/:userid')
 .get(songController.findUserSongs)
 .post(songController.AddUserSongs)
 
+
+
 router.route('/genre/:genre')
 .get(songController.findSongsGenre)
 
@@ -30,8 +32,8 @@ router.route('/genre/:genre')
 .put(songController.updateSongTitle)
 
 
-
-
+// router.route(`/:songid/:userid`)
+// .post(songController.AddPurchasedSongs)
 
 
 
