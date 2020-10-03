@@ -16,6 +16,9 @@ import NavPills from "../components/Profile/NavPills/NavPills";
 import { InlineWidget } from "react-calendly"
 // import Calendly from "../components/Calendly/Calendly"
 
+/** ===== Music Player ===== */
+import MusicPlayer from '../components/Music/MusicPlayer';
+
 class Profile extends Component {
   state = {
     id: "",
@@ -226,20 +229,7 @@ getSongsByQuery = id => {
         tabContent: (
         <GridContainer justify="center">
         <GridItem>
-        <ul class="list-group" style={{ borderRadius: "0px" }}>
-        <li class="list-group-item d-flex justify-content-between">
-        <span className="mr-auto">Song 1</span>
-        <a href="#" className="btn btn-secondary">Buy</a>
-        </li> 
-        <li class="list-group-item d-flex justify-content-between">
-        <span className="mr-auto">Song 2</span>
-        <a href="#" className="btn btn-secondary">Buy</a>
-        </li> 
-        <li class="list-group-item d-flex justify-content-between">
-        <span className="mr-auto">Song 3</span>
-        <a href="#" className="btn btn-secondary">Buy</a>
-        </li> 
-        </ul>
+          <MusicPlayer />
         </GridItem>
         </GridContainer>
         )
