@@ -16,6 +16,9 @@ import NavPills from "../components/Profile/NavPills/NavPills";
 import { InlineWidget } from "react-calendly"
 // import Calendly from "../components/Calendly/Calendly"
 
+/** ===== Music Player ===== */
+import MusicPlayer from '../components/Music/MusicPlayer';
+
 class Profile extends Component {
   state = {
     id: "",
