@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import {useHistory} from 'react-router-dom'
+import API from "../../utils/API";
+// import { AddPurchasedSongs } from "../../../../controllers/userControllers";
 
 
 
@@ -50,8 +52,23 @@ console.log(props.id)
           const order = await actions.order.capture();
           console.log(order)
           console.log(props.currentuser.id)
+          console.log(order.purchase_units[0].description)
           // console.log(user)
           //get the song id here
+          //perform API call here
+
+          // AddPurchasedSongs: function(songid, userid) {
+          //   return axios.get(`api/users/${songid}/${userid}`)
+          // },
+
+          // AddPurchasedSongs = () => {
+          // console.log(order.purchase_units[0].description)
+          // API.AddPurchasedSongs(order.purchase_units[0].description, props.currentuser.id).then(res => {
+          //   console.log(res)}
+          // )
+          // .catch(err => console.log(err))
+          // }
+
 
 
         history.push("/")
