@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from '../src/pages/Home';
+import LandingPage from '../src/pages/LandingPage';
 import Profile from './pages/Profile';
 import NoMatch from "../src/pages/NoMatch";
 import UserProfile from './pages/UserProfile';
@@ -52,7 +53,7 @@ function App() {
       {user && <Redirect to="/"/>}
       <div className="wrapper">
         <Switch>
-          <Route exact path="/" component={() => <Home pending={pending} user={user}/>} />
+          <Route exact path="/" component={() => <LandingPage pending={pending} user={user}/>} />
           {/* <Route exact path="/">
             {!user ? <h1>Is Loading...</h1> : <Home />}
           </Route> */}
