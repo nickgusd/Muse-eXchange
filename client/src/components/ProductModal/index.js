@@ -5,22 +5,23 @@ import ModalForm from '../ModalForm'
 import API from '../../utils/API';
 require('dotenv').config();
 
-function ProductModal({ state, open, close }) {
+function ProductModal({ state, open, close}) {
   const [user, setUser] = useState();
-  useEffect(() => {
-    if (localStorage.getItem("currentUser")) {
+  useEffect(()=> {
+    if(localStorage.getItem("currentUser")){
       setUser(JSON.parse(localStorage.getItem("currentUser")));
     }
-
-  }, [state])
+    
+  },[])
   const [value, setValue] = useState({
     select: "Hip Hop"
   })
-
+  
 
   const handleSubmit = async () => {
 
     console.log(value)
+    console.log(user._id)
 
     const data = new FormData();
     data.append('file', value.files[0]);

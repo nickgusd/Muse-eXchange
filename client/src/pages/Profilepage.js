@@ -31,6 +31,7 @@ class Profile extends Component {
     profilePic: "",
     songs: [],
     songInfo: [],
+    user: [],
     purchaseSongs: [],
     purchaseSongsInfo: [],
   }
@@ -39,7 +40,21 @@ class Profile extends Component {
     document.title = `Music eXchange | ${username}`;
     this.setState({ ...this.state, username: username, test: "test" });
     this.getUserInfo(username);
+    if(localStorage.getItem("currentUser")){
+    this.setState({ user: JSON.parse(localStorage.getItem("currentUser"))});
+    }
+    
   }
+
+
+
+  // const [user, setUser] = useState();
+  // useEffect(()=> {
+  //   if(localStorage.getItem("currentUser")){
+  //     setUser(JSON.parse(localStorage.getItem("currentUser")));
+  //   }
+    
+  // },[])
 
   componentDidUpdate(_, prevState) {
     const username = this.props.match.params.username
@@ -123,9 +138,9 @@ class Profile extends Component {
   }
 
   render() {
+    console.log(this.state.user)
     if (!this.state.songs) return <h1>Loading...</h1>
-    console.log('888888888888888')
-    {console.log(this.state.songs)}
+   
     return (<Container fluid>
       <main className="profile-page">
         <section className="relative block" style={{ height: "400px" }}>
@@ -218,7 +233,7 @@ class Profile extends Component {
                                         <div>
                                           <div className="text-left">Song: {song.title}</div>
                                           <div className="text-left">Artist: {song.author}</div>
-                                          <PurchaseBtn title={song.title} price={song.price} id={song._id} />
+                                          <PurchaseBtn title={song.title} price={song.price} id={song._id} currentuser={this.state.user._id}/>
                                         </div>
                                       </Col>
                                     </Row>
