@@ -5,7 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import API from '../utils/API'
+import Cropper from '../components/Cropper';
 require('dotenv').config();
+
+
+
 
 
 const AddSong = () => {
@@ -51,7 +55,10 @@ const AddSong = () => {
   }
 
   return (<>
-    <Button variant="primary" onClick={handleShow}>
+
+    <Cropper />
+
+    {/* <Button variant="primary" onClick={handleShow}>
         Add Song
     </Button>
     
@@ -79,7 +86,7 @@ const AddSong = () => {
             Save Changes
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
   </>)
 }
 
