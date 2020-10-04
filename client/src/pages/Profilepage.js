@@ -27,6 +27,8 @@ class Profile extends Component {
     profilePic: "",
     songs: [],
     songInfo: [],
+    tutorials:[],
+    tutorialInfo:[]
   }
   componentDidMount() {
     const username = this.props.match.params.username;
@@ -45,6 +47,7 @@ class Profile extends Component {
       this.setState({...this.state, 
       id: res.data._id,
       songs: res.data.profile.songs,
+      tutorials: res.data.profile.tutorials,
       email: res.data.email,
       profilePic: res.data.profile.profilePic,
       username: res.data.username,
@@ -78,6 +81,7 @@ class Profile extends Component {
           { ...this.state,
             id: res.data._id,
             songs: res.data.profile.songs,
+            tutorials: res.data.profile.tutorials,
             email: res.data.email,
             profilePic: res.data.profile.profilePic
           }
@@ -85,6 +89,10 @@ class Profile extends Component {
         .then(() => {
           this.state.songs.map(songid => {
             this.getSongsByQuery(songid)
+          })
+        }).then(() => {
+          this.state.tutorials.map(tutorialid =>{
+            this.getTutorialsByQuery(tutorialid)
           })
         })
       .catch(err => console.log(err));
@@ -106,10 +114,19 @@ getSongsByQuery = id => {
    )
    .catch(err => console.log(err))
 }
+getTutorialsByQuery = id => {
+  API.getTutorialsByQuery(id)
+  .then(res => {
+    this.setState({...this.state, tutorialInfo: [...this.state.tutorialInfo, res.data[0]] })
+    this.setState({...this.state, tutorials: this.state.tutorialInfo})
+  })
+   .catch(err => console.log(err))
+}
 
   render() {
-    
+    console.log(this.state.tutorialsInfo)
     if(!this.state.songs) return <h1>Loading...</h1>
+    if(!this.state.tutorials) return <h1>Loading...</h1>
     return (<Container fluid>
       {/* {console.log(this.state)} */}
       
@@ -206,18 +223,9 @@ getSongsByQuery = id => {
         <GridContainer justify="center">
         <GridItem>
         <ul class="list-group" style={{ borderRadius: "0px" }}>
-          <li class="list-group-item d-flex justify-content-between">
-          <span className="mr-auto">Tutorial 1</span>
-          <a href="#" className="btn btn-secondary">Buy</a>
-          </li> 
-          <li class="list-group-item d-flex justify-content-between">
-          <span className="mr-auto">Tutorial 2</span>
-          <a href="#" className="btn btn-secondary">Buy</a>
-          </li> 
-          <li class="list-group-item d-flex justify-content-between">
-          <span className="mr-auto">Tutorial 3</span>
-          <a href="#" className="btn btn-secondary">Buy</a>
-          </li>      
+        {this.state.tutorials.map((tutorial)=>
+        <li class="list-group-item d-flex justify-content-between"><span>{tutorial.title}</span> <PurchaseBtn title={tutorial.title} price={tutorial.price} /></li>
+        )}   
         </ul>
         </GridItem>
         </GridContainer>

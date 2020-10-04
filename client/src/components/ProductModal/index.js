@@ -21,7 +21,7 @@ function ProductModal({ state, open, close }) {
   const handleSubmit = async () => {
 
     console.log(value)
-
+    if (value.selectField === "song"){
     const data = new FormData();
     data.append('file', value.files[0]);
     data.append('upload_preset', 'MusiceXchange'); // must be same name as upload
@@ -41,6 +41,17 @@ function ProductModal({ state, open, close }) {
       file: file.secure_url,
       price: value.price
     });
+    setValue({})
+  }
+  else{
+    API.AddTutorials(user._id,{
+      type:value.tutorialtype,
+      sessionType: value.sessiontype,
+      title:value.tutorialtitle,
+      price:value.tutorialprice
+    })
+    setValue({})
+  }
   }
 
   return (
