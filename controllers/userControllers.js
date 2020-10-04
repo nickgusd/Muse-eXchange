@@ -103,6 +103,15 @@ module.exports = {
     .catch(err => res.status(422).json(err))
   },
 
+  AddPurchasedTutorials: function(req, res) {
+    db.Tutorial.findById(req.params.tutorialid)
+    // .then(({_id}) => console.log({_id}))
+    .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.purchaseTutorials": _id}}, { new: true }))
+    .then(user => res.json(user))
+    .catch(err => res.status(422).json(err))
+  },
+
+
 
 
 

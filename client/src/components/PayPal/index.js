@@ -57,6 +57,7 @@ export default function Paypal(props) {
           console.log(order.purchase_units[0].description)
           const songid = order.purchase_units[0].description;
           const userid = props.currentuser
+          const tutorialid = order.purchase_units[0].description;
           
           console.log(songid)
           console.log(userid)
@@ -89,6 +90,17 @@ export default function Paypal(props) {
           }
             )
         
+          API.GetPurchasedTutorials(tutorialid, userid).then(res => {
+            console.log(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+            console.log(err.response.data)
+            console.error(err.response.headers)
+          }
+            )
+
+
 
 
 
