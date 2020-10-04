@@ -5,11 +5,13 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 function ModalForm({ getValue, values }) {
 
-  const [product, setProduct] = useState('song');
+  const [product, setProduct] = useState("song");
 
 
   const productChange = (event) => {
     setProduct(event.target.value)
+    const { name, value } = event.target
+ getValue({...values,[name]:value})
     console.log(product)
   }
 
@@ -78,7 +80,7 @@ function ModalForm({ getValue, values }) {
         (<div>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Tutorial Type:</Form.Label>
-            <Form.Control as="select" >
+            <Form.Control as="select" name="tutorialtype" onChange={inputChange}>
               <option value='Guitar'>Guitar</option>
               <option value='Vocal'>Vocal</option>
               <option value='Piano'>Piano</option>
@@ -89,18 +91,18 @@ function ModalForm({ getValue, values }) {
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Session Type</Form.Label>
-            <Form.Control as='select' >
+            <Form.Control as='select' name="sessiontype" onChange={inputChange} >
               <option value='Live'>Live</option>
               <option value='Recorded'>Recorded</option>
             </Form.Control  >
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Title:</Form.Label>
-            <Form.Control type="text" placeholder="Enter Tutorial Title" />
+            <Form.Control type="text" placeholder="Enter Tutorial Title" name="tutorialtitle" onChange={inputChange}/>
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Price:</Form.Label>
-            <Form.Control placeholder="Enter Amount" type='number' />
+            <Form.Control placeholder="Enter Amount" type='number' name="tutorialprice" onChange={inputChange} />
           </Form.Group>
 
         </div>)

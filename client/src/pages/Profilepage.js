@@ -33,6 +33,8 @@ class Profile extends Component {
     profilePic: "",
     songs: [],
     songInfo: [],
+    tutorials:[],
+    tutorialInfo:[],
     user: [],
     purchaseSongs: [],
     purchaseSongsInfo: [],
@@ -59,43 +61,24 @@ class Profile extends Component {
   // },[])
 
   componentDidUpdate(_, prevState) {
-    const username = this.props.match.params.username
-    if (prevState.username !== username) {
-      return API.getUserByUsername(username).then(res => {
-        this.setState({
-          ...this.state,
-          id: res.data._id,
-          songs: res.data.profile.songs,
-          email: res.data.email,
-          firstName: res.data.profile.firstName,
-          profilePic: res.data.profile.profilePic,
-          username: res.data.username,
-          purchaseSongs: res.data.profile.purchaseSongs,
-        })
-      }).then(() => {
-        /** ----- Get all Songs from user ----- */
-        if (prevState.songInfo === this.state.songInfo) {
-          console.log('true for songs')
-          // this.state.songs.map(id => {
-          //   API.getSongsByQuery(id).then(res => {
-          //     this.setState({ ...this.state, songsInfo: [...this.state.songInfo, res.data] });
-          //     this.setState({ ...this.state, songs: this.state.songInfo });
-          //   })
-          // })
-        } // end get songs
-        /** ----- Get all purchased songs from user ----- */
-        if (prevState.purchaseSongsInfo === this.state.purchaseSongsInfo) {
-          console.log('true for purchase songs')
-        //   this.state.purchaseSongs.map(id => {
-        //     API.getSongsByQuery(id).then(res => {
-        //       this.setState({ ...this.state, purchaseSongsInfo: [...this.state.purchaseSongsInfo, res.data] });
-        //       this.setState({ ...this.state, purchaseSongs: this.state.purchaseSongsInfo });
-        //     })
-        //   })
-        } // end get purchase songs
-      }) // end then()
-    } // end if
+      const username = this.props.match.params.username
+      if (prevState.username !== username) {
+        return API.getUserByUsername(username).then(res => {
+          console.log(res.data.profile.profilePic)
+        this.setState({...this.state, 
+        id: res.data._id,
+        songs: res.data.profile.songs,
+        tutorials: res.data.profile.tutorials,
+        email: res.data.email,
+        profilePic: res.data.profile.profilePic,
+        username: res.data.username,
+      })
+    })
   }
+}
+
+
+
 
   getUserInfo = username => {
     API.getUserByUsername(username)
@@ -106,9 +89,14 @@ class Profile extends Component {
             ...this.state,
             id: res.data._id,
             songs: res.data.profile.songs,
+            tutorials: res.data.profile.tutorials,
             email: res.data.email,
             profilePic: res.data.profile.profilePic,
             purchaseSongs: res.data.profile.purchaseSongs
+          })
+        }).then(() => {
+          this.state.tutorials.map(tutorialid =>{
+            this.getTutorialsByQuery(tutorialid)
           })
       })
       .then(() => {
@@ -138,7 +126,14 @@ class Profile extends Component {
       this.setState({ ...this.state, purchaseSongs: this.state.purchaseSongsInfo })
     }).catch(err => console.log(err))
   }
-
+  getTutorialsByQuery = id => {
+    API.getTutorialsByQuery(id)
+    .then(res => {
+      this.setState({...this.state, tutorialInfo: [...this.state.tutorialInfo, res.data[0]] })
+      this.setState({...this.state, tutorials: this.state.tutorialInfo})
+    })
+     .catch(err => console.log(err))
+  }
   render() {
     console.log(this.state.user)
     if (!this.state.songs) return <h1>Loading...</h1>
@@ -257,21 +252,12 @@ class Profile extends Component {
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem>
-                              <ul class="list-group" style={{ borderRadius: "0px" }}>
-                                <li class="list-group-item d-flex justify-content-between">
-                                  <span className="mr-auto">Tutorial 1</span>
-                                  <a href="#" className="btn btn-secondary">Buy</a>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                  <span className="mr-auto">Tutorial 2</span>
-                                  <a href="#" className="btn btn-secondary">Buy</a>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                  <span className="mr-auto">Tutorial 3</span>
-                                  <a href="#" className="btn btn-secondary">Buy</a>
-                                </li>
-                              </ul>
-                            </GridItem>
+        <ul class="list-group" style={{ borderRadius: "0px" }}>
+        {this.state.tutorials.map((tutorial)=>
+        <li class="list-group-item d-flex justify-content-between"><span>{tutorial.title}</span> <PurchaseBtn title={tutorial.title} price={tutorial.price} /></li>
+        )}   
+        </ul>
+        </GridItem>
                           </GridContainer>
                         )
                       },
@@ -318,4 +304,6 @@ class Profile extends Component {
     </Container>)
   }
 }
+
+
 export default Profile;

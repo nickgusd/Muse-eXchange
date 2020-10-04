@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {Redirect, Link} from "react-router-dom";
 
 import UserList from '../components/Users/UserList';
-import Container from '../components/Container';
+// import Container from '../components/Container';
 import Jumbotron from '../components/Jumbotron';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import API from '../utils/API';
 
 import Parallax from "../components/LandingPage/Parallax";
@@ -14,11 +14,12 @@ import Parallax from "../components/LandingPage/Parallax";
 import GridContainer from "../components/Profile/Grid/GridContainer"
 import GridItem from "../components/Profile/Grid/GridItem"
 
-// import {
-//     Button,
-//     Container,
-//     makeStyles
-// } from "@material-ui/core";
+import {
+    Button,
+    Container,
+    Card,
+    makeStyles
+} from "@material-ui/core";
 
 const styles ={
   home: {
@@ -73,8 +74,8 @@ class Home extends Component {
           {/* <Button>
             <Link to="/addsong">Add song</Link>
           </Button> */}
-{/* 
-<GridContainer>
+
+        {/* <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <h1>Share your creativity!</h1>
               <h4>
@@ -95,11 +96,11 @@ class Home extends Component {
                 Watch video
               </Button>
             </GridItem>
-          </GridContainer> */}
-        
+          </GridContainer>
+         */}
         </Parallax>
         <div className="main mainRaised">
-        <Container fullwidth>
+        <div className="container">
           <div className="mt-4">
             <h2>Explore</h2>
             <hr className="my-4" />
@@ -120,7 +121,7 @@ class Home extends Component {
           </div>
           {/** Show All Dancers */}
           <UserList users={this.state.dancers} />
-        </Container>
+        </div>
         </div>
       </div>
     )
