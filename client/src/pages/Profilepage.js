@@ -27,6 +27,7 @@ class Profile extends Component {
     profilePic: "",
     songs: [],
     songInfo: [],
+    user: []
   }
   componentDidMount() {
     const username = this.props.match.params.username;
@@ -34,8 +35,21 @@ class Profile extends Component {
     this.setState({...this.state, username: username, test: "test" });
     console.log(username);
     this.getUserInfo(username);
+    if(localStorage.getItem("currentUser")){
+    this.setState({ user: JSON.parse(localStorage.getItem("currentUser"))});
+    }
     
   }
+
+
+
+  // const [user, setUser] = useState();
+  // useEffect(()=> {
+  //   if(localStorage.getItem("currentUser")){
+  //     setUser(JSON.parse(localStorage.getItem("currentUser")));
+  //   }
+    
+  // },[])
 
   componentDidUpdate(_, prevState) {
     const username = this.props.match.params.username
@@ -108,7 +122,7 @@ getSongsByQuery = id => {
 }
 
   render() {
-    
+    console.log(this.state.user)
     if(!this.state.songs) return <h1>Loading...</h1>
     return (<Container fluid>
       {/* {console.log(this.state)} */}
@@ -192,7 +206,7 @@ getSongsByQuery = id => {
         <GridItem>
         <ul class="list-group" style={{ borderRadius: "0px" }}>
         {this.state.songs.map((song)=>
-        <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price} id={song._id}/></li>
+        <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price} id={song._id} currentuser={this.state.user._id}/></li>
         )}
         </ul>
         </GridItem>

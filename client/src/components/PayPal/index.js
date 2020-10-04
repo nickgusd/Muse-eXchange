@@ -1,11 +1,17 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {useHistory} from 'react-router-dom'
+
+
+
 export default function Paypal(props) {
+  // const [user, setUser] = useState();
+  
   const history = useHistory()
     const paypal = useRef();
 console.log(props.id)
+
     useEffect(() => {
-        
+     
             // Configure environment
             
             // Customize button (optional)
@@ -43,6 +49,11 @@ console.log(props.id)
           console.log(data);
           const order = await actions.order.capture();
           console.log(order)
+          console.log(props.currentuser.id)
+          // console.log(user)
+          //get the song id here
+
+
         history.push("/")
         },
         onError: (err) => {

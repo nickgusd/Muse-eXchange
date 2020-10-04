@@ -4,8 +4,12 @@
 }
 
 .rhap_container {
-  background-color: #364859;
+  background-color: #222326;
   
+}
+
+.rhap_container svg {
+  color: #1Db954;
 }
 
 /* .rhap_progress-container {
@@ -13,11 +17,11 @@
 } */
 
 .p-0, .col-md-auto, .pb-0 {
-  background-color: #364859;
+  background-color: #222326;
 }
 
 .list-group-item {
-  background-color: #364859 !important;
+  background-color: #222326 !important;
   color: white;
   font-weight: bold;
 }
@@ -35,3 +39,6 @@
 color: white;
 }
 
+.rhap_download-progress, .rhap_volume-bar {
+  color: #1Db954 !important;
+}

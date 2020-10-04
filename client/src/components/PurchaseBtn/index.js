@@ -8,7 +8,7 @@ function PurchaseBtn(props) {
     <div className="Paypal">
       <button
         onClick={() =>
-          history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}`)
+          history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}/${props.currentuser}`)
         }
       >
         {" "}

@@ -26,6 +26,8 @@ function Payment(props) {
   console.log()
   let price = props.match.params.price;
   let title = props.match.params.title;
+  const currentuser = useParams();
+
   const id = useParams();
   // let id = props.match.params.id
   console.log(id)
@@ -37,7 +39,7 @@ function Payment(props) {
   <Card.Body>
     <blockquote className="blockquote mb-0">
     <p > Pay securely by <span style={pStyle} >debit/credit card </span>or <span style={pStyle} >PayPal</span></p>
-    <Paypal title={title} price={price} id={id}/>
+    <Paypal title={title} price={price} id={id} currentuser={currentuser}/>
       <footer className="blockquote-footer">
         Thank you for shopping at <cite title="Source Title">Muse Xchange</cite>
       </footer>
