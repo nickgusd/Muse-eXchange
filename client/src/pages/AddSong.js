@@ -56,10 +56,8 @@ const AddSong = () => {
 
   return (<>
 
-    <Cropper />
-
-    {/* <Button variant="primary" onClick={handleShow}>
-        Add Song
+    <Button variant="primary" onClick={handleShow}>
+        Add photo
     </Button>
     
     <Modal show={show} onHide={handleClose}>
@@ -67,16 +65,7 @@ const AddSong = () => {
           <Modal.Title>Edit Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group>
-              <Form.File 
-                id="uploadImageControl" 
-                label="Upload an mp3" 
-                name="file"
-                onChange={uploadFileState}
-              />
-            </Form.Group>
-          </Form>
+          <Cropper />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -86,7 +75,7 @@ const AddSong = () => {
             Save Changes
           </Button>
         </Modal.Footer>
-      </Modal> */}
+      </Modal>
   </>)
 }
 

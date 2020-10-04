@@ -15,18 +15,16 @@ const Cropper = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={6}>
-          <input type='file' accept='image/' onChange={handleFileChange} />
-        </Col>
-        <Col xs={6}>
-          <div className="bg-secondary" style={{width: "350px", height: "350px"}}>
+        <input type='file' accept='image/' onChange={handleFileChange} />
+      </Row>
+      <Row>
+        <div className="bg-secondary" style={{width: "400px", height: "400px"}}>
           {src && (
             <ReactCrop src={src} onImageLoaded={setImage} crop={crop} onChange={setCrop}
               style={{width: "400px", height: "400px"}}
             />
           )}
-          </div>
-        </Col>
+        </div>
       </Row>
     </Container>
   )
