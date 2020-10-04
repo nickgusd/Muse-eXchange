@@ -12,7 +12,7 @@ const styles = {
 
 const JumbotronComponent = () => {
   return (
-    <div style={{background: "black"}}>
+    <div>
       <Jumbotron style={styles}>
       <h1>Share your creativity!</h1>
         <p>
