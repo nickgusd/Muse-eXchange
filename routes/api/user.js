@@ -23,22 +23,32 @@ router.route('/profile/:userid/:field')
   .put(userController.updateProfile)
 
   
-  
-
 // router.route('/profile/firstName/:userid')
 //   .put(userController.updateFirstName);
 
 // router.route('/profile/lastName/:userid')
 //   .put(userController.updateLastName);
+
+
 router.route('/register')
 .post(userController.addNewUser)
 
 router.route(`/purchasedsong/:songid/:userid`)
 .get(userController.AddPurchasedSongs)
 
-
+router.route(`/purchasedtutorial/:tutorialid/:userid`)
+.get(userController.AddPurchasedTutorials)
 
 // router.route('/profile/profilePic/:userid')
 //   .put(userController.updateProfilePic)
+
+ 
+// router.route('/profile/firstName/:userid')
+//   .put(userController.updateFirstName);
+
+// router.route('/profile/lastName/:userid')
+//   .put(userController.updateLastName);
+
+
 
 module.exports = router;
