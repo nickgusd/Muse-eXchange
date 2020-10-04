@@ -9,6 +9,8 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import Favorite from "@material-ui/icons/Favorite";
 import EventIcon from '@material-ui/icons/Event';
 
+import { Button } from "@material-ui/core"
+
 import GridContainer from "../components/Profile/Grid/GridContainer";
 import GridItem from "../components/Profile/Grid/GridItem";
 import NavPills from "../components/Profile/NavPills/NavPills";
@@ -189,7 +191,12 @@ class Profile extends Component {
 
               <div className="mt-4 text-gray-700">
                 {/* <p>No songs</p> */}
-                <a href="#" className="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1">+ Add Song</a>
+                {/* <Button 
+                color="primary"
+                variant="contained"
+                onClick={handleShow}
+                >
+                + Add Song</Button> */}
                 {this.state.songs
                   ? <div>
                   </div>
