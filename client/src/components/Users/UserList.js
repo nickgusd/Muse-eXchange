@@ -58,7 +58,7 @@ const UserList = ({ users }) => {
               <Button 
               color="primary"
               variant="contained"
-              style={{ borderRadius: "0px", backgroundColor: "#ed64a6"}}
+              style={{ borderRadius: "0px", backgroundColor: "#FF416C"}}
               fullWidth
               >
                 See Profile
