@@ -55,8 +55,9 @@ const AddSong = () => {
   }
 
   return (<>
+  <Cropper />
 
-    <Button variant="primary" onClick={handleShow}>
+    {/* <Button variant="primary" onClick={handleShow}>
         Add photo
     </Button>
     
@@ -75,7 +76,7 @@ const AddSong = () => {
             Save Changes
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
   </>)
 }
 
