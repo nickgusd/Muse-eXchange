@@ -1,19 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
+import { Button } from 'react-bootstrap';
 function PurchaseBtn(props) {
   const history = useHistory();
 
   return (
     <div className="Paypal">
-      <button
-        onClick={() =>
-          history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}`)
-        }
+      <Button
+        variant="dark"
+        onClick={() => history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}`)}
       >
         {" "}
         Make Purchase{" "}
-      </button>
+      </Button>
     </div>
   );
 }

@@ -42,14 +42,12 @@ module.exports = {
     .catch(err => res.status(422).json(err));
   },
 
-getPurchasedSongs: function(req, res) {
-  const purchases = `profile.purchaseSongs.${req.params.purchases}`
-  db.User.findById("profile.purchaseSongs", purchases)
-  .then(dbUser => res.json(dbUser))
-    .catch(err => res.status(422).json(err))
-},
-
-
+  getPurchasedSongs: function(req, res) {
+    const purchases = `profile.purchaseSongs.${req.params.purchases}`
+    db.User.findById("profile.purchaseSongs", purchases)
+    .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err))
+  },
 
   // Ask wilson if theres a way to not separate this
   updateUserProfile: function(req, res) {

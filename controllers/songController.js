@@ -1,13 +1,12 @@
 const db = require("../models");
 
 module.exports = {
-    AddUserSongs: function(req, res) {
+      AddUserSongs: function(req, res) {
         db.Song.create(req.body)
         .then(({_id}) => db.User.findOneAndUpdate({_id: req.params.userid}, {$push: {"profile.songs": _id}}, { new: true }))
         .then(dbAddedSongs => res.json(dbAddedSongs))
         .catch(err => res.status(422).json(err))
       },
-
 
       findAllUserSongs: function(req, res) {
         db.Song.find({})
@@ -97,7 +96,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
 
       },
-   
+
+      // // Find song by id
+      findSongById: function(res, req) {
+        db.Song.findById(req.params.songid)
+          .then(dbSong => res.json(dbSong))
+          .catch(err => res.status(422).json(err))
+      },
+
 }
 
 

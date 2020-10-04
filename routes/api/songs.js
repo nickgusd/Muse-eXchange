@@ -34,7 +34,8 @@ router.route('/genre/:genre')
 
 // router.route(`/:songid/:userid`)
 // .post(songController.AddPurchasedSongs)
-
+router.route('/ide/:songid')
+  .get(songController.findSongById)
 
 
 
