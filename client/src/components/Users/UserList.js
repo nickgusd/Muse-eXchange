@@ -29,7 +29,7 @@ const UserList = ({ users }) => {
       responsive={responsive}
       swipeable={true}
       infinite={true}
-    >
+    >{console.log(users, "helloworldbitch")}
       {users.map(user => 
         <Card style={{ width: '18rem'}} key={user._id}>
           {user.profile.profilePic
