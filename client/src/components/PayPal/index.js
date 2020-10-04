@@ -1,16 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
 import {useHistory} from 'react-router-dom'
 import API from "../../utils/API";
-// import { AddPurchasedSongs } from "../../../../controllers/userControllers";
-
-
 
 export default function Paypal(props) {
   // const [user, setUser] = useState();
   
+  
+  
   const history = useHistory()
-    const paypal = useRef();
-console.log(props.id)
+  const paypal = useRef();
+  console.log(props.id)
+
 
     useEffect(() => {
      
@@ -51,23 +51,44 @@ console.log(props.id)
           console.log(data);
           const order = await actions.order.capture();
           console.log(order)
-          console.log(props.currentuser.id)
+          console.log(props.currentuser)
+         
+          
           console.log(order.purchase_units[0].description)
+          const songid = order.purchase_units[0].description;
+          const userid = props.currentuser
+          
+          console.log(songid)
+          console.log(userid)
+
+        
           // console.log(user)
           //get the song id here
           //perform API call here
 
-          // AddPurchasedSongs: function(songid, userid) {
+          // GetPurchasedSongs: function(songid, userid) {
           //   return axios.get(`api/users/${songid}/${userid}`)
           // },
 
-          // AddPurchasedSongs = () => {
+          // PurchasedSongs = (songid, userid) => {
+          //    songid = order.purchase_units[0].description;
+          //    userid = props.currentuser
+          
           // console.log(order.purchase_units[0].description)
-          // API.AddPurchasedSongs(order.purchase_units[0].description, props.currentuser.id).then(res => {
-          //   console.log(res)}
-          // )
-          // .catch(err => console.log(err))
-          // }
+          
+
+         
+
+          API.GetPurchasedSongs(songid, userid).then(res => {
+            console.log(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+            console.log(err.response.data)
+            console.error(err.response.headers)
+          }
+            )
+        
 
 
 

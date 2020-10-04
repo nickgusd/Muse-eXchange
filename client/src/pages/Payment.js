@@ -26,7 +26,15 @@ function Payment(props) {
   console.log()
   let price = props.match.params.price;
   let title = props.match.params.title;
-  const currentuser = useParams();
+  let userid = props.location.pathname;
+  let getuserid = userid.split("/");
+  let currentuser = getuserid[6];
+
+
+  console.log(userid)
+  console.log(getuserid)
+  // const currentuser = useParams();
+  console.log(currentuser)
 
   const id = useParams();
   // let id = props.match.params.id

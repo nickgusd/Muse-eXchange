@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 function PurchaseBtn(props) {
   const history = useHistory();
 
+console.log(props.currentuser)
+
+
   return (
     <div className="Paypal">
       <button
