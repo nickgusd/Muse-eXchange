@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import Home from '../src/pages/Home';
 import Profile from './pages/Profile';
 import NoMatch from "../src/pages/NoMatch";
-import AccountPage from './pages/AccountsPage';
+import UserProfile from './pages/UserProfile';
 import AccountPage_Demo from './pages/AccountsPage_Demo';
 import Login from "./components/login";
 import Navbar from "./components/Navbar";
@@ -59,7 +59,7 @@ function App() {
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
           <Route path="/profile/:username" render={(props) => <Profilepage {...props}/>}/>
           {/* <Route path="/account" component={AccountPage_Demo} /> */}
-          <Route path="/account" component={() => <AccountPage_Demo pending={pending} user={user._id}/>} />
+          <Route path="/account" component={() => <UserProfile pending={pending} user={user._id}/>} />
           <Route path="/auth" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
           <Route path="/pages/Payment/:title/:price/:id" component={Payment}/>  
           <Route path="/team">

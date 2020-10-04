@@ -23,9 +23,9 @@ const MusicPlayer = ({songs}) => {
           </Card>
         </Col>
         <Col className="p-0" style={{ height: "100%", overflow: "auto" }}>
-          <ListGroup className="w-100 text-left">
+          <ListGroup className="w-100 text-left" variant="flush">
             {songs.map(song => 
-              <ListGroup.Item onClick={() => {
+              <ListGroup.Item action onClick={() => {
                 setSong(song.file);
                 setAuthor(song.author);
                 setTitle(song.title);

@@ -19,12 +19,15 @@ import { InlineWidget } from "react-calendly"
 /** ===== Music Player ===== */
 import MusicPlayer from '../components/Music/MusicPlayer';
 import SmallPlayer from '../components/Music/SmallPlayer';
+import {Row, Col, Image } from 'react-bootstrap';
+import musicIcon from '../assets/svg/music.png';
 
 class Profile extends Component {
   state = {
     id: "",
     username: "",
     email: "",
+    firstName: "",
     profilePic: "",
     songs: [],
     songInfo: [],
@@ -47,6 +50,7 @@ class Profile extends Component {
           id: res.data._id,
           songs: res.data.profile.songs,
           email: res.data.email,
+          firstName: res.data.profile.firstName,
           profilePic: res.data.profile.profilePic,
           username: res.data.username,
           purchaseSongs: res.data.profile.purchaseSongs,
@@ -78,7 +82,8 @@ class Profile extends Component {
 
   getUserInfo = username => {
     API.getUserByUsername(username)
-      .then(res =>
+      .then(res => {
+        console.log(res.data.profile.songs)
         this.setState(
           {
             ...this.state,
@@ -87,20 +92,20 @@ class Profile extends Component {
             email: res.data.email,
             profilePic: res.data.profile.profilePic,
             purchaseSongs: res.data.profile.purchaseSongs
-          }
-        ))
+          })
+      })
       .then(() => {
         /** ----- Songs ----- */
         this.state.songs.map(songid => {
           this.getSongsByQuery(songid);
         });
+      }).then(() => {
         /** ---- Purchased Songs ----- */
         this.state.purchaseSongs.map(songid => {
           this.getPurchaseSongsByQuery(songid);
         })
       })
       .catch(err => console.log(err));
-
   }
   /** ----- Songs ----- */
   getSongsByQuery = id => {
@@ -119,9 +124,9 @@ class Profile extends Component {
 
   render() {
     if (!this.state.songs) return <h1>Loading...</h1>
+    console.log('888888888888888')
+    {console.log(this.state.songs)}
     return (<Container fluid>
-      {/* {console.log(this.state)} */}
-
       <main className="profile-page">
         <section className="relative block" style={{ height: "400px" }}>
           <div
@@ -167,7 +172,7 @@ class Profile extends Component {
             </div>
 
             <div className="text-center mt-3">
-              <h3 className="text-4xl font-semibold leading-normal text-gray-800">{this.state.username}'s Song List</h3>
+              <h3 className="text-4xl font-semibold leading-normal text-gray-800">{this.state.firstName}'s Song List</h3>
               <div className="text-sm leading-normal text-gray-500 font-bold uppercase">
                 <h5>Contact: {this.state.email}</h5>
               </div>
@@ -197,15 +202,29 @@ class Profile extends Component {
                         tabIcon: PlayCircleOutlineIcon,
                         tabContent: (
                           <GridContainer justify="center">
-                            <GridItem>
+                            <GridItem className="pt-0 pb-0">
                               <ul class="list-group" style={{ borderRadius: "0px" }}>
+                                {console.log(this.state.songs)}
                                 {this.state.songs.map((song) =>
-                                  <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price} id={song._id} /></li>
+                                  <li class="list-group-item d-flex justify-content-between">
+                                    <Row className='w-100'>
+                                      <Col xs={2} className="pb-0 pt-0">
+                                        <Image src={musicIcon} fluid style={{width: "100%"}}/>
+                                      </Col>
+                                      <Col xs={7}>
+                                        <SmallPlayer song={song}/>
+                                      </Col>
+                                      <Col className="p-0">
+                                        <div>
+                                          <div className="text-left">Song: {song.title}</div>
+                                          <div className="text-left">Artist: {song.author}</div>
+                                          <PurchaseBtn title={song.title} price={song.price} id={song._id} />
+                                        </div>
+                                      </Col>
+                                    </Row>
+                                  </li>
                                 )}
                               </ul>
-                            </GridItem>
-                            <GridItem>
-                              <SmallPlayer />
                             </GridItem>
                           </GridContainer>
                         )
@@ -239,10 +258,6 @@ class Profile extends Component {
                         tabIcon: Favorite,
                         tabContent: (
                           <GridContainer justify="center">
-                            {console.log('------------------------')}
-                            {console.log(this.state.songs)}
-                            {console.log(this.state.purchaseSongs)}
-                            {console.log('------------------------')}
                             <GridItem>
                               <MusicPlayer songs={this.state.purchaseSongs}/>
                             </GridItem>

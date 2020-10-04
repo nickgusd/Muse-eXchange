@@ -14,12 +14,18 @@ const SmallPlayer = ({ song }) => {
     console.log('heelo')
   }
 
+  console.log(song);
+  let songFile = '';
+  try {
+    songFile = song.file
+  } catch(err) {
+    console.log('No file')
+  }
   return (
-    <AudioPlayer style={{width: '300px'}}
-      src={song}
+    <AudioPlayer style={{width: '100%'}}
+      src={song.file}
       onPlay={() => callFunc()}
-      layout="horizontal-reverse"
-      
+      layout="stacked-reverse" 
     />
   )
 }
