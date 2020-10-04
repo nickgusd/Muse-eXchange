@@ -4,7 +4,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import './style.css';
 
 
- const styles = {
+const styles = {
   backgroundColor: "blue !important"
 }
 
