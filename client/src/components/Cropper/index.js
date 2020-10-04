@@ -13,13 +13,7 @@ const Cropper = () => {
   const [crop, setCrop] = useState({ aspect: 1 / 1 });
   const [result, setResult] = useState(null);
 
-  /**
-   * @param {HTMLImageElement} image - Image File Object
-   * @param {Object} crop - crop Object
-   * @param {String} fileName - Name of the returned file in Promise
-   */
-
-  function getCroppedImg(image, crop, fileName) {
+  function getCroppedImg() {
     const canvas = document.createElement('canvas');
     const scaleX = image.naturalWidth / image.width;
     const scaleY = image.naturalHeight / image.height;
