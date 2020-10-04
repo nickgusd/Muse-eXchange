@@ -18,6 +18,7 @@ import { InlineWidget } from "react-calendly"
 
 /** ===== Music Player ===== */
 import MusicPlayer from '../components/Music/MusicPlayer';
+import SmallPlayer from '../components/Music/SmallPlayer';
 
 class Profile extends Component {
   state = {
@@ -202,6 +203,9 @@ class Profile extends Component {
                                   <li class="list-group-item d-flex justify-content-between"><span>{song.title}</span> <PurchaseBtn title={song.title} price={song.price} id={song._id} /></li>
                                 )}
                               </ul>
+                            </GridItem>
+                            <GridItem>
+                              <SmallPlayer />
                             </GridItem>
                           </GridContainer>
                         )
