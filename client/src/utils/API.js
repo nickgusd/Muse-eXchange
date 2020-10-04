@@ -15,6 +15,15 @@ export default {
   AddSongs: function(userid,data) {
     return axios.post(`/api/songs/${userid}`,data)
   },
+//  Add tutorials for user to sell
+  AddTutorials: function(userid,data){
+    return axios.post(`/api/tutorials/${userid}`,data)
+  },
+  // Get tutorials of out user 
+  getTutorialsByQuery: function(query) {
+    console.log(query)
+    return axios.get(`/api/tutorials/${query}`)
+  },
 
   //get purchased songs for user 
   GetPurchasedSongs: function(songid, userid) {
