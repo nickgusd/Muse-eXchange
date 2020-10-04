@@ -30,6 +30,11 @@ export default {
     return axios.get(`api/users/purchasedsong/${songid}/${userid}`)
   },
 
+//get purchased tutorials for user
+
+  GetPurchasedTutorials: function(tutorialid, userid) {
+  return axios.get(`api/users/purchasedtutorial/${tutorialid}/${userid}`)
+  },
 
   // axios call for genre, price, title, and author
   getSongsByQuery: function(query) {

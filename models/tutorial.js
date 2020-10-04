@@ -7,7 +7,7 @@ const tutorialSchema = new Schema({
   type: String,
   sessionType: String,
   title: String,
-  // link: String,
+  link: String,
   // description: String,
   price: Number
 });

@@ -254,7 +254,7 @@ class Profile extends Component {
                             <GridItem>
         <ul class="list-group" style={{ borderRadius: "0px" }}>
         {this.state.tutorials.map((tutorial)=>
-        <li class="list-group-item d-flex justify-content-between"><span>{tutorial.title}</span> <PurchaseBtn title={tutorial.title} price={tutorial.price} /></li>
+        <li class="list-group-item d-flex justify-content-between"><span>{tutorial.title}</span> <PurchaseBtn title={tutorial.title} price={tutorial.price} id={tutorial._id} currentuser={this.state.user._id}/></li>
         )}   
         </ul>
         </GridItem>
@@ -307,3 +307,4 @@ class Profile extends Component {
 
 
 export default Profile;
+
