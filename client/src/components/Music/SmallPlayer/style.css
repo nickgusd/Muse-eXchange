@@ -1,0 +1,15 @@
+.rhap_container, .rhap_container *:focus {
+  outline: none;
+  
+}
+
+.rhap_container {
+  background-color: white;
+  border: 0px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.rhap_progress-container {
+  background-color: white;
+  width: 20px;
+}

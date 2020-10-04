@@ -36,6 +36,8 @@ router.route('/register')
 router.route(`/purchasedsong/:songid/:userid`)
 .get(userController.AddPurchasedSongs)
 
+
+
 // router.route('/profile/profilePic/:userid')
 //   .put(userController.updateProfilePic)
 

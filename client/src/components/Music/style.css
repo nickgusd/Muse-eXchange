@@ -4,10 +4,41 @@
 }
 
 .rhap_container {
-  background-color: blue;
+  background-color: #222326;
   
 }
 
-.rhap_progress-container {
-  background-color: green;
+.rhap_container svg {
+  color: #1Db954;
+}
+
+/* .rhap_progress-container {
+  background-color: #79c99E;
+} */
+
+.p-0, .col-md-auto, .pb-0 {
+  background-color: #222326;
+}
+
+.list-group-item {
+  background-color: #222326 !important;
+  color: white;
+  font-weight: bold;
+}
+
+.card-title, .card-text {
+  color: black;
+  font-weight: bold;
+}
+
+.rhap_download-progress, .rhap_volume-bar {
+  background-color: white;
+}
+
+.rhap_time, .rhap_total-time{
+color: white;
+}
+
+.rhap_download-progress, .rhap_volume-bar {
+  color: #1Db954 !important;
 }
