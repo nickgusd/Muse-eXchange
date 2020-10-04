@@ -50,6 +50,7 @@ export default {
   },
   register(data){
     return axios.post("/api/users/register", data)
-  }
+  },
 
+  
 }

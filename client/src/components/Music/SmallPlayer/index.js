@@ -8,19 +8,26 @@ const styles = {
   backgroundColor: "blue !important"
 }
 
-const Player = ({song}) => {
+const SmallPlayer = ({ song }) => {
   // Testing functions in AudioPlayer
   const callFunc = () => {
     console.log('heelo')
   }
 
+  console.log(song);
+  let songFile = '';
+  try {
+    songFile = song.file
+  } catch(err) {
+    console.log('No file')
+  }
   return (
-    <AudioPlayer
-      src={song}
+    <AudioPlayer style={{width: '100%'}}
+      src={song.file}
       onPlay={() => callFunc()}
-      
+      layout="stacked-reverse" 
     />
   )
 }
 
-export default Player;
+export default SmallPlayer;
