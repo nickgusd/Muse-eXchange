@@ -293,11 +293,12 @@ const AccountPage = ({user}) => {
             LinkedIn: {link4}
           </Typography>
 
-          <Button
-          color="primary"
-          variant="contained"
-          onClick={handleShow}>
-            Edit User Profile
+          <Button 
+              color="primary"
+              variant="contained"
+              style={{ borderRadius: "0px", backgroundColor: "#FF416C"}}
+              onClick={handleShow}>
+              Edit User Profile
           </Button>
 
       {/** Display Modal */}
@@ -376,12 +377,15 @@ const AccountPage = ({user}) => {
             Close
           </Button>
           <Button 
-          color="primary"
-          variant="contained" 
-          onClick={handleSubmit}
-          fullWidth>
-            Save Changes
+              color="primary"
+              variant="contained"
+              style={{ borderRadius: "0px", backgroundColor: "#FF416C"}}
+              fullWidth
+              onClick={handleSubmit}
+              fullWidth>
+              Save Changes
           </Button>
+          
         </Modal.Footer>
       </Modal>
 

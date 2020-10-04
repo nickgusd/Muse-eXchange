@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+// import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
+import { Card, CardMedia, Button, CardContent, Typography } from "@material-ui/core"
 
 
 const responsive = {
@@ -33,17 +35,36 @@ const UserList = ({ users }) => {
       infinite={true}
     >{console.log(users)}
       {users.map(user => 
-        <Card style={{ width: '12rem',height:"18rem"}} key={user._id}>
+        <Card style={{ width: '12rem',height:"100%", borderRadius: "0", border: "solid 1px", borderColor: "#dcdcdc"}} key={user._id}>
           {user.profile.profilePic
-          ? (<Card.Img variant="top" style={{ width: '100%',height:"9rem"}} src={user.profile.profilePic} />)
-          : (<Card.Img variant="top" src='https://via.placeholder.com/200' />)}
-          <Card.Body>
-            <Card.Title>{user.profile.firstName} {user.profile.lastName}</Card.Title>
-            <Card.Text>{user.profile.profession}</Card.Text>
+          ? (<CardMedia 
+            component="img"
+            height="200px"
+            width="200px"
+            image={user.profile.profilePic}
+            variant="top" 
+            style={{ borderRadius: "0"}} 
+             />)
+          : (<CardMedia 
+          variant="top" 
+          component="img"
+          height="200px"
+          style={{ borderRadius: "0"}} 
+          image='https://via.placeholder.com/200' />)}
+          <CardContent>
+          <Typography gutterBottom className="h4">{user.profile.firstName} {user.profile.lastName}</Typography>
+          <Typography variant="body2" color="textSecondary" component="p">{user.profile.profession}</Typography>
             <Link to={`/profile/${user.username}`}>
-              <Button variant="primary">See Profile</Button>
+              <Button 
+              color="primary"
+              variant="contained"
+              style={{ borderRadius: "0px", backgroundColor: "#FF416C"}}
+              fullWidth
+              >
+                See Profile
+                </Button>
             </Link>
-          </Card.Body>
+          </CardContent>
         </Card>
       )}
     </Carousel>)
