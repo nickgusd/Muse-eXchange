@@ -31,9 +31,9 @@ const UserList = ({ users }) => {
       infinite={true}
     >{console.log(users, "helloworldbitch")}
       {users.map(user => 
-        <Card style={{ width: '18rem'}} key={user._id}>
+        <Card style={{ width: '12rem',height:"18rem"}} key={user._id}>
           {user.profile.profilePic
-          ? (<Card.Img variant="top" src={user.profile.profilePic} />)
+          ? (<Card.Img variant="top" style={{ width: '100%',height:"9rem"}} src={user.profile.profilePic} />)
           : (<Card.Img variant="top" src='https://via.placeholder.com/200' />)}
           <Card.Body>
             <Card.Title>{user.profile.firstName} {user.profile.lastName}</Card.Title>
