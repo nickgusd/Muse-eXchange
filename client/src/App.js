@@ -53,8 +53,8 @@ function App() {
       {user && <Redirect to="/"/>}
       <div className="wrapper">
         <Switch>
-          {/* <Route exact path="/" component={() => <LandingPage pending={pending} user={user}/>} /> */}
-          <Route exact path="/" component={() => <Home pending={pending} user={user}/>} />
+          <Route exact path="/" component={() => <LandingPage pending={pending} user={user}/>} />
+          {/* <Route exact path="/" component={() => <Home pending={pending} user={user}/>} /> */}
           {/* <Route exact path="/">
             {!user ? <h1>Is Loading...</h1> : <Home />}
           </Route> */}
