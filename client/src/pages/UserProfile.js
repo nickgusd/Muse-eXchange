@@ -195,7 +195,7 @@ const AccountPage = ({user}) => {
           subheader="The information can be edited"
           title="Account Page"
         />
-        <Divider />
+        <Divider style={{ marginBottom: "30px" }}/>
 
         <Box
           alignItems="center"
@@ -204,7 +204,9 @@ const AccountPage = ({user}) => {
         >
 
       {profilePic ? (
-        loading ? (<h3>Loading...</h3>) : (<Image src={profilePic} style={{ width: "250px" }} roundedCircle />)
+        loading ? 
+        (<h3>Loading...</h3>) 
+        : (<Image src={profilePic} style={{ width: "250px", height: "250px", marginBottom: "20px"}} roundedCircle />)
       ) : (
           <Image src="https://via.placeholder.com/250" roundedCircle />
         )}
@@ -227,7 +229,7 @@ const AccountPage = ({user}) => {
 
         </Box>
 
-        <Divider />
+        <Divider style={{ marginTop: "20px", marginBottom: "20px" }}/>
 
         <Box
           alignItems="center"
@@ -301,7 +303,7 @@ const AccountPage = ({user}) => {
           <Button 
               color="primary"
               variant="contained"
-              style={{ borderRadius: "0px", backgroundColor: "#FF416C"}}
+              style={{ borderRadius: "0px", backgroundColor: "#FF416C", marginTop: "20px"}}
               onClick={handleShow}>
               Edit User Profile
           </Button>
