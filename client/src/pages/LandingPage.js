@@ -23,8 +23,10 @@ import {
 
 const styles ={
   home: {
-    height: "100%"
+    height: "100%",
+    backgroundColor: "black"
   }
+
 }
 const professions = ["Musician", "Dancer"];
 
@@ -68,7 +70,7 @@ class Home extends Component {
     return (
       !this.props.user && !this.props.pending ? <Redirect to="/signin"/> :
       <div style={styles.home}>
-        <Parallax image={require("../components/Jumbotron/image/theatre-swing.png")}>
+        <Parallax image={require("../assets/svg/BG.jpg")}>
         <Jumbotron />
         
           {/* <Button>
@@ -100,23 +102,23 @@ class Home extends Component {
          */}
         </Parallax>
         <div className="main mainRaised">
-        <div className="container" fullWidth style={{paddingBottom: "5%"}}>
+        <div className="container"  fullWidth style={{paddingBottom: "5%", backgroundColor: "transparent" } }>
           <div className="mt-4">
-            <h2>Explore</h2>
+            <h2 style={{color: "white"}}>Explore</h2>
             <hr className="my-4" />
           </div>
           {/** Show All User */}
           <UserList users={this.state.users} />
 
           <div className="mt-4">
-            <h2>Musicians</h2>
+            <h2 style={{color: "white"}}>Musicians</h2>
             <hr className="my-4" />
           </div>
           {/** Show All Musicians */}
           <UserList users={this.state.musicians} />
 
           <div className="mt-4">
-            <h2>Dancers</h2>
+            <h2 style={{color: "white"}}>Dancers</h2>
             <hr className="my-4" />
           </div>
           {/** Show All Dancers */}

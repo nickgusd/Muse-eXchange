@@ -21,6 +21,9 @@ const styles = {
     color: "white",
     textDecoration: 'none'
   },
+  X: {
+    color: "#ff416c"
+  }
 }
 
 const NavbarComponent = ({handleLogout}) => {
@@ -78,9 +81,9 @@ const NavbarComponent = ({handleLogout}) => {
     
 
     return (
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="black" variant="dark" expand="lg">
         <Link to="/">
-          <Navbar.Brand>Music eXchange</Navbar.Brand>
+          <Navbar.Brand>Music e<span style={styles.X} >X</span>change</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

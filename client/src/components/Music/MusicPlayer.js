@@ -14,7 +14,7 @@ const MusicPlayer = ({songs}) => {
 
   return (
     <Container fluid>
-      <Row style={{ height: "361px" }} className='border border-secondary'>
+      <Row style={{ height: "361px" }} >
         <Col md="auto" className="p-0" style={{ height: "100%" }}>
           <Card className="text-left border-0" style={{ width: '18rem' }}>
             <Card.Img variant="top" src={songSVG} fluid/>

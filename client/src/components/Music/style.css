@@ -4,12 +4,12 @@
 }
 
 .rhap_container {
-  background-color: #222326;
+  background-color: #343A40;
   
 }
 
 .rhap_container svg {
-  color: #1Db954;
+  color: #ff416C;
 }
 
 /* .rhap_progress-container {
@@ -17,17 +17,18 @@
 } */
 
 .p-0, .col-md-auto, .pb-0 {
-  background-color: #222326;
+  background-color: #343A40;
 }
 
-.list-group-item {
-  background-color: #222326 !important;
-  color: white;
+.list-group-item, .list-group-item-action {
+  background-color: #343A40 !important;
+  color: white !important;
   font-weight: bold;
+  border: 1px solid white;
 }
 
 .card-title, .card-text {
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
@@ -40,5 +41,26 @@ color: white;
 }
 
 .rhap_download-progress, .rhap_volume-bar {
-  color: #1Db954 !important;
+  color: #ff416C!important;
+}
+
+/* .list-group-item {
+  background-color: #343A40 !important;
+} */
+
+.list-group-item, .d-flex {
+  border: 1px solid white;
+}
+
+.MuiButtonBase-root:hover {
+  background: #ff416C;
+}
+
+.nav-link:hover{
+  /* background: #007bff; */
+  background: #ff416C;
+}
+
+.rhap_download-progress {
+  background: #ff416C;
 }
