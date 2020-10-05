@@ -14,7 +14,8 @@ function ProductModal({ state, open, close}) {
     
   },[])
   const [value, setValue] = useState({
-    select: "Hip Hop"
+    select: "Hip Hop",
+    
   })
   
 

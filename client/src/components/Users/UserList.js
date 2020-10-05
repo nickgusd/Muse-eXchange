@@ -27,6 +27,7 @@ const responsive = {
     items: 1
   }
 };
+
 const UserList = ({ users }) => {
   return ( 
     <Carousel 

@@ -5,7 +5,7 @@
 
 .rhap_container {
   background-color: #222326;
-  
+  background-color: snow;
 }
 
 .rhap_container svg {
@@ -17,11 +17,11 @@
 } */
 
 .p-0, .col-md-auto, .pb-0 {
-  background-color: #222326;
+  background-color: snow;
 }
 
 .list-group-item {
-  background-color: #222326 !important;
+  background-color: snow !important;
   color: white;
   font-weight: bold;
 }
