@@ -39,7 +39,7 @@ function App() {
     handleSetCurrentUser(null)
   }
 
-  console.log(user)
+  // console.log(user)
  
   // AddPurchasedSongs = (songid, songid) => {
   //   API.AddPurchasedSongs
