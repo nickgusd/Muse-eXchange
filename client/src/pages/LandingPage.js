@@ -100,7 +100,7 @@ class Home extends Component {
          */}
         </Parallax>
         <div className="main mainRaised">
-        <div className="container">
+        <div className="container" fullWidth style={{paddingBottom: "5%"}}>
           <div className="mt-4">
             <h2>Explore</h2>
             <hr className="my-4" />

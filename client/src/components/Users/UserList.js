@@ -39,17 +39,14 @@ const UserList = ({ users }) => {
           {user.profile.profilePic
           ? (<CardMedia 
             component="img"
-            height="200px"
-            width="200px"
             image={user.profile.profilePic}
             variant="top" 
-            style={{ borderRadius: "0"}} 
+            style={{ borderRadius: "0", height: "200px", width: "200px"}} 
              />)
           : (<CardMedia 
           variant="top" 
           component="img"
-          height="200px"
-          style={{ borderRadius: "0"}} 
+          style={{ borderRadius: "0", height: "200px", width: "200px"}} 
           image='https://via.placeholder.com/200' />)}
           <CardContent>
           <Typography gutterBottom className="h4">{user.profile.firstName} {user.profile.lastName}</Typography>
