@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import Cropper from '../components/Cropper';
 import API from '../utils/API';
 
 import {
@@ -89,7 +89,8 @@ const AccountPage = ({user}) => {
   // Function to upload and image to Cloudinary
   const uploadImage = async () => {
     const data = new FormData();
-    data.append('file', uploadFiles[0]);
+    // data.append('file', uploadFiles[0]);
+    data.append('file', uploadFiles);
     data.append('upload_preset', 'MusiceXchange'); // must be same name as upload
     setLoading(true)
     const res = await fetch(
@@ -132,10 +133,16 @@ const AccountPage = ({user}) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const uploadFileState = e => {
-    const files = e.target.files;
-    console.log(files)
-    setUploadFiles(files);
+  // const uploadFileState = e => {
+  //   const files = e.target.files;
+  //   console.log('from profile', files)
+  //   setUploadFiles(files);
+  // }
+
+  /** Cropper version */
+  const uploadFileState = file => {
+    console.log('from Cropper',file)
+    setUploadFiles(file);
   }
 
   return (
@@ -353,7 +360,7 @@ const AccountPage = ({user}) => {
                 onChange={inputChange}
               />
               {/** Upload Pick */}
-              <ListGroup>
+              {/* <ListGroup>
                 <ListGroup.Item>
                   <Form.File
                     id="uploadImageControl"
@@ -363,7 +370,15 @@ const AccountPage = ({user}) => {
                   // onChange={uploadImage}
                   />
                 </ListGroup.Item>
+              </ListGroup> */}
+
+            {/** Cropped Pic */}
+            <ListGroup>
+                <ListGroup.Item>
+                  <Cropper uploadFileState={uploadFileState}/>
+                </ListGroup.Item>
               </ListGroup>
+
             </Form.Group>
           </Form>
         </Modal.Body>

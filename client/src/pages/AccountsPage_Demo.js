@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import Cropper from '../components/Cropper';
 import API from '../utils/API';
 
 require('dotenv').config();
@@ -207,6 +207,21 @@ const AccountPage = ({user}) => {
                   />
                 </ListGroup.Item>
               </ListGroup>
+
+            {/** Cropped Pic */}
+            {/* <ListGroup>
+                <ListGroup.Item>
+                  <Cropper onChange={uploadFileState}/>
+                  <Form.File
+                    id="uploadImageControl"
+                    label="Upload Profile Picture:"
+                    name="file"
+                    onChange={uploadFileState}
+                  // onChange={uploadImage}
+                  />
+                </ListGroup.Item>
+              </ListGroup> */}
+
             </Form.Group>
           </Form>
         </Modal.Body>
