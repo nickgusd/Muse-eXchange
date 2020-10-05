@@ -30,7 +30,7 @@ const AccountPage = ({user}) => {
   /** ===== User Profile Info ====== */
   const tempId = user; // for login state
 
-  const [submit, setSubmit] = useState(1);
+  const [submit, setSubmit] = useState(false);
   console.log(submit)
   // User 
   const [username, setUsername] = useState('');
@@ -101,11 +101,11 @@ const AccountPage = ({user}) => {
       }
     )
     const file = await res.json() // get json response
-    API.updateProfile(tempId, "profilePic", file.secure_url);
+    await API.updateProfile(tempId, "profilePic", file.secure_url);
     // setProfilePic(file.secure_url);
     setLoading(false);
 
-    setSubmit(submit + 1); // for some reason incrementing changes the state
+    setSubmit(!submit); // for some reason incrementing changes the state
   }
 
   // Upload Profile Information
@@ -122,8 +122,6 @@ const AccountPage = ({user}) => {
 
     if (uploadFiles) {
       uploadImage();
-    } else {
-      setSubmit(submit + 1); // for some reason incrementing changes the state
     }
   }
 

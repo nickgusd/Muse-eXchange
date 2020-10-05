@@ -63,26 +63,23 @@ const Cropper = ({uploadFileState}) => {
   }
   return (
     <Container fluid>
-      <Row>
-        <div>
+        <Row>
           <input type='file' accept='image/' onChange={handleFileChange} />
-        </div>
-        {src ? (<div>
-          <ReactCrop src={src} onImageLoaded={setImage} crop={crop} onChange={setCrop} />
-          <Button className='btn-danger' onClick={getCroppedImg}>Crop Image</Button>
-          {notCropped && (<p className="text-danger">Must crop image</p>)}
-          {isCropped && (<p className="text-success">Image has been cropped</p>)}
-        </div>) : (<div>
+        </Row>
+        {src ? (<>
+          <Row style={{width: '100%'}}>
+            <ReactCrop src={src} onImageLoaded={setImage} crop={crop} onChange={setCrop} />
+          </Row>
+          <Row className="mt-3">
+            <Button className='btn-danger' onClick={getCroppedImg}>Crop Image</Button>
+          </Row>
+          <Row className="mt-3" style={{width: "100%"}}>
+            {notCropped && (<div className="text-danger">Must crop image</div>)}
+            {isCropped && (<div className="text-success">Image has been cropped</div>)}
+          </Row>
+          </>) : (<div>
           <Image fluid src={profileSVG} alt='Cropped Image' style={{ width: "70%" }} />
         </div>)}
-        {/* {result ? (<div className="mt-5">
-          <Image fluid src={result} alt='Cropped Image' />
-        </div>) : (
-            <div className="mt-5">
-              <Image fluid src={previewSVG} style={{ width: "70%" }} />
-            </div>
-          )} */}
-      </Row>
     </Container>
   )
 }
