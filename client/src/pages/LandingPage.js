@@ -28,6 +28,9 @@ const styles ={
   }
 
 }
+const h2 = {
+  color: "white"
+}
 const professions = ["Musician", "Guitar", "Hip-Hop",  "Piano"];
 
 class Home extends Component {
@@ -123,7 +126,7 @@ class Home extends Component {
 
         {this.state.users  && (<>
             <div className="mt-4">
-              <h2>Explore</h2>
+              <h2 style={h2}>Explore</h2>
               <hr className="my-4" />
             </div>
             {/** Show All User */}
@@ -132,7 +135,7 @@ class Home extends Component {
 
         
             <div className="mt-4">
-              <h2>Guitar</h2>
+              <h2 style={h2}>Guitar</h2>
               <hr className="my-4" />
             </div>
             {/** Show All User */}
@@ -141,7 +144,7 @@ class Home extends Component {
 
           {this.state.hipHop && (<>
             <div className="mt-4">
-              <h2>Hip Hop</h2>
+              <h2 style={h2}>Hip Hop</h2>
               <hr className="my-4" />
             </div>
             {/** Show All User */}
@@ -150,7 +153,7 @@ class Home extends Component {
 
           {this.state.piano && (<>
             <div className="mt-4">
-              <h2>Piano</h2>
+              <h2 style={h2}>Piano</h2>
               <hr className="my-4" />
             </div>
             {/** Show All User */}
