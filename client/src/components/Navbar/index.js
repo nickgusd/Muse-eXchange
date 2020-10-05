@@ -99,7 +99,7 @@ const NavbarComponent = ({handleLogout}) => {
             </Nav.Link>
           </Nav>
           <Form inline>
-            <input type="text" placeholder="Search"  className="mr-sm-2" list="data" onChange={handleInputChange} ref={inputRef}/>
+            <input type="text" placeholder="Search"  className="mr-sm-2" list="data" onChange={handleInputChange} ref={inputRef} style={{borderRadius: "3%"}}/>
   
             <datalist id="data">
             {result.map(item =>
@@ -107,7 +107,7 @@ const NavbarComponent = ({handleLogout}) => {
            )}
             </datalist>
   
-            <Button variant="outline-success" onClick={handleFormSubmit}>Search</Button>
+            <Button variant="none" style={{background: "#ff416c", color: "white"}} onClick={handleFormSubmit} >Search</Button>
            {/* <Link to={`/profile/${this.state.results.username}`}>
             <Button variant="outline-success" onClick={this.handleFormSubmit}>Search</Button>
               </Link> */}
