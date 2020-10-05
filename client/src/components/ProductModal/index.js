@@ -20,8 +20,6 @@ function ProductModal({ state, open, close }) {
     if (localStorage.getItem("currentUser")) {
       setUser(JSON.parse(localStorage.getItem("currentUser")));
     }
-    if (value.selectField)
-    // console.log('value has been changed')
     console.log('from use effect', value.selectField)
   }, [value], close)
 
@@ -65,6 +63,8 @@ function ProductModal({ state, open, close }) {
   }
 
   const modalClose = () => {
+    value.selectField = 'song';
+    console.log(value.selectField);
     close();
   }
 
