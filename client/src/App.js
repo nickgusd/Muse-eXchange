@@ -49,7 +49,7 @@ function App() {
 
   return (
     <Router>
-      {!user ? <h1>Loading...</h1> : <Navbar handleLogout={handleLogout} user={user._id}/>}
+      {!user ? <h1></h1> : <Navbar handleLogout={handleLogout} user={user._id}/>}
       {user && <Redirect to="/"/>}
       <div className="wrapper">
         <Switch>

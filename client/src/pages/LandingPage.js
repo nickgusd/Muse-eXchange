@@ -49,6 +49,7 @@ class Home extends Component {
     this.getUsers();
     this.getMusicians();
     this.getGuitarist();
+    this.getHipHop();
     this.getPiano();
   }
 
