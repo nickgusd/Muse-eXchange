@@ -28,12 +28,15 @@ const styles ={
   }
 
 }
-const professions = ["Musician", "Dancer"];
+const professions = ["Musician", "Guitar", "Hip-Hop",  "Piano"];
 
 class Home extends Component {
   state = {
     users: [],
     musicians: [],
+    guitars: [],
+    hipHop: [],
+    piano: [],
     dancers: [],
     currentUser: {},
   }
@@ -42,11 +45,12 @@ class Home extends Component {
     document.title = `Music eXchange | Home`;
     this.getUsers();
     this.getMusicians();
-    this.getDancers();
+    this.getGuitarist();
+    this.getPiano();
   }
 
-  /** Get all Users */
-  getUsers = () => {
+   /** Get all Users */
+   getUsers = () => {
     API.getSavedUsers()
       .then(res => this.setState({users: res.data}))
       .catch(err => console.log(err));
@@ -59,10 +63,23 @@ class Home extends Component {
       .catch(err => console.log(err));
   }
 
-  /** Get all Dancers */
-  getDancers = () => {
-    API.getUsersByProfession(professions[1])
-      .then(res => this.setState({dancers: res.data}))
+    /** Get all Musicians */
+    getGuitarist = () => {
+      API.getUsersByProfession(professions[1])
+        .then(res => this.setState({guitars: res.data}))
+        .catch(err => console.log(err));
+    }
+
+    /** Get all Musicians */
+  getHipHop = () => {
+    API.getUsersByProfession(professions[2])
+      .then(res => this.setState({hipHop: res.data}))
+      .catch(err => console.log(err));
+  }
+
+  getPiano = () => {
+    API.getUsersByProfession(professions[3])
+      .then(res => this.setState({piano: res.data}))
       .catch(err => console.log(err));
   }
 
@@ -103,26 +120,62 @@ class Home extends Component {
         </Parallax>
         <div className="main mainRaised">
         <div className="container"  fullWidth style={{paddingBottom: "5%", backgroundColor: "transparent" } }>
-          <div className="mt-4">
+
+        {this.state.users  && (<>
+            <div className="mt-4">
+              <h2>Explore</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.users} />
+          </>)}
+
+        
+            <div className="mt-4">
+              <h2>Guitar</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.guitars} />
+      
+
+          {this.state.hipHop && (<>
+            <div className="mt-4">
+              <h2>Hip Hop</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.hipHop} />
+          </>)}
+
+          {this.state.piano && (<>
+            <div className="mt-4">
+              <h2>Piano</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.piano} />
+          </>)}
+          {/* <div className="mt-4">
             <h2 style={{color: "white"}}>Explore</h2>
             <hr className="my-4" />
           </div>
-          {/** Show All User */}
+     
           <UserList users={this.state.users} />
 
           <div className="mt-4">
             <h2 style={{color: "white"}}>Musicians</h2>
             <hr className="my-4" />
           </div>
-          {/** Show All Musicians */}
+      
           <UserList users={this.state.musicians} />
 
           <div className="mt-4">
             <h2 style={{color: "white"}}>Dancers</h2>
             <hr className="my-4" />
           </div>
-          {/** Show All Dancers */}
-          <UserList users={this.state.dancers} />
+         
+          <UserList users={this.state.dancers} /> */}
         </div>
         </div>
       </div>

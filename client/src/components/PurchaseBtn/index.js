@@ -11,7 +11,7 @@ console.log(props.currentuser)
     <div className="Paypal">
       <Button
         onClick={() =>
-          history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}/${props.currentuser}`)
+          history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}/${props.currentuser}/${props.selleremail}`)
         }
         style={{width: "100%", backgroundColor: "rgb(78 78 78)"}}
       >
