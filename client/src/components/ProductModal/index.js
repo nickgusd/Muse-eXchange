@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner';
 import ModalForm from '../ModalForm'
 import API from '../../utils/API';
 import { Close } from '@material-ui/icons';
@@ -10,7 +11,8 @@ function ProductModal({ state, open, close }) {
   // console.log('close: ', close);
 
   const [user, setUser] = useState();
-
+  const [loading, setLoading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
   const [value, setValue] = useState({
     select: "Hip Hop",
     selectField: "song"
@@ -21,14 +23,14 @@ function ProductModal({ state, open, close }) {
       setUser(JSON.parse(localStorage.getItem("currentUser")));
     }
     console.log('from use effect', value.selectField)
-  }, [value], close)
-
+  }, [value])
 
   const handleSubmit = async () => {
     console.log('from handle submit', value.selectField)
     console.log(value)
     if (value.selectField === "song") {
       if (value.files) {
+        setLoading(true);
         const data = new FormData();
         data.append('file', value.files[0]);
         data.append('upload_preset', 'MusiceXchange'); // must be same name as upload
@@ -48,6 +50,8 @@ function ProductModal({ state, open, close }) {
           file: file.secure_url,
           price: value.price
         });
+        setLoading(false);
+        setUploaded(true);
         setValue({})
       }
     }
@@ -63,9 +67,11 @@ function ProductModal({ state, open, close }) {
   }
 
   const modalClose = () => {
-    value.selectField = 'song';
-    console.log(value.selectField);
-    close();
+    if (!loading) {
+      value.selectField = 'song';
+      console.log(value.selectField);
+      close();
+    }
   }
 
   return (
@@ -83,10 +89,18 @@ function ProductModal({ state, open, close }) {
           <ModalForm getValue={setValue} values={value} /> {/** setValue = getValue */}
         </Modal.Body>
         <Modal.Footer>
+          {loading && (<Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>)}
+          {uploaded && (<div>
+            <div className="text-success">Audio successfully uploaded</div>
+          </div>)}
           <Button variant="dark" onClick={handleSubmit}>Submit</Button>
-          <Button variant="dark" onClick={modalClose}>
-            Close
+          {!loading && (
+            <Button variant="dark" onClick={modalClose}>
+              Close
             </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>

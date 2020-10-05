@@ -24,7 +24,9 @@ import {
 
 require('dotenv').config();
 
-const AccountPage = ({user}) => {
+const AccountPage = () => {
+
+  const [user, setUser] = useState();
 
   console.log(user)
   /** ===== User Profile Info ====== */
@@ -67,7 +69,10 @@ const AccountPage = ({user}) => {
   useEffect(() => {
     document.title = `Music eXchange | Account`;
     // For demonstration purposes, we mock an API call.
-    API.getSavedUsersById(tempId).then((res) => {
+    API.getSavedUsersById(user).then((res) => {
+      if (localStorage.getItem("currentUser")) {
+        setUser(JSON.parse(localStorage.getItem("currentUser")));
+      }
       // console.log(res.data)
       if (res.data) {
         setUsername(res.data.username);
