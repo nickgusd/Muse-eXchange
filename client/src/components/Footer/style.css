@@ -10,3 +10,7 @@
   text-decoration: "none";
   color: "white";
 }
+
+.rights:hover {
+  background: #ff416c;
+}

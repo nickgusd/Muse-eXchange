@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
-import guitarImage from './image/theatre-swing.png'
+
 
 const styles = {
-  backgroundImage: `url(${guitarImage})`,
+  backgroundColor: "transparent",
   height: "55vh",
   color: "white"
 }

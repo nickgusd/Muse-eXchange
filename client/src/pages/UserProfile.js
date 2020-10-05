@@ -188,7 +188,7 @@ const AccountPage = () => {
       </div>
     </section>
 
-    <section className="relative py-10 bg-gray-300 justify-center">
+    <section className="relative py-10  justify-center" >
     <div className="container mx-auto justify-center" style={{ marginTop: "0px" }}>
     
         

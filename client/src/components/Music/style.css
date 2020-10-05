@@ -4,12 +4,12 @@
 }
 
 .rhap_container {
-  background-color: #222326;
-  background-color: snow;
+  background-color: #343A40;
+  
 }
 
 .rhap_container svg {
-  color: #1Db954;
+  color: #ff416C;
 }
 
 /* .rhap_progress-container {
@@ -17,17 +17,18 @@
 } */
 
 .p-0, .col-md-auto, .pb-0 {
-  background-color: snow;
+  background-color: transparent;
 }
 
-.list-group-item {
-  background-color: snow !important;
-  color: white;
+.list-group-item, .list-group-item-action {
+  background-color: #343A40 !important;
+  color: white !important;
   font-weight: bold;
+  border: 1px solid white;
 }
 
 .card-title, .card-text {
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
@@ -40,5 +41,43 @@ color: white;
 }
 
 .rhap_download-progress, .rhap_volume-bar {
-  color: #1Db954 !important;
+  color: #ff416C!important;
+}
+
+/* .list-group-item {
+  background-color: #343A40 !important;
+} */
+
+.list-group-item, .d-flex, .pb-0, .col-2 {
+  /* border: 1px solid white; */
+  background-color: black !important;
+}
+
+
+
+.makeStyles-primary-12, .makeStyles-primary-12:hover, .MuiButtonBase-root:hover  {
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4) !important;
+  background-color: #ff416C !important;
+}
+
+.nav-link:hover{
+  /* background: #007bff; */
+  background: #ff416C;
+}
+
+.rhap_download-progress {
+  background: #ff416C;
+}
+
+.btn, .btn-primary {
+  color: #fff !important;
+  /* background-color: #a3a3a3 !important; */
+  border-color: #007bff00 !important;
+  font-weight: bold !important;
+  
+}
+
+.text-left {
+  align-items: center !important;
 }
