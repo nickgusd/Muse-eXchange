@@ -39,7 +39,7 @@ function App() {
     handleSetCurrentUser(null)
   }
 
-  console.log(user)
+  // console.log(user)
  
   // AddPurchasedSongs = (songid, songid) => {
   //   API.AddPurchasedSongs
@@ -54,6 +54,7 @@ function App() {
       <div className="wrapper">
         <Switch>
           <Route exact path="/" component={() => <LandingPage pending={pending} user={user}/>} />
+          {/* <Route exact path="/" component={() => <Home pending={pending} user={user}/>} /> */}
           {/* <Route exact path="/">
             {!user ? <h1>Is Loading...</h1> : <Home />}
           </Route> */}

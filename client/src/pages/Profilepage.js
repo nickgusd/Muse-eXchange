@@ -23,6 +23,8 @@ import MusicPlayer from '../components/Music/MusicPlayer';
 import SmallPlayer from '../components/Music/SmallPlayer';
 import {Row, Col, Image } from 'react-bootstrap';
 import musicIcon from '../assets/svg/music.png';
+import songIcon from '../assets/svg/song.png'
+import songSVG from '../assets/svg/song.svg';
 
 class Profile extends Component {
   state = {
@@ -226,7 +228,7 @@ class Profile extends Component {
                                   <li class="list-group-item d-flex justify-content-between">
                                     <Row className='w-100'>
                                       <Col xs={2} className="pb-0 pt-0">
-                                        <Image src={musicIcon} fluid style={{width: "100%"}}/>
+                                        <Image src={songSVG} fluid style={{width: "100%"}}/>
                                       </Col>
                                       <Col xs={7}>
                                         <SmallPlayer song={song}/>
