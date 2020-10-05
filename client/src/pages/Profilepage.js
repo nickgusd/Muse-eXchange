@@ -215,7 +215,7 @@ class Profile extends Component {
                                         <div>
                                           <div className="text-left">Song: {song.title}</div>
                                           <div className="text-left">Artist: {song.author}</div>
-                                          <PurchaseBtn title={song.title} price={song.price} id={song._id} currentuser={this.state.user._id} />
+                                          <PurchaseBtn selleremail={this.state.email} title={song.title} price={song.price} id={song._id} currentuser={this.state.user._id} />
                                         </div>
                                       </Col>
                                     </Row>
@@ -234,7 +234,8 @@ class Profile extends Component {
                             <GridItem>
         <ul class="list-group" style={{ borderRadius: "0px" }}>
         {this.state.tutorials.map((tutorial)=>
-        <li class="list-group-item d-flex justify-content-between"><span>{tutorial.title}</span> <PurchaseBtn title={tutorial.title} price={tutorial.price} id={tutorial._id} currentuser={this.state.user._id}/></li>
+        
+        <li class="list-group-item d-flex justify-content-between"><span>{tutorial.title}</span> <PurchaseBtn selleremail={this.state.email} title={tutorial.title} price={tutorial.price} id={tutorial._id} currentuser={this.state.user._id}/></li>
         )}   
         </ul>
         </GridItem>

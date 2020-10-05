@@ -11,12 +11,16 @@ const styles ={
     height: "100%"
   }
 }
-const professions = ["Musician", "Dancer"];
+const professions = ["Musician", "Guitar", "Hip-Hop", "Beatmaking", "Piano"];
 
 class Home extends Component {
   state = {
     users: [],
     musicians: [],
+    guitars: [],
+    hipHop: [],
+    beatmakers: [],
+    piano: [],
     dancers: [],
     currentUser: {},
   }
@@ -42,12 +46,26 @@ class Home extends Component {
       .catch(err => console.log(err));
   }
 
-  /** Get all Dancers */
-  getDancers = () => {
-    API.getUsersByProfession(professions[1])
-      .then(res => this.setState({dancers: res.data}))
+    /** Get all Musicians */
+    getGuitarist = () => {
+      API.getUsersByProfession(professions[1])
+        .then(res => this.setState({musicians: res.data}))
+        .catch(err => console.log(err));
+    }
+
+    /** Get all Musicians */
+  getBeatMaking = () => {
+    API.getUsersByProfession(professions[3])
+      .then(res => this.setState({musicians: res.data}))
       .catch(err => console.log(err));
   }
+
+  getPiano = () => {
+    API.getUsersByProfession(professions[4])
+      .then(res => this.setState({musicians: res.data}))
+      .catch(err => console.log(err));
+  }
+
 
   render() {
     return (
@@ -59,26 +77,75 @@ class Home extends Component {
           <Button>
             <Link to="/addsong">Add song</Link>
           </Button>
-          <div className="mt-4">
-            <h2>Explore</h2>
-            <hr className="my-4" />
-          </div>
-          {/** Show All User */}
-          <UserList users={this.state.users} />
 
-          <div className="mt-4">
-            <h2>Musicians</h2>
+          {/* users: [],
+    musicians: [],
+    guitars: [],
+    hipHop: [],
+    beatmakers: [],
+    piano: [],
+    dancers: [],
+    currentUser: {}, */}
+
+          {this.state.users && (<>
+            <div className="mt-4">
+              <h2>Explore</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.users} />
+          </>)}
+
+          {this.state.guitars && (<>
+            <div className="mt-4">
+              <h2>Guitar</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList guitar={this.state.guitars} />
+          </>)}
+
+          {this.state.hipHop && (<>
+            <div className="mt-4">
+              <h2>Hip Hop</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.hipHop} />
+          </>)}
+
+          {this.state.beatmakers && (<>
+            <div className="mt-4">
+              <h2>Beat Makers</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.beatmakers} />
+          </>)}
+
+          {this.state.piano && (<>
+            <div className="mt-4">
+              <h2>Piano</h2>
+              <hr className="my-4" />
+            </div>
+            {/** Show All User */}
+            <UserList users={this.state.piano} />
+          </>)}
+
+          
+          
+
+          {/* <div className="mt-4">
+            <h2>Beat Makers</h2>
             <hr className="my-4" />
           </div>
-          {/** Show All Musicians */}
           <UserList users={this.state.musicians} />
 
           <div className="mt-4">
             <h2>Dancers</h2>
             <hr className="my-4" />
           </div>
-          {/** Show All Dancers */}
-          <UserList users={this.state.dancers} />
+          <UserList users={this.state.dancers} /> */}
         </Container>
       </div>
     )

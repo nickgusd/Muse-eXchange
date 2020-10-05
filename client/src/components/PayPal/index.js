@@ -38,7 +38,7 @@ export default function Paypal(props) {
                   value: props.price,
                 },
                 payee: {
-                    email_address: "sb-lsm47g3309758@personal.example.com"
+                    email_address: props.email
                 },
                 
                 
@@ -52,7 +52,6 @@ export default function Paypal(props) {
           const order = await actions.order.capture();
           console.log(order)
           console.log(props.currentuser)
-         
           
           console.log(order.purchase_units[0].description)
           const songid = order.purchase_units[0].description;

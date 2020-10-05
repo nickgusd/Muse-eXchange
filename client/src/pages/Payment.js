@@ -29,7 +29,7 @@ function Payment(props) {
   let userid = props.location.pathname;
   let getuserid = userid.split("/");
   let currentuser = getuserid[6];
-
+  let email = getuserid[7];
 
   console.log(userid)
   console.log(getuserid)
@@ -47,7 +47,7 @@ function Payment(props) {
   <Card.Body>
     <blockquote className="blockquote mb-0">
     <p > Pay securely by <span style={pStyle} >debit/credit card </span>or <span style={pStyle} >PayPal</span></p>
-    <Paypal title={title} price={price} id={id} currentuser={currentuser}/>
+    <Paypal title={title} price={price} id={id} currentuser={currentuser} email={email}/>
       <footer className="blockquote-footer">
         Thank you for shopping at <cite title="Source Title">Muse Xchange</cite>
       </footer>
