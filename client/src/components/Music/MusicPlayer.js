@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, ListGroup, Table } from 'react-bootstrap';
 import Player from './Player';
 import musicIcon from '../../assets/svg/music.png';
+import songPNG from '../../assets/svg/song.png';
+import songSVG from '../../assets/svg/song.svg';
 
 const MusicPlayer = ({songs}) => {
 
@@ -15,7 +17,7 @@ const MusicPlayer = ({songs}) => {
       <Row style={{ height: "361px" }} className='border border-secondary'>
         <Col md="auto" className="p-0" style={{ height: "100%" }}>
           <Card className="text-left border-0" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={musicIcon} fluid/>
+            <Card.Img variant="top" src={songSVG} fluid/>
             <Card.Body className='pb-0 pt-0'>
               <Card.Title>Song: {title}</Card.Title>
               <Card.Text>Artist: {author}</Card.Text>

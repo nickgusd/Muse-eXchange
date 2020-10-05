@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import Cropper from '../components/Cropper';
 import API from '../utils/API';
 
 import {
@@ -31,7 +31,7 @@ const AccountPage = ({user}) => {
   const tempId = user; // for login state
 
   const [submit, setSubmit] = useState(1);
-  console.log(submit)
+  // console.log(submit)
   // User 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -89,7 +89,8 @@ const AccountPage = ({user}) => {
   // Function to upload and image to Cloudinary
   const uploadImage = async () => {
     const data = new FormData();
-    data.append('file', uploadFiles[0]);
+    // data.append('file', uploadFiles[0]);
+    data.append('file', uploadFiles);
     data.append('upload_preset', 'MusiceXchange'); // must be same name as upload
     setLoading(true)
     const res = await fetch(
@@ -100,11 +101,11 @@ const AccountPage = ({user}) => {
       }
     )
     const file = await res.json() // get json response
-    API.updateProfile(tempId, "profilePic", file.secure_url);
+    await API.updateProfile(tempId, "profilePic", file.secure_url);
     // setProfilePic(file.secure_url);
     setLoading(false);
-
-    setSubmit(submit + 1); // for some reason incrementing changes the state
+    
+    setSubmit((submit+1));
   }
 
   // Upload Profile Information
@@ -121,8 +122,6 @@ const AccountPage = ({user}) => {
 
     if (uploadFiles) {
       uploadImage();
-    } else {
-      setSubmit(submit + 1); // for some reason incrementing changes the state
     }
   }
 
@@ -132,10 +131,16 @@ const AccountPage = ({user}) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const uploadFileState = e => {
-    const files = e.target.files;
-    console.log(files)
-    setUploadFiles(files);
+  // const uploadFileState = e => {
+  //   const files = e.target.files;
+  //   console.log('from profile', files)
+  //   setUploadFiles(files);
+  // }
+
+  /** Cropper version */
+  const uploadFileState = file => {
+    console.log('from Cropper',file)
+    setUploadFiles(file);
   }
 
   return (
@@ -190,7 +195,7 @@ const AccountPage = ({user}) => {
           subheader="The information can be edited"
           title="Account Page"
         />
-        <Divider />
+        <Divider style={{ marginBottom: "30px" }}/>
 
         <Box
           alignItems="center"
@@ -199,7 +204,9 @@ const AccountPage = ({user}) => {
         >
 
       {profilePic ? (
-        loading ? (<h3>Loading...</h3>) : (<Image src={profilePic} style={{ width: "250px" }} roundedCircle />)
+        loading ? 
+        (<h3>Loading...</h3>) 
+        : (<Image src={profilePic} style={{ width: "250px", height: "250px", marginBottom: "20px"}} roundedCircle />)
       ) : (
           <Image src="https://via.placeholder.com/250" roundedCircle />
         )}
@@ -222,7 +229,7 @@ const AccountPage = ({user}) => {
 
         </Box>
 
-        <Divider />
+        <Divider style={{ marginTop: "20px", marginBottom: "20px" }}/>
 
         <Box
           alignItems="center"
@@ -296,7 +303,7 @@ const AccountPage = ({user}) => {
           <Button 
               color="primary"
               variant="contained"
-              style={{ borderRadius: "0px", backgroundColor: "#FF416C"}}
+              style={{ borderRadius: "0px", backgroundColor: "#FF416C", marginTop: "20px"}}
               onClick={handleShow}>
               Edit User Profile
           </Button>
@@ -353,7 +360,7 @@ const AccountPage = ({user}) => {
                 onChange={inputChange}
               />
               {/** Upload Pick */}
-              <ListGroup>
+              {/* <ListGroup>
                 <ListGroup.Item>
                   <Form.File
                     id="uploadImageControl"
@@ -363,7 +370,15 @@ const AccountPage = ({user}) => {
                   // onChange={uploadImage}
                   />
                 </ListGroup.Item>
+              </ListGroup> */}
+
+            {/** Cropped Pic */}
+            <ListGroup>
+                <ListGroup.Item>
+                  <Cropper uploadFileState={uploadFileState}/>
+                </ListGroup.Item>
               </ListGroup>
+
             </Form.Group>
           </Form>
         </Modal.Body>
