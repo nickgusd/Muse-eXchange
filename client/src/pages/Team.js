@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
-const team = ["nickgusd","juhee-k","Dscroggins123","edwardreyes29"];
+const team = ["nickgusd","juhee-k","Dscroggins123","rbraun04","edwardreyes29"];
 
 const styles ={
   // textDecoration: "none",
@@ -28,18 +28,18 @@ function GitHubUser({login}) {
   if(data) { // if we have some data
     return (
       <>
-        <Col className="d-flex align-items-center justify-content-center">
+        <Col>
           <div className="text-center">
             <a href={data.html_url} target="_blank" style={styles}>
               <Image src={data.avatar_url} roundedCircle width={200}/>
             </a>
-            <h3>{data.login}</h3>
-            {/* <p>{data.bio}</p> */}
-            {/* <div>
+            <h3 style={{color: "white"}}>{data.login}</h3>
+            <p>{data.bio}</p>
+            <div>
               <a href={data.html_url} target="_blank" style={styles}>
                 GitHub <img className="mb-1" src="https://raw.githubusercontent.com/edwardreyes29/edwardreyes29.github.io/85326db4462a0c61c3e45988cdc77e2666406e66/assets/icons/github.svg"/>
               </a>
-            </div> */}
+            </div>
             <a href={data.blog} target="_blank">Portfolio</a>
           </div> 
         </Col>
@@ -49,7 +49,8 @@ function GitHubUser({login}) {
   return null;
 }
 
-function Team() {
+function Team(props) {
+  console.log(props.user)
   return (
     <Container fluid className="mt-4">
       <Jumbotron style={{backgroundImage: `url("https://i.imgur.com/ClmgbAV.jpg")`}}>
