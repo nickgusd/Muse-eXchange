@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API from '../../utils/API';
 
 class SignIn extends Component {
 
@@ -21,7 +22,7 @@ class SignIn extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-
+        console.log(this.state)
         // Check if email is valid
         let isValidEmail = this.validate(this.state.email);
         if (!isValidEmail) {
@@ -43,6 +44,13 @@ class SignIn extends Component {
                 email: "",
                 password: ""
             })
+            return API.getUserByUsername(this.state.email).then(({data})=>{
+                console.log(data)
+                this.props.handleSetCurrentUser(data)
+                window.location.replace("/")
+            })
+
+
         } 
     }
 
@@ -53,6 +61,7 @@ class SignIn extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="form-container sign-in-container">
                 <form className="form" action="#">

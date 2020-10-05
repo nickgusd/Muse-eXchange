@@ -3,21 +3,16 @@ import PurchaseBtn from "../components/PurchaseBtn"
 import Container from '../components/Container';
 import ProfilePic from '../components/ProfilePic';
 import API from '../utils/API';
-
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import Favorite from "@material-ui/icons/Favorite";
 import EventIcon from '@material-ui/icons/Event';
-
 import { Button } from "@material-ui/core"
-
 import GridContainer from "../components/Profile/Grid/GridContainer";
 import GridItem from "../components/Profile/Grid/GridItem";
 import NavPills from "../components/Profile/NavPills/NavPills";
-
 import { InlineWidget } from "react-calendly"
 // import Calendly from "../components/Calendly/Calendly"
-
 /** ===== Music Player ===== */
 import MusicPlayer from '../components/Music/MusicPlayer';
 import SmallPlayer from '../components/Music/SmallPlayer';
@@ -25,7 +20,6 @@ import {Row, Col, Image } from 'react-bootstrap';
 import musicIcon from '../assets/svg/music.png';
 import songIcon from '../assets/svg/song.png'
 import songSVG from '../assets/svg/song.svg';
-
 class Profile extends Component {
   state = {
     id: "",
@@ -49,19 +43,13 @@ class Profile extends Component {
     if(localStorage.getItem("currentUser")){
     this.setState({ user: JSON.parse(localStorage.getItem("currentUser"))});
     }
-    
   }
-
-
-
   // const [user, setUser] = useState();
   // useEffect(()=> {
   //   if(localStorage.getItem("currentUser")){
   //     setUser(JSON.parse(localStorage.getItem("currentUser")));
   //   }
-    
   // },[])
-
   componentDidUpdate(_, prevState) {
       const username = this.props.match.params.username
       if (prevState.username !== username) {
@@ -78,10 +66,6 @@ class Profile extends Component {
     })
   }
 }
-
-
-
-
   getUserInfo = username => {
     API.getUserByUsername(username)
       .then(res => {
@@ -139,7 +123,6 @@ class Profile extends Component {
   render() {
     console.log(this.state.user)
     if (!this.state.songs) return <h1>Loading...</h1>
-   
     return (<Container fluid>
       <main className="profile-page">
         <section className="relative block" style={{ height: "400px" }}>
@@ -175,22 +158,18 @@ class Profile extends Component {
             </svg>
           </div>
         </section>
-
         <section className="relative py-10 bg-gray-300">
           <div className="container mx-auto" style={{ marginTop: "0px" }}>
-
             <div className="flex flex-wrap justify-center">
               <ProfilePic
                 profilePic={this.state.profilePic}
               />
             </div>
-
             <div className="text-center mt-3">
               <h3 className="text-4xl font-semibold leading-normal text-gray-800">{this.state.firstName}'s Song List</h3>
               <div className="text-sm leading-normal text-gray-500 font-bold uppercase">
                 <h5>Contact: {this.state.email}</h5>
               </div>
-
               <div className="mt-4 text-gray-700">
                 {/* <p>No songs</p> */}
                 {/* <Button 
@@ -206,11 +185,8 @@ class Profile extends Component {
                     <p>Here's a list</p>
                   </div>}
               </div>
-
-
               <div className="mt-10 py-2 border-t border-gray-300 text-center"></div>
               <div className="flex flex-wrap justify-center" style={{ marginBottom: "5%" }}>
-
                 <GridItem xs={12} sm={12} md={8}>
                   <NavPills
                     alignCenter
@@ -280,14 +256,12 @@ class Profile extends Component {
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem>
-
                               <InlineWidget
                                 color="#00a2ff"
                                 text="Request a Tutorial Session"
                                 textColor="#ffffff"
                                 url="https://calendly.com/museexchange"
                               />
-
                             </GridItem>
                           </GridContainer>
                         )
@@ -295,18 +269,12 @@ class Profile extends Component {
                     ]}
                   />
                 </GridItem>
-
               </div>
-
             </div>
           </div>
         </section>
-
       </main>
     </Container>)
   }
 }
-
-
 export default Profile;
-
