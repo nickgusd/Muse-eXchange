@@ -61,7 +61,7 @@ function App() {
           {/* <Route path="/profile/:username" render={(props) => <Profile {...props} />}/> */}
           <Route path="/profile/:username" render={(props) => <Profilepage {...props}/>}/>
           {/* <Route path="/account" component={AccountPage_Demo} /> */}
-          <Route path="/account" component={() => <UserProfile pending={pending} user={user._id}/>} />
+          <Route path="/account" component={() => <UserProfile />} />
           <Route path="/auth" component={() => <Login handleSetCurrentUser={handleSetCurrentUser}/>} />
           <Route path="/pages/Payment/:title/:price/:id" component={Payment}/>  
           <Route path="/team">

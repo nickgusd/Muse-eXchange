@@ -24,11 +24,11 @@ import {
 
 require('dotenv').config();
 
-const AccountPage = ({user}) => {
-
-  console.log(user)
+const AccountPage = () => {
+  // console.log(user)
   /** ===== User Profile Info ====== */
-  const tempId = user; // for login state
+ 
+  const [userId, setUserId] = useState();
 
   const [submit, setSubmit] = useState(1);
   // console.log(submit)
@@ -66,8 +66,15 @@ const AccountPage = ({user}) => {
 
   useEffect(() => {
     document.title = `Music eXchange | Account`;
+    if (localStorage.getItem("currentUser")) {
+      const userObj = JSON.parse(localStorage.getItem("currentUser"));
+      setUserId(JSON.parse(localStorage.getItem("currentUser")))
+      setUserId(userObj._id)
+      // setUser(JSON.parse(localStorage.getItem("currentUser")));
+    }
     // For demonstration purposes, we mock an API call.
-    API.getSavedUsersById(tempId).then((res) => {
+    API.getSavedUsersById(userId).then((res) => {
+      
       // console.log(res.data)
       if (res.data) {
         setUsername(res.data.username);
@@ -83,7 +90,7 @@ const AccountPage = ({user}) => {
         setProfilePic(res.data.profile.profilePic);
       }
     });
-  }, [submit]);
+  }, [submit, userId]);
 
   /** ===== Upload Profile info ===== */
   // Function to upload and image to Cloudinary
@@ -101,7 +108,7 @@ const AccountPage = ({user}) => {
       }
     )
     const file = await res.json() // get json response
-    await API.updateProfile(tempId, "profilePic", file.secure_url);
+    await API.updateProfile(userId, "profilePic", file.secure_url);
     // setProfilePic(file.secure_url);
     setLoading(false);
     
@@ -111,14 +118,14 @@ const AccountPage = ({user}) => {
   // Upload Profile Information
   const handleSubmit = async () => {
     handleClose(); // closes the modal
-    if (infoInput.firstNameInput) await API.updateProfile(tempId, "firstName", infoInput.firstNameInput);
-    if (infoInput.lastNameInput) await API.updateProfile(tempId, "lastName", infoInput.lastNameInput);
-    if (infoInput.professionInput) await API.updateProfile(tempId, "profession", infoInput.professionInput);
-    if (infoInput.aboutInput) await API.updateProfile(tempId, "about", infoInput.aboutInput);
-    if (infoInput.link1Input) await API.updateProfile(tempId, "link1", infoInput.link1Input);
-    if (infoInput.link2Input) await API.updateProfile(tempId, "link2", infoInput.link2Input);
-    if (infoInput.link3Input) await API.updateProfile(tempId, "link3", infoInput.link3Input);
-    if (infoInput.link4Input) await API.updateProfile(tempId, "link4", infoInput.link4Input);
+    if (infoInput.firstNameInput) await API.updateProfile(userId, "firstName", infoInput.firstNameInput);
+    if (infoInput.lastNameInput) await API.updateProfile(userId, "lastName", infoInput.lastNameInput);
+    if (infoInput.professionInput) await API.updateProfile(userId, "profession", infoInput.professionInput);
+    if (infoInput.aboutInput) await API.updateProfile(userId, "about", infoInput.aboutInput);
+    if (infoInput.link1Input) await API.updateProfile(userId, "link1", infoInput.link1Input);
+    if (infoInput.link2Input) await API.updateProfile(userId, "link2", infoInput.link2Input);
+    if (infoInput.link3Input) await API.updateProfile(userId, "link3", infoInput.link3Input);
+    if (infoInput.link4Input) await API.updateProfile(userId, "link4", infoInput.link4Input);
 
     if (uploadFiles) {
       uploadImage();

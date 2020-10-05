@@ -11,9 +11,9 @@ function ModalForm({ getValue, values }) {
   const productChange = (event) => {
     setProduct(event.target.value)
     const { name, value } = event.target
- getValue({...values,[name]:value})
-    console.log(product)
-  }
+    getValue({...values,[name]:value})
+        // console.log(product)
+    }
 
   const inputChange = (e) => {
     const { name, value } = e.target
