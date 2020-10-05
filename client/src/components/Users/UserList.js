@@ -25,6 +25,16 @@ const responsive = {
     items: 1
   }
 };
+const viewButton = {
+  backgroundColor :"#ff416c",
+  color:"white",
+ 
+}
+const cardText = {
+fontSize:"20px",
+fontFamily:"Geneva",
+
+}
 const UserList = ({ users }) => {
   return ( 
     <Carousel 
@@ -38,10 +48,10 @@ const UserList = ({ users }) => {
           ? (<Card.Img variant="top" style={{ width: '100%',height:"9rem"}} src={user.profile.profilePic} />)
           : (<Card.Img variant="top" src='https://via.placeholder.com/200' />)}
           <Card.Body>
-            <Card.Title>{user.profile.firstName} {user.profile.lastName}</Card.Title>
-            <Card.Text>{user.profile.profession}</Card.Text>
+            <Card.Title style={cardText}>{user.profile.firstName} {user.profile.lastName}</Card.Title>
+            <Card.Text >{user.profile.profession}</Card.Text>
             <Link to={`/profile/${user.username}`}>
-              <Button variant="primary">See Profile</Button>
+              <Button variant="none"  style={viewButton}>View Profile</Button>
             </Link>
           </Card.Body>
         </Card>

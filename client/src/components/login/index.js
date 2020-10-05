@@ -52,7 +52,7 @@ class App extends Component {
                     id="container"
                 >
                     <SignUp {...this.props} />
-                    <SignIn handleSubmit={this.handleSubmit}/>
+                    <SignIn {...this.props}/>
                     <Overlay
                         handleClickSignInButton={handleClickSignInButton}
                         handleClickSignUpButton={handleClickSignUpButton}
