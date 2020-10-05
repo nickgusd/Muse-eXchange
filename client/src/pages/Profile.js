@@ -65,7 +65,7 @@ class Profile extends Component {
 
 
   render() {
-    return (<Container fluid>
+    return (<Container fluid >
       <div className="row mt-4">
         <div className="col-4">
           <ProfilePic

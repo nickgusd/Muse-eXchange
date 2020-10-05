@@ -137,7 +137,7 @@ class Profile extends Component {
      .catch(err => console.log(err))
   }
   render() {
-    console.log(this.state.user)
+   
     if (!this.state.songs) return <h1>Loading...</h1>
    
     return (<Container fluid>
@@ -176,17 +176,18 @@ class Profile extends Component {
           </div>
         </section>
 
-        <section className="relative py-10 bg-gray-300">
+        <section className="relative py-10 bg-gray-300" style={{backgroundColor: "black"}}>
           <div className="container mx-auto" style={{ marginTop: "0px" }}>
 
             <div className="flex flex-wrap justify-center">
               <ProfilePic
                 profilePic={this.state.profilePic}
+               
               />
             </div>
 
             <div className="text-center mt-3">
-              <h3 className="text-4xl font-semibold leading-normal text-gray-800">{this.state.firstName}'s Song List</h3>
+              <h3 className="text-4xl font-semibold leading-normal text-gray-800">{this.state.email}'s Song List</h3>
               <div className="text-sm leading-normal text-gray-500 font-bold uppercase">
                 <h5>Contact: {this.state.email}</h5>
               </div>
@@ -237,7 +238,7 @@ class Profile extends Component {
                                         <div>
                                           <div className="text-left">Song: {song.title}</div>
                                           <div className="text-left">Artist: {song.author}</div>
-                                          <PurchaseBtn title={song.title} price={song.price} id={song._id} currentuser={this.state.user._id}/>
+                                          <PurchaseBtn title={song.title} price={song.price} id={song._id} currentuser={this.state.user._id} />
                                         </div>
                                       </Col>
                                     </Row>

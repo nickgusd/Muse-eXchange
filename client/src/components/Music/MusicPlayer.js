@@ -16,7 +16,7 @@ const MusicPlayer = ({songs}) => {
     <Container fluid>
       <Row style={{ height: "361px" }} >
         <Col md="auto" className="p-0" style={{ height: "100%" }}>
-          <Card className="text-left border-0" style={{ width: '18rem' }}>
+          <Card className="border-0 text-center" style={{ width: '18rem', width: "100% !important" } }>
             <Card.Img variant="top" src={songSVG} fluid/>
             <Card.Body className='pb-0 pt-0'>
               <Card.Title>Song: {title}</Card.Title>
@@ -25,7 +25,7 @@ const MusicPlayer = ({songs}) => {
           </Card>
         </Col>
         <Col className="p-0" style={{ height: "100%", overflow: "auto" }}>
-          <ListGroup className="w-100 text-left" variant="flush">
+          <ListGroup className="w-100 text-center" variant="flush" style={{ width: '18rem', alignItems: "center !important" } }>
             {songs.map(song => 
               <ListGroup.Item action onClick={() => {
                 setSong(song.file);

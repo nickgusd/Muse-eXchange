@@ -17,7 +17,7 @@
 } */
 
 .p-0, .col-md-auto, .pb-0 {
-  background-color: #343A40;
+  background-color: transparent;
 }
 
 .list-group-item, .list-group-item-action {
@@ -48,12 +48,17 @@ color: white;
   background-color: #343A40 !important;
 } */
 
-.list-group-item, .d-flex {
-  border: 1px solid white;
+.list-group-item, .d-flex, .pb-0, .col-2 {
+  /* border: 1px solid white; */
+  background-color: black !important;
 }
 
-.MuiButtonBase-root:hover {
-  background: #ff416C;
+
+
+.makeStyles-primary-12, .makeStyles-primary-12:hover, .MuiButtonBase-root:hover  {
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4) !important;
+  background-color: #ff416C !important;
 }
 
 .nav-link:hover{
@@ -63,4 +68,16 @@ color: white;
 
 .rhap_download-progress {
   background: #ff416C;
+}
+
+.btn, .btn-primary {
+  color: #fff !important;
+  /* background-color: #a3a3a3 !important; */
+  border-color: #007bff00 !important;
+  font-weight: bold !important;
+  
+}
+
+.text-left {
+  align-items: center !important;
 }

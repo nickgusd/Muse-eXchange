@@ -13,6 +13,7 @@ console.log(props.currentuser)
         onClick={() =>
           history.push(`/pages/Payment/${props.title}/${props.price}/${props.id}/${props.currentuser}`)
         }
+        style={{width: "100%", backgroundColor: "rgb(78 78 78)"}}
       >
         {" "}
         Make Purchase{" "}
