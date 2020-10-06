@@ -4,7 +4,7 @@ import SignUp from './SignUp.js';
 import SignIn from './SignIn.js';
 import Overlay from './Overlay.js';
 
-class App extends Component {
+class Login extends Component {
     state = {
             rightPanelActive: false
         }
@@ -64,4 +64,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Login;
