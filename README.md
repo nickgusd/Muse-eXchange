@@ -81,6 +81,6 @@ Screenshots below are the current changes yet to be deployed
 ![profile-page](./client/src/assets/screenshots/Accountpage.png)
 ## Sell Songs!
 ![songs](./client/src/assets/screenshots/Songs.png)
-## Selll Tutorials
+## Sell Tutorials
 ![tutorials](./client/src/assets/screenshots/Tutorial.png)
 
